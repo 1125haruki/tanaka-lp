@@ -1,6 +1,4 @@
---- START OF FILE NEO菌活 css (3).txt ---
-
-﻿:root {
+:root {
     --primary-beige: #f9f7f1;
     --secondary-beige: #f5f2e8;
     --border-beige: #e8e2d5;
@@ -464,15 +462,13 @@ body {
         text-align: center; /* 全体を中央揃え */
     }
 
-
     .solution-point-item:nth-child(even) {
         flex-direction: column !important; /* 反転も解除 */
     }
 
-
     .point-media {
         width: 100% !important; /* 全幅に */
-        max-width: 250px !important; /* 最大幅を大きく */
+        max-width: 280px !important; /* 最大幅を大きく */
         height: 200px !important; /* 高さ調整 */
         aspect-ratio: 1 / 1; /* ★追加: アスペクト比を1:1に設定 */
         object-fit: cover !important; /* ★修正: !important を追加 */
@@ -481,14 +477,12 @@ body {
         flex-shrink: 0;
     }
 
-
     .point-content {
         width: 100% !important; /* 全幅に */
         padding: 0 10px; /* 左右の余白を最小限に */
         text-align: center !important; /* 中央揃え */
         max-width: none; /* 最大幅制限を解除 */
     }
-
 
     .point-content h3 {
         font-size: clamp(22px, 6vw, 28px) !important; /* フォントサイズ調整 */
@@ -497,14 +491,12 @@ body {
         text-align: center !important;
     }
 
-
     .point-content p {
         font-size: clamp(16px, 4vw, 18px) !important; /* フォントサイズ調整 */
         text-align: center !important;
         line-height: 1.6;
         margin-bottom: 15px;
     }
-
 
     /* 箇条書きリストもモバイルで中央寄せに調整 */
     .point-content ul, .point-content .point-content-ul { /* ★修正: クラスも追加 */
@@ -514,7 +506,6 @@ body {
         text-align: center;
     }
 
-
     .point-content ul li, .point-content .point-content-li { /* ★修正: クラスも追加 */
         font-size: clamp(15px, 4vw, 17px) !important;
         /* モバイル版のひし形のズレを修正: */
@@ -523,16 +514,14 @@ body {
         margin-bottom: 12px;
         padding: 8px 12px;
         background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        border-radius: 8px; /* Added missing border-radius */
     }
-
 
     .point-content ul li span, .point-content .point-content-li-span { /* ★修正: クラスも追加 */
         margin-right: 8px;
         font-size: 1.1em;
     }
-
 
     /* コンテナの余白も調整 */
     .solution-point-container, .solution-point-container--spacing { /* ★修正: クラスも追加 */
@@ -540,13 +529,11 @@ body {
         padding: 0 15px; /* 左右の余白を追加 */
     }
 
-
     /* 特定のセクションの調整 */
     .problem-section .solution-point-container,
     .safety-section .solution-point-container {
         padding: 0 15px; /* より広い余白 */
     }
-
 
     /* 画像が表示されない場合の代替表示も調整 */
     /* ★修正: onerrorを新しい形にしたため、このCSSも調整 */
@@ -565,8 +552,6 @@ body {
         height: 100%;
         z-index: 2; /* 画像のレイヤーの上に表示 */
     }
-
-
 
 
     /* .point-media:empty::before { /* こちらは汎用的な画像フォールバックなのでそのまま維持 */
@@ -905,7 +890,6 @@ body {
     }
 } /* @media (max-width: 768px) の閉じタグ */
 
-
 /* 基本的なセクションスタイル (既存LPのものを残しつつ調整) */
 .problem-section,
 .cause-section,
@@ -1035,8 +1019,6 @@ body {
     color: var(--primary-blue);
     font-weight: 900;
 }
-
-
 
 
 /* 『はじめての菌活』の文字を黒文字かつ重ならないように調整 */
@@ -1189,7 +1171,6 @@ body {
     right: auto !important;
     bottom: auto !important;
 }
-
 
 .problem-circle picture img {
     width: 100% !important;
@@ -1389,7 +1370,6 @@ body {
     color: var(--luxury-accent);
 }
 
-
 .service-image {
     width: 500px;
     height: auto;
@@ -1477,8 +1457,6 @@ body {
     50% { box-shadow: 0 0 25px rgba(76, 175, 80, 0.7), 0 0 35px rgba(76, 175, 80, 0.5); }
     100% { box-shadow: 0 4px 15px var(--luxury-shadow-color); }
 }
-
-
 
 
 /* 高級統計・信頼性セクション - 新規追加CSS */
@@ -1655,8 +1633,6 @@ body {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
 }
-
-
 
 
 .trust-section > * {
@@ -2022,8 +1998,6 @@ body {
 }
 
 
-
-
 .safety-reasons-container {
     display: flex;
     flex-direction: column;
@@ -2129,7 +2103,6 @@ body {
     object-position: center !important;
 }
 
-
 /* 5. 画像コンテナのサイズを確実に設定 */
 .point-media,
 .safety-reason-image-wrapper,
@@ -2142,7 +2115,6 @@ body {
     /* width, height は個別のセレクタや親のフレックスアイテムで制御 */
     /* !important を多用するとレイアウト崩れの原因になるため削除 */
 }
-
 
 .cta-title {
     font-size: clamp(38px, 7vw, 46px);
@@ -2326,7 +2298,6 @@ body {
 .form-initial-hidden {
     display: none;
 }
-
 
 .luxury-form-container::before {
     content: '';
@@ -2584,20 +2555,17 @@ body {
     .mobile-only-text { display: block; }
 }
 
-
 /* ★追加: インラインスタイルを移行したクラス */
 .solution-text--spacing {
     margin-top: 50px;
     padding: 25px;
 }
 
-
 .point-content-ul {
     list-style: none;
     padding: 0;
     text-align: left;
 }
-
 
 .point-content-li {
     margin-bottom: 10px;
@@ -2611,7 +2579,6 @@ body {
     text-align: left; /* テキストは左揃えを維持 */
     justify-content: flex-start; /* ★追加: 左寄せに */
 }
-
 
 .point-content-li-span {
     font-size: 1.2em;
@@ -2628,27 +2595,22 @@ body {
     margin-right: 10px; /* アイコンとテキストの間の余白 */
 }
 
-
 .point-content-li:hover {
     background-color: var(--luxury-green-light);
     border-radius: 5px;
     transform: translateX(5px);
 }
 
-
 .point-content-li:hover .point-content-li-span {
     color: var(--luxury-accent);
 }
-
 
 /* solution-point-container のインラインスタイル対応 */
 .solution-point-container--spacing {
     margin-top: 50px;
 }
 
-
 /* 最終的な画像サイズ修正 - CSSファイルの最後に追加 */
-
 
 /* picture要素とimg要素の両方に対する修正 */
 /* これらのルールは冗長になる可能性が高いため、よりシンプルな形に戻す */
@@ -2660,7 +2622,6 @@ body {
     display: block !important;
     /* position: absolute !important; top, left, right, bottom は削除 */
 }
-
 
 /* 画像要素自体の修正 */
 /* ここで主にobject-fit: cover を強制する */
@@ -2679,7 +2640,6 @@ body {
     /* position: absolute !important; top, left, right, bottom は削除 */
 }
 
-
 /* 画像コンテナの設定 */
 /* レイアウトを崩さないよう、既存の定義を尊重しつつ調整 */
 .point-media,
@@ -2694,7 +2654,6 @@ body {
     /* !important を多用するとレイアウト崩れの原因になるため削除 */
 }
 
-
 /* 特別に問題がある箇所の強制修正 */
 /* 元のサイズ定義に戻す */
 .solution-point-item .point-media,
@@ -2708,7 +2667,6 @@ body {
     /* safety-reason-image-wrapperは個別の定義があるので、ここでは一般的なものとして扱う */
 }
 
-
 /* モバイル対応 */
 @media (max-width: 768px) {
     .solution-point-item .point-media,
@@ -2717,12 +2675,11 @@ body {
         /* モバイル版のサイズを元に戻す */
         height: 200px !important; /* point-mediaの元のモバイル値 */
         width: 100% !important; /* point-mediaの元のモバイル値 */
-        max-width: 250px !important; /* point-mediaの元のモバイル値 */
+        max-width: 280px !important; /* point-mediaの元のモバイル値 */
         min-height: auto !important; /* min-heightを削除 */
         min-width: auto !important; /* min-widthを削除 */
     }
 }
-
 
 /* 安心・安全ポイントセクション専用の修正 */
 /* これらのセレクタは最も優先度が高いことに注意 */
@@ -2730,7 +2687,6 @@ body {
     width: 250px !important; /* 元の値に戻す */
     height: 250px !important; /* 元の値に戻す */
 }
-
 
 .safety-section .safety-reason-image-wrapper picture,
 .safety-section .safety-reason-image-wrapper picture img,
@@ -2741,14 +2697,12 @@ body {
     object-position: center !important;
 }
 
-
 /* 問題提起セクション専用の修正 */
 /* これらのセレクタは最も優先度が高いことに注意 */
 .problem-section .point-media {
     width: 350px !important; /* 元の値に戻す */
     height: 280px !important; /* 元の値に戻す */
 }
-
 
 .problem-section .point-media picture,
 .problem-section .point-media picture img,
@@ -2758,3 +2712,4 @@ body {
     object-fit: cover !important;
     object-position: center !important;
 }
+
