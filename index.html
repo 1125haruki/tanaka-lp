@@ -25,6 +25,7 @@
     ">
     <!-- ここまでセキュリティ対策の追加・修正点 -->
 
+
     <style>
         :root {
             --primary-beige: #f9f7f1;
@@ -1311,7 +1312,7 @@
         }
         .service-image img {
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: contain;
             border-radius: 13px;
             display: block;
@@ -2411,6 +2412,8 @@
         .mobile-only-text { display: none; }
 
 
+
+
         @media (max-width: 768px) {
             .desktop-only-text { display: none; }
             .mobile-only-text { display: block; }
@@ -2541,58 +2544,6 @@
                                     『はじめての菌活』 →<br class="mobile-only">あなた専用の科学的<br class="mobile-only">データに基づく情報提供
                                 </li>
                             </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="luxury-divider"></div>
-        <!-- 菌活の重要性（3つのポイント） -->
-        <section class="cause-section" id="kinkatsu-importance">
-            <div class="container">
-                <h2 class="section-title animated-item" style="text-align: center;">菌活の重要性</h2>
-                
-                <div class="cause-reasons-container">
-                    <div class="cause-reason-item animated-item delay-1 touch-feedback">
-                        <h3 class="cause-reason-header">
-                            <span class="highlight-yellow">菌活の重要性 01</span>
-                        </h3>
-                        <div class="cause-reason-content">
-                            <div class="cause-reason-image-wrapper touch-feedback">
-                                <img src="genin.jpg" alt="注目される菌のバランスのイメージ" class="cause-reason-image" onerror="this.style.display='none';">
-                            </div>
-                            <div class="cause-reason-detail">
-                                <h4>注目される「<span class="blue-text">菌のバランス</span>」</h4>
-                                <p>あなたの体の状態は、<br class="mobile-only">腸内細菌のバランスと<br class="mobile-only">関係があるかもしれません。</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cause-reason-item animated-item delay-2 touch-feedback">
-                        <h3 class="cause-reason-header">
-                            <span class="highlight-yellow">菌活の重要性 02</span>
-                        </h3>
-                        <div class="cause-reason-content">
-                            <div class="cause-reason-image-wrapper touch-feedback">
-                                <img src="flo.jpg" alt="腸内環境は健康的な生活の土台のイメージ" class="cause-reason-image" onerror="this.style.display='none';">
-                            </div>
-                            <div class="cause-reason-detail">
-                                <h4>腸内環境＝健康的な生活の土台</h4>
-                                <p>腸内環境を知ることで、<br>生活習慣を見直すきっかけになります。</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cause-reason-item animated-item delay-3 touch-feedback">
-                        <h3 class="cause-reason-header">
-                            <span class="highlight-yellow">菌活の重要性 03</span>
-                         </h3>
-                        <div class="cause-reason-content">
-                            <div class="cause-reason-image-wrapper touch-feedback">
-                                <img src="new.jpg" alt="最新の菌活は、内側からの根本アプローチのイメージ" class="cause-reason-image" onerror="this.style.display='none';">
-                            </div>
-                            <div class="cause-reason-detail">
-                                <h4>最新の"<span class="blue-text">菌活</span>"は、<br class="mobile-only">内側からのアプローチ</h4>
-                                <p>表面的な対処法ではなく、<br class="mobile-only">体の内側の状態を<br class="mobile-only">知ることから始めます。</p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -2992,11 +2943,14 @@
                 <div id="order-form-direct" class="luxury-form-container" style="display:none;">
                     <h2 class="form-title" style="text-align: center;">お申し込み<br>フォーム</h2>
                     
-                    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="event.preventDefault();">
+                    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                        <!-- 必須: Netlifyがフォームを認識するための隠しフィールド -->
+                        <input type="hidden" name="form-name" value="contact" />
                         <!-- ハニーポットフィールド (ボット対策) -->
                         <p class="hidden" style="display: none;">
                             <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
                         </p>
+
 
                         <div class="floating-label-group">
                             <input type="text" id="name" name="name" placeholder=" " required>
@@ -3819,6 +3773,8 @@
                                 }
                             }
                         ];
+
+
 
 
                         for (const api of addressAPIs) {
