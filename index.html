@@ -15,15 +15,23 @@
          frame-ancestors 'none' はクリックジャッキング対策として重要です。 -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
-        script-src 'self' 'unsafe-inline' https://zipcode-jp.com https://api.zipaddress.net;
+        script-src 'self' 'unsafe-inline' https://zipcode-jp.com https://api.zipaddress.net https://www.clarity.ms;
         style-src 'self' 'unsafe-inline';
         img-src 'self' data:;
         font-src 'self';
-        connect-src 'self' https://zipcode-jp.com https://api.zipaddress.net;
+        connect-src 'self' https://zipcode-jp.com https://api.zipaddress.net https://www.clarity.ms;
         frame-ancestors 'none';
         base-uri 'self';
     ">
     <!-- ここまでセキュリティ対策の追加・修正点 -->
+
+
+
+
+
+
+
+
 
 
 
@@ -1253,7 +1261,7 @@
             color: var(--text-dark);
             margin-bottom: 10px;
             line-height: 1.4;
-            /* text-align: center !important;  ★修正: PC版では削除し、モバイルメディアクエリ内に移動 */
+            /* text-align: center !important;  ★修正: PC版では削除し、モバイルメディアメディアクエリ内に移動 */
             text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
         }
         .cause-reason-detail p {
@@ -2432,6 +2440,20 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         @media (max-width: 768px) {
             .desktop-only-text { display: none; }
             .mobile-only-text { display: block; }
@@ -2439,6 +2461,16 @@
     </style>
 </head>
 <body>
+    <!-- Microsoft Clarity Tracking Code START -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "s0xbfe38ku");
+    </script>
+    <!-- Microsoft Clarity Tracking Code END -->
+
     <!-- ローディング画面 -->
     <div id="loading-overlay">
         <div class="luxury-spinner"></div>
@@ -2958,6 +2990,14 @@
 
 
 
+
+
+
+
+
+
+
+
                         <div class="floating-label-group">
                             <input type="text" id="name" name="name" placeholder=" " required>
                             <label for="name">お名前</label>
@@ -3004,6 +3044,8 @@
     </main>
 
 
+
+
     <!-- ★★★ ここからが追加された隠しフォームです ★★★ -->
     <!-- Netlify FormsがJavaScriptで送信されるフォームを検出するための隠しフォーム -->
     <!-- このフォーム自体はユーザーには見えませんが、NetlifyがこのHTMLを解析してフォームを認識するために必要です -->
@@ -3015,6 +3057,8 @@
       <input type="text" name="bot-field" /> <!-- ハニーポットフィールドも忘れずに -->
     </form>
     <!-- ★★★ ここまでが追加された隠しフォームです ★★★ -->
+
+
 
 
     <!-- 【10】販売者情報 -->
@@ -3785,6 +3829,21 @@
                                 }
                             }
                         ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
