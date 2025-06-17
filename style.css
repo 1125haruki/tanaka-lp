@@ -269,21 +269,6 @@ body {
     position: relative;
     will-change: transform, filter;
 }
-.cta-button-image {
-    max-width: 100%;
-    height: auto;
-    border: none;
-    background: none;
-    padding: 0;
-    margin: 0;
-    transition: all var(--animation-speed-normal) var(--animation-easing);
-    filter: drop-shadow(0 15px 35px var(--luxury-shadow-color));
-    border-radius: 15px;
-    position: relative;
-    transform-style: preserve-3d;
-    animation: ctaPulse 0.7s ease-in-out infinite;
-    will-change: transform, filter;
-}
 .cta-button-image:hover {
     transform: perspective(1000px) rotateX(-5deg) rotateY(5deg) scale(1.05);
     filter: drop-shadow(0 25px 60px var(--luxury-shadow-color)) brightness(1.1);
@@ -433,11 +418,11 @@ body {
     }
     /* 円形画像（薬の画像）のサイズ調整 - モバイル版はさらに小さく */
     .problem-circle {
-        width: 280px !important; /* 元に戻す: モバイル版は280pxに */
-        height: 280px !important; /* 元に戻す: モバイル版は280pxに */
+        width: 200px !important; /* モバイル版: 200pxに縮小 */
+        height: 200px !important; /* モバイル版: 200pxに縮小 */
         margin: 30px auto;
         border-radius: 50%;
-        font-size: 60px; /* 元に戻す */
+        font-size: 40px; /* フォントサイズも小さく調整 */
     }
     .problem-text {
         font-size: clamp(28px, 8vw, 36px);
@@ -468,8 +453,8 @@ body {
 
     .point-media {
         width: 100% !important; /* 全幅に */
-        max-width: 280px !important; /* 最大幅を大きく */
-        height: 200px !important; /* 高さ調整 */
+        max-width: 250px !important; /* ★修正: max-widthを250pxに */
+        height: 180px !important; /* ★修正: heightを180pxに */
         aspect-ratio: 1 / 1; /* ★追加: アスペクト比を1:1に設定 */
         object-fit: cover !important; /* ★修正: !important を追加 */
         margin: 0 auto !important; /* 中央寄せ */
@@ -508,7 +493,6 @@ body {
 
     .point-content ul li, .point-content .point-content-li { /* ★修正: クラスも追加 */
         font-size: clamp(15px, 4vw, 17px) !important;
-        /* モバイル版のひし形のズレを修正: */
         justify-content: flex-start !important; /* 中央寄せを削除し、左揃えに戻す */
         text-align: left !important; /* 中央寄せを削除し、左揃えに戻す */
         margin-bottom: 12px;
@@ -1129,8 +1113,8 @@ body {
 }
 /* 円形画像（薬の画像）のサイズ調整 */
 .problem-circle {
-    width: 400px !important; /* PC版: 元の400pxに戻す */
-    height: 400px !important; /* PC版: 元の400pxに戻す */
+    width: 300px !important; /* PC版: 300pxに */
+    height: 300px !important; /* PC版: 300pxに */
     margin: 50px auto;
     background: var(--primary-beige);
     border-radius: 50%;
@@ -1152,8 +1136,8 @@ body {
     object-position: center !important;
     border-radius: 50% !important; /* 円形を維持 */
     display: block !important;
-    transform: none !important; /* transform: scale() を削除して元のサイズに */
-    position: static !important; /* absolute を削除して通常のフローに */
+    transform: none !important; /* transform: scale() を削除 */
+    position: static !important; /* absolute を削除 */
     top: auto !important; /* absolute の残りをクリア */
     left: auto !important;
     right: auto !important;
@@ -1164,8 +1148,8 @@ body {
     width: 100% !important; /* 枠のサイズに合わせる */
     height: 100% !important; /* 枠のサイズに合わせる */
     display: block !important;
-    transform: none !important; /* transform: scale() を削除して元のサイズに */
-    position: static !important; /* absolute を削除して通常のフローに */
+    transform: none !important; /* transform: scale() を削除 */
+    position: static !important; /* absolute を削除 */
     top: auto !important; /* absolute の残りをクリア */
     left: auto !important;
     right: auto !important;
@@ -1386,6 +1370,7 @@ body {
     overflow: hidden;
     font-size: 60px;
     will-change: transform, filter;
+    position: relative; /* 子要素のabsoluteのために必要 */
 }
 .service-image img {
     width: 100%;
@@ -2534,7 +2519,7 @@ body {
 .floating-label-group input::placeholder {
     opacity: 0;
 }
-/* --- 高級申し込みフォームのCSSここから --- */
+/* --- 高級申し込みフォームのCSSここまで --- */
 /* 安心・安全ポイントセクションの詳細テキストを中央揃えに (ユーザー要望による追加修正) */
 .safety-reason-detail {
     flex-grow: 1; /* この行はPC版で維持 */
