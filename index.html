@@ -16,10 +16,10 @@
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
         script-src 'self' 'unsafe-inline' https://zipcode-jp.com https://api.zipaddress.net;
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; /* ここにfonts.googleapis.comを追加 */
+        style-src 'self' 'unsafe-inline';
         img-src 'self' data:;
-        font-src 'self' https://fonts.gstatic.com; /* ここにfonts.gstatic.comを追加 */
-        connect-src 'self' https://zipcode-jp.com https://api.zipaddress.net https://fonts.googleapis.com https://fonts.gstatic.com; /* connect-srcにも念のため追加 */
+        font-src 'self';
+        connect-src 'self' https://zipcode-jp.com https://api.zipaddress.net;
         frame-ancestors 'none';
         base-uri 'self';
     ">
@@ -756,21 +756,16 @@
                 margin-bottom: 25px;
             }
             .testimonial-quote::before {
-                content: '"';
-                position: absolute;
-                top: -10px;
-                left: 20px;
-                font-size: 60px;
-                color: var(--luxury-accent);
-                opacity: 0.7;
-                font-family: serif;
+                font-size: 40px;
+                top: 0px;
+                left: 10px;
             }
             .testimonial-quote::after {
                 content: '"';
                 position: absolute;
-                bottom: -20px;
-                right: 20px;
-                font-size: 60px;
+                bottom: -10px;
+                right: 10px;
+                font-size: 40px;
                 color: var(--luxury-accent);
                 opacity: 0.7;
                 font-family: serif;
@@ -2963,14 +2958,6 @@
 
 
 
-
-
-
-
-
-
-
-
                         <div class="floating-label-group">
                             <input type="text" id="name" name="name" placeholder=" " required>
                             <label for="name">お名前</label>
@@ -3016,9 +3003,10 @@
         </section>
     </main>
 
-    <!-- ★★★ ここからが修正箇所(1)です ★★★ -->
-    <!-- Netlifyにフォームを認識させるための「隠しフォーム」を復活させました。 -->
-    <!-- このフォームはサイトの安定運用のために必要です。 -->
+
+    <!-- ★★★ ここからが追加された隠しフォームです ★★★ -->
+    <!-- Netlify FormsがJavaScriptで送信されるフォームを検出するための隠しフォーム -->
+    <!-- このフォーム自体はユーザーには見えませんが、NetlifyがこのHTMLを解析してフォームを認識するために必要です -->
     <form name="contact" netlify hidden>
       <input type="text" name="name" />
       <input type="text" name="zipcode" />
@@ -3026,7 +3014,8 @@
       <input type="email" name="email" />
       <input type="text" name="bot-field" /> <!-- ハニーポットフィールドも忘れずに -->
     </form>
-    <!-- ★★★ ここまでが修正箇所(1)です ★★★ -->
+    <!-- ★★★ ここまでが追加された隠しフォームです ★★★ -->
+
 
     <!-- 【10】販売者情報 -->
     <footer class="footer">
@@ -3607,13 +3596,12 @@
                     if (zipcodeInput) { // zipcode inputが存在する場合のみ
                         zipcodeInput.addEventListener('input', () => this.handleZipcodeInput());
                     }
-
-                    // ★★★ ここからが修正箇所(2)です ★★★
-                    // JavaScriptによるフォーム送信処理を再度有効にしました。
-                    // これにより、郵便番号検索や送信完了アニメーションが正しく動作します。
-                    this.form.addEventListener('submit', (e) => this.handleLocalSubmit(e)); 
-                    // ★★★ ここまでが修正箇所(2)です ★★★
-
+                    // フォーム送信
+                    // Netlify Formsにデータを送信するため、JavaScriptでのfetch送信ではなく、
+                    // フォームのHTML属性に任せる形に変更します。
+                    // したがって、handleSubmitの内容は成功メッセージの表示とリセットのみに絞り、
+                    // 実際にはformのsubmitイベントが発火しNetlifyが処理します。
+                    this.form.addEventListener('submit', (e) => this.handleLocalSubmit(e));
                     // 入力フィールドにフォーカス時のキラキラエフェクト
                     document.querySelectorAll('.floating-label-group input').forEach(input => {
                         input.addEventListener('focus', function() {
@@ -3798,6 +3786,21 @@
                             }
                         ];
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         for (const api of addressAPIs) {
                             try {
                                 const result = await api.fetch();
@@ -3833,8 +3836,9 @@
                         this.addressStatus.classList.remove('visible');
                     }
                 }
+                // ★修正: Netlify Formsにデータを送信するための新しいハンドル関数
                 async handleLocalSubmit(e) {
-                    e.preventDefault(); // デフォルトの送信（ページ遷移）を抑制
+                    e.preventDefault(); // デフォルトの送信を一時的に抑制
                     
                     // 全フィールドのバリデーション
                     let isFormValid = true;
@@ -3855,7 +3859,9 @@
                     // フォームデータをFormDataオブジェクトに変換
                     const formData = new FormData(this.form);
                     
-                    // Netlify Formsに送信
+                    // Netlify Formsに送信 (hidden iframeを使ってページ遷移なしで送信)
+                    // または、JavaScriptのFetch APIで送信（Netlifyの推奨方法の一つ）
+                    // Netlifyのドキュメント: https://docs.netlify.com/forms/setup/#submit-html-forms-with-ajax
                     try {
                         await fetch("/", {
                             method: "POST",
