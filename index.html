@@ -40,6 +40,22 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <style>
         :root {
             --primary-beige: #f9f7f1;
@@ -577,15 +593,32 @@
             }
             
             /* 画像が表示されない場合の代替表示も調整 */
-            .point-media:empty::before {
-                content: "📷";
+            /* ★修正: onerrorを新しい形にしたため、このCSSも調整 */
+            .profile-image-container.no-image::before {
+                content: '👩'; /* 例: 女性の絵文字 */
+                font-size: 80px; /* 大きめに表示 */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                color: var(--text-medium);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 2; /* 画像のレイヤーの上に表示 */
+            }
+
+            /* .point-media:empty::before { /* こちらは汎用的な画像フォールバックなのでそのまま維持 */
+                /* content: "📷";
                 font-size: 48px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 height: 100%;
                 color: var(--text-medium);
-            }
+            } */
             /* セクション区切り */
             .luxury-divider {
                 margin: 50px auto;
@@ -1663,7 +1696,30 @@
             width: 200px;
             height: 200px;
             margin: 0 auto 30px;
+            /* overflow: hidden; ★削除: onerrorでimgが非表示になった際に絵文字を出すため */
         }
+        /* ★追加: 画像が読み込めなかった場合の代替表示 */
+        .profile-image-container.no-image {
+            display: flex; /* 絵文字を中央に配置するため */
+            align-items: center;
+            justify-content: center;
+        }
+        .profile-image-container.no-image::before {
+            content: '👩'; /* デフォルトの絵文字 */
+            font-size: 80px; /* 大きく表示 */
+            color: var(--text-medium);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2; /* 画像の代わりに表示 */
+        }
+        /* ★追加: 画像がない場合はborder-radiusを適用しないことで、親要素の丸い背景を表示 */
+        .profile-image-container.no-image .profile-image {
+            border: none;
+            box-shadow: none;
+        }
+        /* ★修正: profile-imageにclassを追加 */
         .profile-image {
             width: 100%;
             height: 100%;
@@ -2454,6 +2510,36 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         @media (max-width: 768px) {
             .desktop-only-text { display: none; }
             .mobile-only-text { display: block; }
@@ -2470,6 +2556,7 @@
         })(window, document, "clarity", "script", "s0xbfe38ku");
     </script>
     <!-- Microsoft Clarity Tracking Code END -->
+
 
     <!-- ローディング画面 -->
     <div id="loading-overlay">
@@ -2691,7 +2778,7 @@
                             <div class="testimonial-card animated-item delay-1 touch-feedback">
                                 <div class="testimonial-profile">
                                     <div class="profile-image-container">
-                                        <img src="voice01.jpg" alt="40代 主婦 Mさん" class="profile-image touch-feedback" onerror="this.style.display='none'; this.parentElement.innerHTML='👩';">
+                                        <img src="voice01.jpg" alt="40代 主婦 Mさん" class="profile-image touch-feedback">
                                     </div>
                                     <div class="profile-name">主婦 M さん</div>
                                     <div class="profile-info">40代</div>
@@ -2723,7 +2810,7 @@
                             <div class="testimonial-card animated-item delay-2 touch-feedback">
                                 <div class="testimonial-profile">
                                     <div class="profile-image-container">
-                                        <img src="voice02.jpg" alt="50代 2児の母 Tさん" class="profile-image touch-feedback" onerror="this.style.display='none'; this.parentElement.innerHTML='👩';">
+                                        <img src="voice02.jpg" alt="50代 2児の母 Tさん" class="profile-image touch-feedback">
                                     </div>
                                     <div class="profile-name">2児の母 T さん</div>
                                     <div class="profile-info">50代</div>
@@ -2755,7 +2842,8 @@
                             <div class="testimonial-card animated-item delay-3 touch-feedback">
                                 <div class="testimonial-profile">
                                     <div class="profile-image-container">
-                                        <img src="voice03.jpg" alt="30代 ワーママ Yさん" onerror="this.style.display='none'; this.parentElement.innerHTML='👩';">
+                                        <!-- ★修正: onerror属性を追加し、画像がない場合の代替表示を改善 -->
+                                        <img src="voice03.jpg" alt="30代 ワーママ Yさん" class="profile-image" onerror="this.style.display='none'; this.parentElement.classList.add('no-image');">
                                     </div>
                                     <div class="profile-name">ワーママ Y さん</div>
                                     <div class="profile-info">30代</div>
@@ -2787,7 +2875,8 @@
                             <div class="testimonial-card animated-item delay-4 touch-feedback">
                                 <div class="testimonial-profile">
                                     <div class="profile-image-container">
-                                        <img src="voice04.jpg" alt="40代 看護師 Kさん" onerror="this.style.display='none'; this.parentElement.innerHTML='👩';">
+                                        <!-- ★修正: onerror属性を追加し、画像がない場合の代替表示を改善 -->
+                                        <img src="voice04.jpg" alt="40代 看護師 Kさん" class="profile-image" onerror="this.style.display='none'; this.parentElement.classList.add('no-image');">
                                     </div>
                                     <div class="profile-name">看護師 K さん</div>
                                     <div class="profile-info">40代</div>
@@ -2998,6 +3087,22 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         <div class="floating-label-group">
                             <input type="text" id="name" name="name" placeholder=" " required>
                             <label for="name">お名前</label>
@@ -3041,7 +3146,27 @@
                 </div>
             </div>
         </section>
+
+        <!-- 販売者情報の上の文言（最終セクション）を復活 -->
+        <section class="final-section">
+            <div class="container">
+                <p class="final-message animated-item" style="text-align: center;">
+                    <span class="final-message-bold-italic">長い間、答えを探し続けてきたあなたへ。</span><br>
+                    この一歩が、
+                    <strong class="final-message-strong-accent">5〜10年後</strong>
+                    <span class="final-message-highlight">あなたの人生を</span>
+                    <br>
+                    <span class="final-message-important">より健康にする出発点</span>
+                    になるかもしれません。
+                </p>
+            </div>
+        </section>
+
     </main>
+
+
+
+
 
 
 
@@ -3057,6 +3182,10 @@
       <input type="text" name="bot-field" /> <!-- ハニーポットフィールドも忘れずに -->
     </form>
     <!-- ★★★ ここまでが追加された隠しフォームです ★★★ -->
+
+
+
+
 
 
 
@@ -3829,6 +3958,37 @@
                                 }
                             }
                         ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
