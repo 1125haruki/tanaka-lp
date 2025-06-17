@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特定商取引法に基づく表記 | はじめての菌活</title>
+    <!-- LPのCSS変数をコピーして適用 -->
+    <style>
+        :root {
+            --primary-beige: #f9f7f1;
+            --secondary-beige: #f5f2e8;
+            --border-beige: #e8e2d5;
+            --primary-blue: #5B9BD5;
+            --secondary-blue: #3A7BC8;
+            --primary-green: #4CAF50;
+            --secondary-green: #66BB6A;
+            --highlight-yellow: #ffe066;
+            --text-dark: #333;
+            --text-medium: #666;
+            --text-light: #999;
+            --white: #fff;
+            --shadow-light: rgba(0,0,0,0.1);
+            --shadow-medium: rgba(0,0,0,0.15);
+            --luxury-accent: var(--primary-green);
+            --luxury-accent-dark: var(--secondary-green);
+            --luxury-shadow-color: rgba(76, 175, 80, 0.3);
+            --luxury-green-light: rgba(76, 175, 80, 0.1);
+            --animation-speed-fast: 0.3s;
+            --animation-speed-normal: 0.6s;
+            --animation-speed-slow: 1.2s;
+            --animation-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            line-height: 1.7; /* 読みやすさのため少し広めに */
+            color: var(--text-dark);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--primary-beige); /* LPの背景色と統一 */
+        }
+        .container {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 15px; /* LPのボックスデザインと統一 */
+            box-shadow: 0 5px 20px var(--shadow-light); /* LPの影と統一 */
+            border: 1px solid var(--border-beige); /* LPのボーダーと統一 */
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--luxury-accent-dark); /* LPのアクセントカラーに統一 */
+            border-bottom: 3px solid var(--luxury-accent); /* LPのアクセントカラーに統一 */
+            padding-bottom: 15px; /* 下部パディングを増やす */
+            margin-bottom: 40px; /* 下部マージンを増やす */
+            font-size: clamp(28px, 5vw, 36px); /* レスポンシブ対応 */
+            font-weight: 900;
+        }
+        h2 {
+            color: var(--luxury-accent-dark); /* LPのアクセントカラーに統一 */
+            border-left: 5px solid var(--luxury-accent); /* LPのアクセントカラーに統一 */
+            padding-left: 15px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: clamp(20px, 4vw, 26px); /* レスポンシブ対応 */
+            font-weight: bold;
+            background: linear-gradient(90deg, var(--luxury-green-light), transparent); /* LPの薄いグリーン背景 */
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 25px; /* 下部マージンを増やす */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .info-table th, .info-table td {
+            border: 1px solid var(--border-beige); /* LPのボーダー色に統一 */
+            padding: 15px; /* パディングを増やす */
+            text-align: left;
+            font-size: clamp(14px, 2.5vw, 16px); /* レスポンシブ対応 */
+        }
+        .info-table th {
+            background-color: var(--secondary-beige); /* LPのセカンダリベージュに統一 */
+            font-weight: bold;
+            width: 35%; /* 幅を調整 */
+            color: var(--text-dark);
+        }
+        .warning-box {
+            background-color: var(--highlight-yellow); /* LPの強調黄色に統一 */
+            border: 2px solid var(--highlight-yellow); /* LPの強調黄色に統一 */
+            border-radius: 10px; /* 角丸を増やす */
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: 0 3px 10px rgba(255, 224, 102, 0.3); /* LPの影色に統一 */
+        }
+        .warning-box h3 {
+            color: var(--text-dark); /* LPのテキストダークに統一 */
+            margin-top: 0;
+            font-size: clamp(16px, 3vw, 18px);
+            display: flex; /* アイコン表示のためflexbox化 */
+            align-items: center;
+        }
+        .warning-box h3::before {
+            content: "⚠️"; /* 警告アイコン */
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        .notice-box {
+            background-color: var(--luxury-green-light); /* LPの薄いグリーンに統一 */
+            border: 2px solid var(--luxury-accent); /* LPのアクセントカラーに統一 */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+            box-shadow: 0 3px 10px var(--luxury-shadow-color); /* LPの影色に統一 */
+        }
+        .notice-box h3 {
+            color: var(--text-dark);
+            margin-top: 0;
+            font-size: clamp(16px, 3vw, 18px);
+            display: flex;
+            align-items: center;
+        }
+        .notice-box h3::before {
+            content: "ℹ️"; /* 情報アイコン */
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        ul {
+            padding-left: 25px;
+            margin-top: 10px;
+        }
+        li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+            font-size: clamp(14px, 2.5vw, 16px);
+        }
+        p {
+            margin-bottom: 15px;
+            font-size: clamp(14px, 2.5vw, 16px);
+        }
+        strong {
+            font-weight: bold;
+            color: var(--luxury-accent-dark); /* LPの強調色に統一 */
+        }
+        /* フッターのスタイルもLPと統一 */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-beige) 0%, var(--secondary-beige) 100%); /* 明るいベージュ系グラデーション */
+            color: var(--text-dark); /* 文字色を濃く */
+            text-align: center;
+            padding: 45px 0;
+            position: relative;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05); /* 上方向に薄い影 */
+            border-top: 1px solid var(--border-beige); /* 上部に薄いボーダー */
+        }
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(0,0,0,0.02),
+                rgba(0,0,0,0.02) 2px,
+                transparent 2px,
+                transparent 4px
+            ); /* 控えめなパターン */
+            opacity: 1;
+            pointer-events: none;
+        }
+        .footer-links a {
+            color: var(--luxury-accent-dark); /* 濃いグリーン系のリンク色 */
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 15px;
+            font-weight: bold;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: var(--luxury-accent); /* ホバー時は明るいグリーン */
+            text-shadow: 0 0 8px var(--luxury-shadow-color);
+        }
+        .footer p { /* Copyrightテキストのスタイル調整 */
+            color: var(--text-medium);
+            font-size: 13px;
+            margin-top: 15px;
+        }
+        .update-date {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 2px solid var(--border-beige); /* LPのボーダー色に統一 */
+            color: var(--text-medium);
+            font-size: 14px;
+            font-weight: bold;
+        }
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            .container {
+                padding: 25px;
+            }
+            .info-table th, .info-table td {
+                display: block; /* モバイルで縦並び */
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .info-table th {
+                border-bottom: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Microsoft Clarity Tracking Code START -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "s0xbfe38ku");
+    </script>
+    <!-- Microsoft Clarity Tracking Code END -->
+
+    <div class="container">
+        <h1>特定商取引法に基づく表記</h1>
+
+        <h2>販売業者情報</h2>
+        <table class="info-table">
+            <tr>
+                <th>販売業者名</th>
+                <td>Scarab</td>
+            </tr>
+            <tr>
+                <th>販売責任者</th>
+                <td>※ご請求時には販売者情報を遅延なく開示いたします。</td>
+            </tr>
+            <tr>
+                <th>所在地</th>
+                <td>※ご請求時には販売者情報を遅延なく開示いたします。</td>
+            </tr>
+            <tr>
+                <th>電話番号</th>
+                <td>※ご請求時には販売者情報を遅延なく開示いたします。</td>
+            </tr>
+            <tr>
+                <th>メールアドレス</th>
+                <td>natsnats358@gmail.com</td>
+            </tr>
+            <tr>
+                <th>サイト名</th>
+                <td>はじめての菌活</td>
+            </tr>
+        </table>
+
+        <h2>商品情報</h2>
+        <table class="info-table">
+            <tr>
+                <th>商品名</th>
+                <td>腸内環境検査キット</td>
+            </tr>
+            <tr>
+                <th>販売価格</th>
+                <td>24,950円（税込）</td>
+            </tr>
+            <tr>
+                <th>送料</th>
+                <td>無料</td>
+            </tr>
+            <tr>
+                <th>製造国</th>
+                <td>日本</td>
+            </tr>
+            <tr>
+                <th>検査委託先</th>
+                <td>〇〇</td>
+            </tr>
+        </table>
+
+        <h2>支払い方法</h2>
+        <ul>
+            <li>クレジットカード（VISA/MasterCard/JCB/American Express）</li>
+            <li>銀行振込（前払い）</li>
+            <li>コンビニ決済</li>
+            <li>PayPay</li>
+            <li>Amazon Pay</li>
+        </ul>
+
+        <h2>商品の引渡し時期</h2>
+        <table class="info-table">
+            <tr>
+                <th>発送時期</th>
+                <td>ご注文確認後、3営業日以内に発送</td>
+            </tr>
+            <tr>
+                <th>検査結果通知</th>
+                <td>検体到着後、2〜3週間程度でメールにて通知</td>
+            </tr>
+        </table>
+
+        <h2>返品・交換・キャンセルについて</h2>
+        <div class="notice-box">
+            <h3>返品・交換について</h3>
+            <ul>
+                <li>商品の性質上、開封後の返品・交換はお受けできません</li>
+                <li>未開封の場合：商品到着後7日以内であれば返品可能</li>
+                <li>初期不良品の場合：商品到着後7日以内にご連絡ください</li>
+                <li>返品時の送料：お客様都合の場合はお客様負担、初期不良の場合は弊社負担</li>
+                <li>返金方法：銀行振込（手数料はお客様負担）</li>
+                <li>返金時期：返品確認後、10営業日以内</li>
+            </ul>
+        </div>
+
+        <h2>検査キット取扱い注意事項</h2>
+        <div class="warning-box">
+            <h3>重要事項</h3>
+            <ul>
+                <li>キットは冷暗所で保存し、使用期限内にご使用ください</li>
+                <li>検体採取後は速やかに返送してください（採取後48時間以内推奨）</li>
+                <li>検体は常温での郵送が可能です</li>
+                <li>検査結果は健康状態の参考情報であり、医師の診断に代わるものではありません</li>
+                <li>異常な数値が検出された場合は、必ず医療機関にご相談ください</li>
+            </ul>
+        </div>
+
+        <h2>個人情報の取扱い</h2>
+        <table class="info-table">
+            <tr>
+                <th>個人情報の利用目的</th>
+                <td>検査の実施、結果通知、お客様サポートのため</td>
+            </tr>
+            <tr>
+                <th>第三者提供</th>
+                <td>検査委託先への提供のみ（匿名化処理実施）</td>
+            </tr>
+            <tr>
+                <th>データ保存期間</th>
+                <td>検査完了後5年間</td>
+            </tr>
+        </table>
+
+        <h2>医療・薬事法に関する重要事項</h2>
+        <div class="warning-box">
+            <h3>ご注意ください</h3>
+            <ul>
+                <li>本検査キットは医療機器ではありません</li>
+                <li>検査結果は病気の診断や治療を目的とするものではありません</li>
+                <li>健康状態に不安がある場合は、医師にご相談ください</li>
+                <li>検査精度は100%ではなく、偽陽性・偽陰性の可能性があります</li>
+                <li>本検査は腸内細菌バランスの参考情報を提供するものです</li>
+            </ul>
+        </div>
+
+        <h2>お問い合わせ</h2>
+        <table class="info-table">
+            <tr>
+                <th>受付時間</th>
+                <td>平日 10:00〜17:00（土日祝日除く）</td>
+            </tr>
+            <tr>
+                <th>メール</th>
+                <td>natsnats358@gmail.com</td>
+            </tr>
+        </table>
+
+        <div class="update-date">
+            最終更新日：2025年6月18日
+        </div>
+    </div>
+
+    <!-- LPと共通のフッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links" style="margin-bottom: 10px;">
+                <a href="./index.html">トップページ</a> | 
+                <a href="./tokutei.html">特定商取引法の表記</a> | 
+                <a href="./privacy.html">プライバシーポリシー</a> | 
+                <a href="./terms.html">利用規約</a>
+            </div>
+            <p style="font-size: 14px; line-height: 1.6;">
+                Copyright (C) 2025 Scarab All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

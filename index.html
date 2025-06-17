@@ -56,6 +56,38 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <style>
         :root {
             --primary-beige: #f9f7f1;
@@ -610,6 +642,7 @@
                 z-index: 2; /* 画像のレイヤーの上に表示 */
             }
 
+
             /* .point-media:empty::before { /* こちらは汎用的な画像フォールバックなのでそのまま維持 */
                 /* content: "📷";
                 font-size: 48px;
@@ -1108,11 +1141,13 @@
         }
         /* フッター */
         .footer {
-            background: linear-gradient(135deg, var(--text-dark), #000);
-            color: white;
+            background: linear-gradient(135deg, var(--primary-beige) 0%, var(--secondary-beige) 100%); /* 明るいベージュ系グラデーション */
+            color: var(--text-dark); /* 文字色を濃く */
             text-align: center;
             padding: 45px 0;
             position: relative;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05); /* 上方向に薄い影 */
+            border-top: 1px solid var(--border-beige); /* 上部に薄いボーダー */
         }
         .footer::before {
             content: '';
@@ -1121,7 +1156,32 @@
             left: 0;
             right: 0;
             bottom: 0;
-            opacity: 0.3;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(0,0,0,0.02),
+                rgba(0,0,0,0.02) 2px,
+                transparent 2px,
+                transparent 4px
+            ); /* 控えめなパターン */
+            opacity: 1;
+            pointer-events: none;
+        }
+        .footer-links a {
+            color: var(--luxury-accent-dark); /* 濃いグリーン系のリンク色 */
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 15px;
+            font-weight: bold;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: var(--luxury-accent); /* ホバー時は明るいグリーン */
+            text-shadow: 0 0 8px var(--luxury-shadow-color);
+        }
+        .footer p { /* Copyrightテキストのスタイル調整 */
+            color: var(--text-medium);
+            font-size: 13px;
+            margin-top: 15px;
         }
         /* 既存LPの他のスタイルも維持・調整 */
         .problem-quote {
@@ -1672,7 +1732,7 @@
             position: relative;
             overflow: hidden;
             transform-style: preserve-3d;
-            transition: transform var(--animation-speed-fast) ease-out;
+            transition: transform var(--animation-speed-fast) ease-out; /* マウス追跡アニメーション削除によりこのtransitionが主になる */
             will-change: transform, box-shadow;
         }
         .testimonial-card::before {
@@ -2540,6 +2600,66 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         @media (max-width: 768px) {
             .desktop-only-text { display: none; }
             .mobile-only-text { display: block; }
@@ -2556,6 +2676,8 @@
         })(window, document, "clarity", "script", "s0xbfe38ku");
     </script>
     <!-- Microsoft Clarity Tracking Code END -->
+
+
 
 
     <!-- ローディング画面 -->
@@ -2611,7 +2733,7 @@
                     </li>
                     <li class="animated-item delay-5">
                         <span>✓</span>
-                        知覚過敏で歯磨きが辛く、口の中の環境も気になる
+                        知覚過敏で歯磨きが辛く, 口の中の環境も気になる
                     </li>
                 </ul>
                 
@@ -3103,6 +3225,38 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                         <div class="floating-label-group">
                             <input type="text" id="name" name="name" placeholder=" " required>
                             <label for="name">お名前</label>
@@ -3147,6 +3301,7 @@
             </div>
         </section>
 
+
         <!-- 販売者情報の上の文言（最終セクション）を復活 -->
         <section class="final-section">
             <div class="container">
@@ -3162,7 +3317,16 @@
             </div>
         </section>
 
+
     </main>
+
+
+
+
+
+
+
+
 
 
 
@@ -3190,15 +3354,27 @@
 
 
 
+
+
+
+
+
+
+
+
     <!-- 【10】販売者情報 -->
     <footer class="footer">
         <div class="container">
-            <h2 style="margin-bottom: 20px;">販売者情報</h2>
-            <!-- ★セキュリティ対策: 個人情報保護のため、プレースホルダーコメントを削除するか、実際の情報に置き換えてください。 -->
+            <!-- リンクの追加 -->
+            <div class="footer-links" style="margin-bottom: 10px;">
+                <a href="./index.html">トップページ</a> | 
+                <a href="./tokutei.html">特定商取引法の表記</a> | 
+                <a href="./privacy.html">プライバシーポリシー</a> | 
+                <a href="./terms.html">利用規約</a>
+            </div>
+            <!-- Copyrightの表示（既存のものをそのまま使用） -->
             <p style="font-size: 14px; line-height: 1.6;">
-                事業者名：〇〇株式会社<br>
-                所在地：〒XXX-XXXX 〇〇県〇〇市〇〇町〇〇<br>
-                連絡先：info@example.com
+                Copyright (C) 2025 Scarab All Rights Reserved.
             </p>
         </div>
     </footer>
@@ -3415,26 +3591,26 @@
                         if (e.key === 'ArrowLeft') this.prevSlide();
                         if (e.key === 'ArrowRight') this.nextSlide();
                     });
-                    // マウス追従による3D傾斜効果
-                    document.querySelectorAll('.testimonial-card').forEach(card => {
-                        card.addEventListener('mousemove', function(e) {
-                            const rect = this.getBoundingClientRect();
-                            const x = e.clientX - rect.left;
-                            const y = e.clientY - rect.top;
+                    // マウス追従による3D傾斜効果を削除
+                    // document.querySelectorAll('.testimonial-card').forEach(card => {
+                    //     card.addEventListener('mousemove', function(e) {
+                    //         const rect = this.getBoundingClientRect();
+                    //         const x = e.clientX - rect.left;
+                    //         const y = e.clientY - rect.top;
                             
-                            const centerX = rect.width / 2;
-                            const centerY = rect.height / 2;
+                    //         const centerX = rect.width / 2;
+                    //         const centerY = rect.height / 2;
                             
-                            const rotateX = (y - centerY) / 20; // 傾斜の度合いを調整
-                            const rotateY = (centerX - x) / 20;
+                    //         const rotateX = (y - centerY) / 20; // 傾斜の度合いを調整
+                    //         const rotateY = (centerX - x) / 20;
                             
-                            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-                        });
+                    //         this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    //     });
                         
-                        card.addEventListener('mouseleave', function() {
-                            this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-                        });
-                    });
+                    //     card.addEventListener('mouseleave', function() {
+                    //         this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+                    //     });
+                    // });
                     // スワイプジェスチャーイベントリスナー
                     this.track.addEventListener('touchstart', this.touchStart.bind(this));
                     this.track.addEventListener('touchmove', this.touchMove.bind(this));
@@ -3958,6 +4134,68 @@
                                 }
                             }
                         ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
