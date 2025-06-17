@@ -21,9 +21,11 @@
     ">
     <!-- ここまでセキュリティ対策の追加・修正点 -->
 
+
     <!-- ★★★ ここが変更点です！CSSを外部ファイルから読み込みます ★★★ -->
     <link rel="stylesheet" href="style.css">
     <!-- ★★★ ここが変更点です！CSSを外部ファイルから読み込みます ★★★ -->
+
 
 </head>
 <body>
@@ -49,11 +51,21 @@
             <!-- ヒーローイメージを最上部に配置し、first5.pngに変更 -->
             <!-- この画像がキャッチコピー、メインタイトル、サブコピーのテキストを含んでいるため、HTMLのテキスト要素は削除 -->
             <div class="hero-image animated-item delay-0 touch-feedback">
-                <img src="first5.png" alt="はじめての菌活 検査キット" loading="lazy">
+                <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                <picture>
+                    <source srcset="first5.webp" type="image/webp">
+                    <img src="first5.png" alt="はじめての菌活 検査キット" loading="lazy">
+                </picture>
+                <!-- ★★★ ここまで変更点です ★★★ -->
             </div>
             <div class="container">
                 <a href="javascript:void(0)" id="cta-button-open-form-top" class="cta-button-image-link animated-item delay-1 touch-feedback">
-                    <img src="CTA2.png" alt="申し込みは簡単3ステップ - 長年の疑問の答えが、きっとここにある" class="cta-button-image" loading="lazy">
+                    <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                    <picture>
+                        <source srcset="CTA2.webp" type="image/webp">
+                        <img src="CTA2.png" alt="申し込みは簡単3ステップ - 長年の疑問の答えが、きっとここにある" class="cta-button-image" loading="lazy">
+                    </picture>
+                    <!-- ★★★ ここまで変更点です ★★★ -->
                 </a>
             </div>
         </section>
@@ -94,7 +106,12 @@
                 </ul>
                 
                 <div class="problem-circle animated-item delay-2 touch-feedback">
-                    <img src="biyo2.jpg" alt="薬では治らない理由が、ついに判明。" onerror="this.style.display='none'; this.parentElement.innerHTML='💊';" loading="lazy">
+                    <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                    <picture>
+                        <source srcset="biyo2.webp" type="image/webp">
+                        <img src="biyo2.jpg" alt="薬では治らない理由が、ついに判明。" onerror="this.style.display='none'; this.parentElement.innerHTML='💊';" loading="lazy">
+                    </picture>
+                    <!-- ★★★ ここまで変更点です ★★★ -->
                 </div>
                 
                 <!-- 腸内細菌の基礎知識 -->
@@ -110,7 +127,12 @@
                 <div class="solution-point-container">
                     <div class="solution-point-item animated-item delay-4 touch-feedback">
                         <div class="point-media">
-                            <img src="chounai.jpg" alt="腸内環境のイメージ" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='var(--secondary-beige)';" loading="lazy">
+                            <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                            <picture>
+                                <source srcset="chounai.webp" type="image/webp">
+                                <img src="chounai.jpg" alt="腸内環境のイメージ" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='var(--secondary-beige)';" loading="lazy">
+                            </picture>
+                            <!-- ★★★ ここまで変更点です ★★★ -->
                         </div>
                         <div class="point-content">
                             <h3>腸内環境＝健康的な<br>生活の土台として<br class="mobile-only">注目されています</h3>
@@ -119,29 +141,35 @@
                     </div>
                     <div class="solution-point-item animated-item delay-5 touch-feedback">
                         <div class="point-media">
-                            <img src="saikin.jpg" alt="腸内細菌のイメージ" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='var(--secondary-beige)';" loading="lazy">
+                            <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                            <picture>
+                                <source srcset="saikin.webp" type="image/webp">
+                                <img src="saikin.jpg" alt="腸内細菌のイメージ" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='var(--secondary-beige)';" loading="lazy">
+                            </picture>
+                            <!-- ★★★ ここまで変更点です ★★★ -->
                         </div>
                         <div class="point-content">
                             <h3>腸内細菌は<br class="mobile-only">私たちの体に密接に<br class="mobile-only">関わっています</h3>
-                            <!-- ★★★ ここにインラインスタイルが残っていますが、まず全体移行を優先します。今後の改善点です。 ★★★ -->
-                            <ul style="list-style: none; padding: 0; text-align: left;">
-                                <li style="margin-bottom: 10px; font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; background-color: transparent; transition: background-color 0.3s ease, transform 0.3s ease; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
+                            <!-- ★★★ 修正箇所: ここからインラインスタイルを削除します ★★★ -->
+                            <ul class="point-content-ul">
+                                <li class="point-content-li">
+                                    <span class="point-content-li-span">◆</span>
                                     体のバランス維持に<br class="mobile-only">関わる要素の一つ
                                 </li>
-                                <li style="margin-bottom: 10px; font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; background-color: transparent; transition: background-color 0.3s ease, transform 0.3s ease; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
+                                <li class="point-content-li">
+                                    <span class="point-content-li-span">◆</span>
                                     日々の生活習慣と関連があります
                                 </li>
-                                <li style="margin-bottom: 10px; font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; background-color: transparent; transition: background-color 0.3s ease, transform 0.3s ease; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
+                                <li class="point-content-li">
+                                    <span class="point-content-li-span">◆</span>
                                     食事や環境の影響を<br class="mobile-only">受けます
                                 </li>
-                                <li style="font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; background-color: transparent; transition: background-color 0.3s ease, transform 0.3s ease; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
+                                <li class="point-content-li">
+                                    <span class="point-content-li-span">◆</span>
                                     個人差が大きい分野です
                                 </li>
                             </ul>
+                            <!-- ★★★ ここまで修正箇所です ★★★ -->
                         </div>
                     </div>
                 </div>
@@ -151,14 +179,24 @@
         <!-- 『はじめての菌活』検査キット -->
         <section class="service-section">
             <div class="container">
-                <h2 class="section-title animated-item" style="text-align: center;">『はじめての菌活』<br>検査キット</h2>
+                <h2 class="section-title animated-item">『はじめての菌活』<br>検査キット</h2>
                 
                 <div class="service-image animated-item touch-feedback">
-                    <img src="medicine.jpg" alt="はじめての菌活 検査キット" onerror="this.style.display='none'; this.parentElement.innerHTML='🧪';" loading="lazy">
+                    <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                    <picture>
+                        <source srcset="medicine.webp" type="image/webp">
+                        <img src="medicine.jpg" alt="はじめての菌活 検査キット" onerror="this.style.display='none'; this.parentElement.innerHTML='🧪';" loading="lazy">
+                    </picture>
+                    <!-- ★★★ ここまで変更点です ★★★ -->
                 </div>
                 
                 <a href="javascript:void(0)" id="cta-button-open-form-2" class="cta-button-image-link animated-item delay-1 touch-feedback">
-                    <img src="CTA2.png" alt="申し込みは簡単3ステップ - 長年の疑問の答えが、きっとここにある" class="cta-button-image" loading="lazy">
+                    <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                    <picture>
+                        <source srcset="CTA2.webp" type="image/webp">
+                        <img src="CTA2.png" alt="申し込みは簡単3ステップ - 長年の疑問の答えが、きっとここにある" class="cta-button-image" loading="lazy">
+                    </picture>
+                    <!-- ★★★ ここまで変更点です ★★★ -->
                 </a>
             </div>
         </section>
@@ -166,7 +204,7 @@
         <!-- サービスの流れ（4ステップ） -->
         <section class="steps-section">
             <div class="container">
-                <h2 class="section-title animated-item" style="text-align: center;">サービスの流れ</h2>
+                <h2 class="section-title animated-item">サービスの流れ</h2>
                 
                 <div class="steps-grid">
                     <div class="step-item animated-item delay-1 touch-feedback">
@@ -206,7 +244,14 @@
                 <!-- 統計グリッド -->
                 <div class="stats-grid">
                     <div class="stat-card animated-item delay-2 touch-feedback">
-                        <div class="stat-icon"><img src="taiken.png" alt="100名以上が体験" loading="lazy"></div>
+                        <div class="stat-icon">
+                            <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                            <picture>
+                                <source srcset="taiken.webp" type="image/webp">
+                                <img src="taiken.png" alt="100名以上が体験" loading="lazy">
+                            </picture>
+                            <!-- ★★★ ここまで変更点です ★★★ -->
+                        </div>
                         <div class="stat-number" data-count="100">0</div>
                         <div class="stat-label">名以上が体験</div>
                         <div class="stat-description">全国のお客様から選ばれ続けています</div>
@@ -215,7 +260,14 @@
                         </div>
                     </div>
                     <div class="stat-card animated-item delay-3 touch-feedback">
-                        <div class="stat-icon"><img src="manzoku.png" alt="98% 満足度" loading="lazy"></div>
+                        <div class="stat-icon">
+                            <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                            <picture>
+                                <source srcset="manzoku.webp" type="image/webp">
+                                <img src="manzoku.png" alt="98% 満足度" loading="lazy">
+                            </picture>
+                            <!-- ★★★ ここまで変更点です ★★★ -->
+                        </div>
                         <div class="stat-number" data-count="98">0</div>
                         <div class="stat-label">％ 満足度</div>
                         <div class="stat-description">お客様アンケート結果</div> <!-- 削除 -->
@@ -224,7 +276,14 @@
                         </div>
                     </div>
                     <div class="stat-card animated-item delay-4 touch-feedback">
-                        <div class="stat-icon"><img src="bunseki.png" alt="300種類の分析項目" loading="lazy"></div>
+                        <div class="stat-icon">
+                            <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                            <picture>
+                                <source srcset="bunseki.webp" type="image/webp">
+                                <img src="bunseki.png" alt="300種類の分析項目" loading="lazy">
+                            </picture>
+                            <!-- ★★★ ここまで変更点です ★★★ -->
+                        </div>
                         <div class="stat-number" data-count="300">0</div>
                         <div class="stat-label">種類の分析項目</div>
                         <div class="stat-description">専門機関による詳細分析</div>
@@ -233,7 +292,14 @@
                         </div>
                     </div>
                     <div class="stat-card animated-item delay-5 touch-feedback">
-                        <div class="stat-icon"><img src="kouka.png" alt="92% 効果実感" loading="lazy"></div>
+                        <div class="stat-icon">
+                            <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                            <picture>
+                                <source srcset="kouka.webp" type="image/webp">
+                                <img src="kouka.png" alt="92% 効果実感" loading="lazy">
+                            </picture>
+                            <!-- ★★★ ここまで変更点です ★★★ -->
+                        </div>
                         <div class="stat-number" data-count="92">0</div>
                         <div class="stat-label">％ 効果実感</div>
                         <div class="stat-description">継続利用者の実感</div> <!-- 削除 -->
@@ -249,7 +315,7 @@
         <section class="voice-section" id="voice-section-js">
             <div class="container">
                 <div class="luxury-testimonials">
-                    <h2 class="testimonials-title animated-item" style="text-align: center;">お客様の輝く<br>変化ストーリー</h2>
+                    <h2 class="testimonials-title animated-item">お客様の輝く<br>変化ストーリー</h2>
                     
                     <div class="testimonials-carousel" id="testimonialCarousel">
                         <div class="testimonials-track" id="testimonialTrack">
@@ -257,7 +323,12 @@
                             <div class="testimonial-card animated-item delay-1 touch-feedback">
                                 <div class="testimonial-profile">
                                     <div class="profile-image-container">
-                                        <img src="voice01.jpg" alt="40代 主婦 Mさん" class="profile-image touch-feedback" loading="lazy">
+                                        <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                                        <picture>
+                                            <source srcset="voice01.webp" type="image/webp">
+                                            <img src="voice01.jpg" alt="40代 主婦 Mさん" class="profile-image touch-feedback" loading="lazy">
+                                        </picture>
+                                        <!-- ★★★ ここまで変更点です ★★★ -->
                                     </div>
                                     <div class="profile-name">主婦 M さん</div>
                                     <div class="profile-info">40代</div>
@@ -289,7 +360,12 @@
                             <div class="testimonial-card animated-item delay-2 touch-feedback">
                                 <div class="testimonial-profile">
                                     <div class="profile-image-container">
-                                        <img src="voice02.jpg" alt="50代 2児の母 Tさん" class="profile-image touch-feedback" loading="lazy">
+                                        <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                                        <picture>
+                                            <source srcset="voice02.webp" type="image/webp">
+                                            <img src="voice02.jpg" alt="50代 2児の母 Tさん" class="profile-image touch-feedback" loading="lazy">
+                                        </picture>
+                                        <!-- ★★★ ここまで変更点です ★★★ -->
                                     </div>
                                     <div class="profile-name">2児の母 T さん</div>
                                     <div class="profile-info">50代</div>
@@ -321,8 +397,12 @@
                             <div class="testimonial-card animated-item delay-3 touch-feedback">
                                 <div class="testimonial-profile">
                                     <div class="profile-image-container">
-                                        <!-- ★修正: onerror属性を追加し、画像がない場合の代替表示を改善 -->
-                                        <img src="voice03.jpg" alt="30代 ワーママ Yさん" class="profile-image" onerror="this.style.display='none'; this.parentElement.classList.add('no-image');" loading="lazy">
+                                        <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                                        <picture>
+                                            <source srcset="voice03.webp" type="image/webp">
+                                            <img src="voice03.jpg" alt="30代 ワーママ Yさん" class="profile-image" onerror="this.style.display='none'; this.parentElement.classList.add('no-image');" loading="lazy">
+                                        </picture>
+                                        <!-- ★★★ ここまで変更点です ★★★ -->
                                     </div>
                                     <div class="profile-name">ワーママ Y さん</div>
                                     <div class="profile-info">30代</div>
@@ -354,8 +434,12 @@
                             <div class="testimonial-card animated-item delay-4 touch-feedback">
                                 <div class="testimonial-profile">
                                     <div class="profile-image-container">
-                                        <!-- ★修正: onerror属性を追加し、画像がない場合の代替表示を改善 -->
-                                        <img src="voice04.jpg" alt="40代 看護師 Kさん" class="profile-image" onerror="this.style.display='none'; this.parentElement.classList.add('no-image');" loading="lazy">
+                                        <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                                        <picture>
+                                            <source srcset="voice04.webp" type="image/webp">
+                                            <img src="voice04.jpg" alt="40代 看護師 Kさん" class="profile-image" onerror="this.style.display='none'; this.parentElement.classList.add('no-image');" loading="lazy">
+                                        </picture>
+                                        <!-- ★★★ ここまで変更点です ★★★ -->
                                     </div>
                                     <div class="profile-name">看護師 K さん</div>
                                     <div class="profile-info">40代</div>
@@ -398,7 +482,7 @@
         <!-- 安心・安全ポイント（信頼性補強） -->
         <section class="safety-section">
             <div class="container">
-                <h2 class="section-title animated-item" style="text-align: center;">安心・安全ポイント</h2>
+                <h2 class="section-title animated-item">安心・安全ポイント</h2>
                 
                 <div class="safety-reasons-container">
                     <div class="safety-reason-item animated-item delay-1 touch-feedback">
@@ -407,7 +491,12 @@
                         </h3>
                         <div class="safety-reason-content">
                             <div class="safety-reason-image-wrapper touch-feedback">
-                                <img src="power.jpg" alt="健康食品の情報提供のイメージ" class="safety-reason-image" loading="lazy">
+                                <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                                <picture>
+                                    <source srcset="power.webp" type="image/webp">
+                                    <img src="power.jpg" alt="健康食品の情報提供のイメージ" class="safety-reason-image" loading="lazy">
+                                </picture>
+                                <!-- ★★★ ここまで変更点です ★★★ -->
                             </div>
                             <div class="safety-reason-detail">
                                 <h4>健康食品の情報提供のため、<br>安心してご利用いただけます</h4>
@@ -421,7 +510,12 @@
                         </h3>
                         <div class="safety-reason-content">
                             <div class="safety-reason-image-wrapper touch-feedback">
-                                <img src="home.jpg" alt="在宅で完結、誰でも簡単にできるイメージ" class="safety-reason-image" loading="lazy">
+                                <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                                <picture>
+                                    <source srcset="home.webp" type="image/webp">
+                                    <img src="home.jpg" alt="在宅で完結、誰でも簡単にできるイメージ" class="safety-reason-image" loading="lazy">
+                                </picture>
+                                <!-- ★★★ ここまで変更点です ★★★ -->
                             </div>
                             <div class="safety-reason-detail">
                                 <h4>在宅で完結、<br>誰でも簡単にできる</h4>
@@ -435,7 +529,12 @@
                         </h3>
                         <div class="safety-reason-content">
                             <div class="safety-reason-image-wrapper touch-feedback">
-                                <img src="study.jpg" alt="専門機関による分析で客観的・確実な結果のイメージ" class="safety-reason-image" loading="lazy">
+                                <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                                <picture>
+                                    <source srcset="study.webp" type="image/webp">
+                                    <img src="study.jpg" alt="専門機関による分析で客観的・確実な結果のイメージ" class="safety-reason-image" loading="lazy">
+                                </picture>
+                                <!-- ★★★ ここまで変更点です ★★★ -->
                             </div>
                             <div class="safety-reason-detail">
                                 <h4>専門機関での<br class="mobile-only">精密で詳細な分析</h4>
@@ -445,25 +544,30 @@
                     </div>
                 </div>
                 <!-- 継続サポート体制と科学的根拠 -->
-                <div class="solution-point-container" style="margin-top: 50px;">
+                <!-- ★★★ 修正箇所: ここからインラインスタイルを削除します ★★★ -->
+                <div class="solution-point-container solution-point-container--spacing">
                     <div class="solution-point-item animated-item delay-4 touch-feedback">
                         <div class="point-media">
-                            <img src="keizoku.jpg" alt="継続サポート体制のイメージ" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='var(--secondary-beige)';" loading="lazy">
+                            <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                            <picture>
+                                <source srcset="keizoku.webp" type="image/webp">
+                                <img src="keizoku.jpg" alt="継続サポート体制のイメージ" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='var(--secondary-beige)';" loading="lazy">
+                            </picture>
+                            <!-- ★★★ ここまで変更点です ★★★ -->
                         </div>
                         <div class="point-content">
                             <h3>継続サポート体制</h3>
-                            <!-- ★★★ ここにインラインスタイルが残っていますが、まず全体移行を優先します。今後の改善点です。 ★★★ -->
-                            <ul style="list-style: none; padding: 0; text-align: left;">
-                                <li style="margin-bottom: 10px; font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
+                            <ul class="point-content-ul">
+                                <li class="point-content-li">
+                                    <span class="point-content-li-span">◆</span>
                                     検査後の<br class="mobile-only">フォローアップ体制完備
                                 </li>
-                                <li style="margin-bottom: 10px; font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
+                                <li class="point-content-li">
+                                    <span class="point-content-li-span">◆</span>
                                     生活習慣の変化が<br class="mobile-only">実感できるよう<br class="mobile-only">専門家がサポート
                                 </li>
-                                <li style="font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
+                                <li class="point-content-li">
+                                    <span class="point-content-li-span">◆</span>
                                     リピート率85%の<br class="mobile-only">信頼できるプログラム
                                 </li>
                             </ul>
@@ -471,35 +575,40 @@
                     </div>
                     <div class="solution-point-item animated-item delay-5 touch-feedback">
                         <div class="point-media">
-                            <img src="kagaku.jpg" alt="科学的根拠のイメージ" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='var(--secondary-beige)';" loading="lazy">
+                            <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                            <picture>
+                                <source srcset="kagaku.webp" type="image/webp">
+                                <img src="kagaku.jpg" alt="科学的根拠のイメージ" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='var(--secondary-beige)';" loading="lazy">
+                            </picture>
+                            <!-- ★★★ ここまで変更点です ★★★ -->
                         </div>
                         <div class="point-content">
                             <h3>科学的根拠</h3>
-                            <!-- ★★★ ここにインラインスタイルが残っていますが、まず全体移行を優先します。今後の改善点です。 ★★★ -->
-                            <ul style="list-style: none; padding: 0; text-align: left;">
-                                <li style="margin-bottom: 10px; font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
+                            <ul class="point-content-ul">
+                                <li class="point-content-li">
+                                    <span class="point-content-li-span">◆</span>
                                     専門機関での<br class="mobile-only">精密で詳細な分析
                                 </li>
-                                <li style="margin-bottom: 10px; font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
+                                <li class="point-content-li">
+                                    <span class="point-content-li-span">◆</span>
                                     独自の菌の個別特定技術
                                 </li>
-                                <li style="font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
+                                <li class="point-content-li">
+                                    <span class="point-content-li-span">◆</span>
                                     科学的根拠に基づく<br class="mobile-only">生活習慣の提案
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
+                <!-- ★★★ ここまで修正箇所です ★★★ -->
             </div>
         </section>
         <div class="luxury-divider"></div>
         <!-- 行動喚起（CTA） & よくある質問（FAQ）-->
         <section class="cta-section">
             <div class="container">
-                <h2 class="cta-title animated-item" style="text-align: center;">申し込みは<br>簡単3ステップ</h2>
+                <h2 class="cta-title animated-item">申し込みは<br>簡単3ステップ</h2>
                 
                 <div class="cta-steps animated-item delay-1">
                     <h3 style="text-align: center;">サイト内のボタンから<br class="mobile-only">簡単3ステップ</h3>
@@ -515,12 +624,17 @@
                     今この瞬間が、<br>健康的な生活への第一歩です。
                 </p>
                 <a href="javascript:void(0)" id="cta-button-open-form-3" class="cta-button-image-link animated-item delay-3 touch-feedback">
-                    <img src="CTA2.png" alt="申し込みは簡単3ステップ - 長年の疑問の答えが、きっとここにある" class="cta-button-image" loading="lazy">
+                    <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
+                    <picture>
+                        <source srcset="CTA2.webp" type="image/webp">
+                        <img src="CTA2.png" alt="申し込みは簡単3ステップ - 長年の疑問の答えが、きっとここにある" class="cta-button-image" loading="lazy">
+                    </picture>
+                    <!-- ★★★ ここまで変更点です ★★★ -->
                 </a>
                 
                 <!-- よくある質問（FAQ）セクション -->
-                <!-- ★★★ ここにインラインスタイルが残っていますが、まず全体移行を優先します。今後の改善点です。 ★★★ -->
-                <div class="solution-text animated-item delay-4" style="margin-top: 50px; padding: 25px;">
+                <!-- ★★★ 修正箇所: ここからインラインスタイルを削除します ★★★ -->
+                <div class="solution-text animated-item delay-4 solution-text--spacing">
                     <h3 style="font-size: clamp(24px, 5vw, 30px); font-weight: 900; margin-bottom: 20px; text-shadow: 2px 2px 5px rgba(0,0,0,0.2);">
                         よくある質問（FAQ）
                     </h3>
@@ -539,12 +653,10 @@
                         </div>
                     </div>
                 </div>
+                <!-- ★★★ ここまで修正箇所です ★★★ -->
                 <!-- フォーム本体をここに直接配置し、初期は非表示にする -->
-                <!-- ★Netlify Forms対応: name="contact"とdata-netlify="true"を追加。
-                     個人情報保護のため、各inputにname属性を付けてNetlifyがデータを正しく収集できるようにする。
-                     ハニーポットフィールドを追加し、botからのスパム投稿を防ぐ。 -->
-                <!-- ★★★ ここにインラインスタイルが残っていますが、まず全体移行を優先します。今後の改善点です。 ★★★ -->
-                <div id="order-form-direct" class="luxury-form-container" style="display:none;">
+                <!-- ★★★ 修正箇所: ここからインラインスタイルを削除します ★★★ -->
+                <div id="order-form-direct" class="luxury-form-container form-initial-hidden">
                     <h2 class="form-title" style="text-align: center;">お申し込み<br>フォーム</h2>
                     
                     <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
@@ -595,12 +707,13 @@
                         </div>
                     </div>
                 </div>
+                <!-- ★★★ ここまで修正箇所です ★★★ -->
             </div>
         </section>
         <!-- 販売者情報の上の文言（最終セクション）を復活 -->
         <section class="final-section">
             <div class="container">
-                <p class="final-message animated-item" style="text-align: center;">
+                <p class="final-message animated-item">
                     <span class="final-message-bold-italic">長い間、答えを探し続けてきたあなたへ。</span><br>
                     この一歩が、
                     <strong class="final-message-strong-accent">5〜10年後</strong>
@@ -628,9 +741,9 @@
         <div class="container">
             <!-- リンクの追加 -->
             <div class="footer-links" style="margin-bottom: 10px;">
-                <a href="./index.html">トップページ</a> | 
-                <a href="./tokutei.html">特定商取引法の表記</a> | 
-                <a href="./privacy.html">プライバシーポリシー</a> | 
+                <a href="./index.html">トップページ</a> |
+                <a href="./tokutei.html">特定商取引法の表記</a> |
+                <a href="./privacy.html">プライバシーポリシー</a> |
                 <a href="./terms.html">利用規約</a>
             </div>
             <!-- Copyrightの表示（既存のものをそのまま使用） -->
@@ -642,7 +755,6 @@
 
 
     <!-- ★★★ 外部JavaScriptファイルの読み込み ★★★ -->
-    <!-- ファイル名も script.js に変更します -->
     <script src="script.js" defer></script>
 </body>
 </html>

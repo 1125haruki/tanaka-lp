@@ -1,3 +1,5 @@
+// script.js の内容 (変更なしですが、確実な上書きをお願いします)
+
 document.addEventListener('DOMContentLoaded', () => {
     // ローディング画面制御
     const loadingOverlay = document.getElementById('loading-overlay');
@@ -866,18 +868,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const confettiCount = 25; // ★修正: 50から25に減らしました
             
             for (let i = 0; i < confettiCount; i++) {
-                setTimeout(() => {
-                    const confetti = document.createElement('div');
-                    confetti.className = 'confetti';
-                    confetti.style.left = Math.random() * 100 + 'vw';
-                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                    confetti.style.animation = 'confetti-fall linear forwards';
-                    
-                    document.body.appendChild(confetti);
-                    
-                    setTimeout(() => confetti.remove(), 5000);
-                }, i * 50);
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                // confetti-fall アニメーションで top は自動で設定されるため、初期値はビューポートのトップ外に設定
+                // left はランダムに設定
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = -10 + 'px'; // 画面外上部から開始
+                confetti.style.width = '10px';
+                confetti.style.height = '10px';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.borderRadius = '50%';
+                confetti.style.pointerEvents = 'none';
+                confetti.style.zIndex = '1000';
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's'; // 再度設定
+                confetti.style.animation = `confetti-fall ${confetti.style.animationDuration} linear forwards`; // アニメーションを直接適用
+                
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), parseFloat(confetti.style.animationDuration) * 1000); // アニメーション終了後に削除
             }
         }
         playSuccessSound() {
@@ -919,7 +927,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             if (this.addressStatus) this.hideAddressStatus(); // 住所ステータスを非表示に
             this.successDiv.classList.remove('show'); // 成功メッセージを非表示に
-            this.form.style.display = 'block'; // フォームを再表示
+            // ★修正箇所: display: block; をクラス操作に置き換え
+            this.form.classList.remove('form-initial-hidden');
             this.submitBtn.classList.remove('loading'); // ローディング状態を解除
         }
     }
@@ -938,15 +947,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (button) {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
-                if (orderFormContainer.style.display === 'block') {
-                    // フォームが既に開いている場合は閉じる
-                    orderFormContainer.style.display = 'none';
-                    if (luxuryFormInstance) {
-                        luxuryFormInstance.resetForm(); // 閉じる時にリセット
-                    }
-                } else {
-                    // フォームを開く
-                    orderFormContainer.style.display = 'block';
+                // ★修正箇所: display: block/none をクラス操作に置き換え
+                if (orderFormContainer.classList.contains('form-initial-hidden')) {
+                    // フォームが非表示の場合は表示する
+                    orderFormContainer.classList.remove('form-initial-hidden');
                     orderFormContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     
                     // LuxuryFormを初期化またはリセット
@@ -954,6 +958,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         luxuryFormInstance = new LuxuryForm(orderFormElement);
                     } else {
                         luxuryFormInstance.resetForm();
+                    }
+                } else {
+                    // フォームが既に表示されている場合は閉じる
+                    orderFormContainer.classList.add('form-initial-hidden');
+                    if (luxuryFormInstance) {
+                        luxuryFormInstance.resetForm(); // 閉じる時にリセット
                     }
                 }
             });
@@ -1004,6 +1014,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
 
 // 開発用デバッグパネル（本番環境では自動的に無効）
 class LuxuryDebugPanel {

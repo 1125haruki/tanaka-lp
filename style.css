@@ -203,7 +203,7 @@ body {
     max-width: 750px; /* PC版サイズ */
     height: auto;
     margin: 0 auto 40px; /* 中央寄せに変更 */
-    border-radius: 0; 
+    border-radius: 0;
     box-shadow: none;
     display: flex;
     align-items: center;
@@ -215,16 +215,17 @@ body {
     will-change: transform, filter;
 }
 .hero-image:hover {
-    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.0); 
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.0);
     box-shadow: none;
 }
 .hero-image img {
     width: 100%;
-    height: auto; 
-    object-fit: contain; 
+    height: auto;
+    object-fit: contain;
     object-position: center;
-    border-radius: 0; 
+    border-radius: 0;
     transition: all var(--animation-speed-normal) ease;
+    display: block; /* 追加: 画像の表示タイプをブロックにする */
 }
 .hero-image img:not([src]),
 .hero-image img[src=""] { /* first5.pngのonerrorはHTMLで */
@@ -343,6 +344,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-align: center; /* ★追加: 中央寄せ */
 }
 /* セクションタイトル下線アニメーション */
 .section-title::after {
@@ -411,14 +413,15 @@ body {
         margin-bottom: 30px; /* マージンを調整 */
         max-width: none; /* スマホでは制限を解除 */
         /* ヒーローイメージの余白調整 - ここまで */
-        border-radius: 0; /* ★修正: 角丸をなくす */
+        border-radius: 0;
+        box-shadow: none;
     }
     .hero-image img {
         width: 100%;
-        height: auto; 
-        object-fit: contain; 
+        height: auto;
+        object-fit: contain;
         object-position: center;
-        border-radius: 0; 
+        border-radius: 0;
         transition: all var(--animation-speed-normal) ease;
     }
     .cta-button-image-link {
@@ -428,15 +431,13 @@ body {
     .problem-section {
         padding: 40px 0;
     }
-    .problem-quote {
-        font-size: clamp(20px, 6vw, 28px); /* ★再調整: さらに文字サイズを小さく */
-        margin-bottom: 30px;
-    }
+    /* 円形画像（薬の画像）のサイズ調整 - モバイル版はさらに小さく */
     .problem-circle {
-        width: 280px; /* 円のサイズを小さく */
-        height: 280px;
+        width: 280px !important; /* 元に戻す: モバイル版は280pxに */
+        height: 280px !important; /* 元に戻す: モバイル版は280pxに */
         margin: 30px auto;
         border-radius: 50%;
+        font-size: 60px; /* 元に戻す */
     }
     .problem-text {
         font-size: clamp(28px, 8vw, 36px);
@@ -460,79 +461,80 @@ body {
         margin-bottom: 30px;
         text-align: center; /* 全体を中央揃え */
     }
-    
+
     .solution-point-item:nth-child(even) {
         flex-direction: column !important; /* 反転も解除 */
     }
-    
+
     .point-media {
         width: 100% !important; /* 全幅に */
         max-width: 280px !important; /* 最大幅を大きく */
         height: 200px !important; /* 高さ調整 */
         aspect-ratio: 1 / 1; /* ★追加: アスペクト比を1:1に設定 */
-        object-fit: cover; /* ★追加: 画像がコンテナを覆うように */
+        object-fit: cover !important; /* ★修正: !important を追加 */
         margin: 0 auto !important; /* 中央寄せ */
         border-radius: 15px;
         flex-shrink: 0;
     }
-    
+
     .point-content {
         width: 100% !important; /* 全幅に */
         padding: 0 10px; /* 左右の余白を最小限に */
         text-align: center !important; /* 中央揃え */
         max-width: none; /* 最大幅制限を解除 */
     }
-    
+
     .point-content h3 {
         font-size: clamp(22px, 6vw, 28px) !important; /* フォントサイズ調整 */
         margin-bottom: 15px;
         line-height: 1.4;
         text-align: center !important;
     }
-    
+
     .point-content p {
         font-size: clamp(16px, 4vw, 18px) !important; /* フォントサイズ調整 */
         text-align: center !important;
         line-height: 1.6;
         margin-bottom: 15px;
     }
-    
+
     /* 箇条書きリストもモバイルで中央寄せに調整 */
-    .point-content ul {
+    .point-content ul, .point-content .point-content-ul { /* ★修正: クラスも追加 */
         padding: 0;
         margin: 0 auto;
         max-width: 100%;
         text-align: center;
     }
-    
-    .point-content ul li {
+
+    .point-content ul li, .point-content .point-content-li { /* ★修正: クラスも追加 */
         font-size: clamp(15px, 4vw, 17px) !important;
-        justify-content: center !important; /* 中央揃え */
-        text-align: center !important;
+        /* モバイル版のひし形のズレを修正: */
+        justify-content: flex-start !important; /* 中央寄せを削除し、左揃えに戻す */
+        text-align: left !important; /* 中央寄せを削除し、左揃えに戻す */
         margin-bottom: 12px;
         padding: 8px 12px;
         background-color: rgba(255, 255, 255, 0.8);
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
-    
-    .point-content ul li span {
+
+    .point-content ul li span, .point-content .point-content-li-span { /* ★修正: クラスも追加 */
         margin-right: 8px;
         font-size: 1.1em;
     }
-    
+
     /* コンテナの余白も調整 */
-    .solution-point-container {
+    .solution-point-container, .solution-point-container--spacing { /* ★修正: クラスも追加 */
         margin: 30px 0;
         padding: 0 15px; /* 左右の余白を追加 */
     }
-    
+
     /* 特定のセクションの調整 */
     .problem-section .solution-point-container,
     .safety-section .solution-point-container {
         padding: 0 15px; /* より広い余白 */
     }
-    
+
     /* 画像が表示されない場合の代替表示も調整 */
     /* ★修正: onerrorを新しい形にしたため、このCSSも調整 */
     .profile-image-container.no-image::before {
@@ -550,6 +552,7 @@ body {
         height: 100%;
         z-index: 2; /* 画像のレイヤーの上に表示 */
     }
+
 
     /* .point-media:empty::before { /* こちらは汎用的な画像フォールバックなのでそのまま維持 */
         /* content: "📷";
@@ -712,8 +715,8 @@ body {
         margin-bottom: 0;
     }
     .profile-image-container {
-        width: 150px;
-        height: 150px;
+        width: 150px; /* モバイルでは元のサイズに戻す */
+        height: 150px; /* モバイルでは元のサイズに戻す */
         margin: 20px auto;
     }
     .profile-name {
@@ -723,10 +726,18 @@ body {
         font-size: 14px;
     }
     .rating-stars {
+        display: flex;
+        justify-content: center;
+        gap: 5px;
         margin-bottom: 15px;
     }
     .star {
         font-size: 20px;
+    }
+    .star.filled {
+        color: var(--luxury-accent);
+        text-shadow: 0 0 10px var(--luxury-shadow-color);
+        animation: starTwinkle 2s ease-in-out infinite;
     }
     .testimonial-content {
         text-align: center;
@@ -877,7 +888,8 @@ body {
     .final-message strong {
         font-size: clamp(22px, 6vw, 26px);
     }
-}
+} /* @media (max-width: 768px) の閉じタグ */
+
 /* 基本的なセクションスタイル (既存LPのものを残しつつ調整) */
 .problem-section,
 .cause-section,
@@ -924,6 +936,7 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: 13px;
+    display: block; /* 追加: 画像の表示タイプをブロックにする */
 }
 .belly-image:hover {
     transform: translateY(-3px) scale(1.01);
@@ -958,8 +971,8 @@ body {
 .point-media {
     flex-shrink: 0;
     width: 40%; /* 画像領域の幅 */
-    max-width: 250px;
-    height: 200px; /* 画像領域の高さ */
+    max-width: 350px; /* ★修正: 最大幅を大きく */
+    height: 280px; /* ★修正: 画像領域の高さを大きく */
     background-color: var(--secondary-beige); /* 画像がない場合の背景色 */
     border-radius: 15px;
     overflow: hidden;
@@ -968,13 +981,18 @@ body {
     justify-content: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     border: 1px solid var(--border-beige);
+    position: relative; /* 子要素のabsoluteのために必要 */
 }
+/* 1. point-media内の画像を枠いっぱいに表示 (最終調整) */
 .point-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
     border-radius: 13px;
     display: block;
+    /* position: absolute; は画像コンテナで定義されるため、ここでは不要 */
+    /* transform: scale(); も個別の拡大指定がなければ不要 */
 }
 .point-content {
     flex-grow: 1;
@@ -1001,6 +1019,7 @@ body {
     color: var(--primary-blue);
     font-weight: 900;
 }
+
 
 /* 『はじめての菌活』の文字を黒文字かつ重ならないように調整 */
 .point-content .blue-text {
@@ -1108,9 +1127,10 @@ body {
     color: #e74c3c;
     opacity: 0.6;
 }
+/* 円形画像（薬の画像）のサイズ調整 */
 .problem-circle {
-    width: 300px; /* ★修正: PC表示時の円のサイズを小さく */
-    height: 300px; /* ★修正: PC表示時の円のサイズを小さく */
+    width: 400px !important; /* PC版: 元の400pxに戻す */
+    height: 400px !important; /* PC版: 元の400pxに戻す */
     margin: 50px auto;
     background: var(--primary-beige);
     border-radius: 50%;
@@ -1120,16 +1140,45 @@ body {
     box-shadow: 0 8px 25px var(--shadow-light);
     border: 2px solid var(--border-beige);
     transition: all var(--animation-speed-fast) var(--animation-easing);
-    overflow: hidden;
-    font-size: 60px;
+    overflow: hidden !important; /* はみ出した部分を隠す */
+    font-size: 60px; /* 元のフォントサイズに戻す */
     will-change: transform, box-shadow;
+    position: relative !important; /* 画像の子要素を絶対配置するため */
 }
 .problem-circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* ★修正: 画像が見切れないようにcoverに (余白を埋める) */
-    object-position: center;
-    border-radius: 50%;
+    width: 100% !important; /* 枠のサイズに合わせる */
+    height: 100% !important; /* 枠のサイズに合わせる */
+    object-fit: cover !important; /* 隙間を埋める */
+    object-position: center !important;
+    border-radius: 50% !important; /* 円形を維持 */
+    display: block !important;
+    transform: none !important; /* transform: scale() を削除して元のサイズに */
+    position: static !important; /* absolute を削除して通常のフローに */
+    top: auto !important; /* absolute の残りをクリア */
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+}
+/* picture要素も同様に（transform, position: absolute を削除） */
+.problem-circle picture {
+    width: 100% !important; /* 枠のサイズに合わせる */
+    height: 100% !important; /* 枠のサイズに合わせる */
+    display: block !important;
+    transform: none !important; /* transform: scale() を削除して元のサイズに */
+    position: static !important; /* absolute を削除して通常のフローに */
+    top: auto !important; /* absolute の残りをクリア */
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+}
+
+.problem-circle picture img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 50% !important;
+    display: block !important;
 }
 .problem-circle:hover {
     transform: scale(1.05) rotateZ(1deg);
@@ -1242,16 +1291,22 @@ body {
     border: 1px solid var(--border-beige);
     transition: transform var(--animation-speed-fast) var(--animation-easing);
     will-change: transform;
+    position: relative; /* 子要素のabsoluteのために必要 */
 }
 .cause-reason-item:hover .cause-reason-image-wrapper {
     transform: scale(1.05);
 }
-.cause-reason-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+/* 3. cause-reason-image-wrapper内の画像を枠いっぱいに表示 */
+.cause-reason-image-wrapper img,
+.cause-reason-image { /* imgタグに直接クラスがついている場合も考慮 */
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
     border-radius: 13px;
+    display: block;
+    /* position: absolute; は画像コンテナで定義されるため、ここでは不要 */
+    /* transform: scale(); も個別の拡大指定がなければ不要 */
 }
 .cause-reason-detail {
     flex-grow: 1;
@@ -1272,7 +1327,13 @@ body {
     /* text-align: center !important;  ★修正: PC版では削除し、モバイルメディアメディアクエリ内に移動 */
 }
 /* point-content内の箇条書きの視覚的強調 */
-.point-content ul li {
+/* ★修正: 以下のセレクタを統合し、インラインスタイルをクラスに移行 */
+.point-content ul, .point-content .point-content-ul {
+    list-style: none; /* リストのデフォルトスタイルを解除 */
+    padding: 0;
+    text-align: left; /* PC版では左揃えを維持 */
+}
+.point-content ul li, .point-content .point-content-li {
     position: relative;
     padding-left: 0; /* Flexboxでアイコンとテキスト間のスペースを制御するため0に */
     margin-bottom: 12px;
@@ -1284,12 +1345,12 @@ body {
     text-align: left; /* テキストは左揃えを維持 */
     justify-content: flex-start; /* ★追加: 左寄せに */
 }
-.point-content ul li:hover {
+.point-content ul li:hover, .point-content .point-content-li:hover {
     background-color: var(--luxury-green-light);
     border-radius: 5px;
     transform: translateX(5px);
 }
-.point-content ul li span { /* ダイヤモンドマークのスタイル */
+.point-content ul li span, .point-content .point-content-li-span {
     position: static; /* 絶対位置指定を解除し、Flexアイテムとして配置 */
     transform: none; /* ホバー時のアニメーションを削除 */
     font-size: 1.2em; /* アイコンサイズを小さく */
@@ -1305,9 +1366,10 @@ body {
     justify-content: center;
     margin-right: 10px; /* アイコンとテキストの間の余白 */
 }
-.point-content ul li:hover span {
+.point-content ul li:hover span, .point-content .point-content-li:hover .point-content-li-span {
     color: var(--luxury-accent);
 }
+
 .service-image {
     width: 500px;
     height: auto;
@@ -1328,9 +1390,9 @@ body {
 .service-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover !important; /* ★修正: !important を追加 */
     border-radius: 13px;
-    display: block;
+    display: block; /* 追加: 画像の表示タイプをブロックにする */
 }
 .service-image:hover {
     transform: perspective(1000px) rotateY(-3deg) rotateX(2deg) scale(1.02);
@@ -1396,6 +1458,7 @@ body {
     100% { box-shadow: 0 4px 15px var(--luxury-shadow-color); }
 }
 
+
 /* 高級統計・信頼性セクション - 新規追加CSS */
 /* メインコンテナ */
 /* .trust-section の重複定義を統合 */
@@ -1458,7 +1521,7 @@ body {
     border-radius: 25px;
     padding: 50px 30px;
     border: 1px solid var(--border-beige);
-    box-shadow: 
+    box-shadow:
         0 15px 40px var(--shadow-light),
         inset 0 1px 0 rgba(255,255,255,0.3);
     transition: all var(--animation-speed-normal) var(--animation-easing);
@@ -1481,7 +1544,7 @@ body {
 }
 .stat-card:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 
+    box-shadow:
         0 25px 60px var(--shadow-medium),
         0 0 40px var(--luxury-shadow-color),
         inset 0 1px 0 rgba(255,255,255,0.4);
@@ -1495,13 +1558,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 150px; /* 修正: アイコンコンテナの高さを大きく */
+    height: 200px; /* ★修正: アイコンコンテナの高さをさらに大きく */
 }
 /* stat-icon内の画像にスタイルを適用 */
 .stat-icon img {
-    width: 140px; /* 修正: アイコン画像を大きく */
-    height: 140px; /* 修正: アイコン画像を大きく */
+    width: 180px; /* ★修正: アイコン画像をさらに大きく */
+    height: 180px; /* ★修正: アイコン画像をさらに大きく */
     object-fit: contain;
+    display: block; /* 追加: 画像の表示タイプをブロックにする */
 }
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
@@ -1569,6 +1633,7 @@ body {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
 }
+
 
 .trust-section > * {
     position: relative;
@@ -1661,8 +1726,8 @@ body {
 }
 .profile-image-container {
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 250px; /* ★修正: 幅を大きく */
+    height: 250px; /* ★修正: 高さを大きく */
     margin: 0 auto 30px;
     /* overflow: hidden; ★削除: onerrorでimgが非表示になった際に絵文字を出すため */
 }
@@ -1694,13 +1759,14 @@ body {
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid var(--luxury-accent);
-    box-shadow: 
+    box-shadow:
         0 20px 60px var(--luxury-shadow-color),
         inset 0 0 0 4px rgba(255,255,255,0.8);
     transition: all var(--animation-speed-normal) var(--animation-easing);
     position: relative;
     z-index: 2;
     will-change: transform, box-shadow;
+    display: block; /* 追加: 画像の表示タイプをブロックにする */
 }
 .profile-image-container::before {
     content: '';
@@ -1931,6 +1997,7 @@ body {
     text-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
+
 .safety-reasons-container {
     display: flex;
     flex-direction: column;
@@ -1983,24 +2050,30 @@ body {
 }
 .safety-reason-image-wrapper {
     flex-shrink: 0;
-    width: 180px;
-    height: 180px;
+    width: 250px; /* ★修正: 幅を大きく */
+    height: 250px; /* ★修正: 高さを大きく */
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     overflow: hidden;
     border: 1px solid var(--border-beige);
     transition: transform var(--animation-speed-fast) var(--animation-easing);
     will-change: transform;
+    position: relative; /* 子要素のabsoluteのために必要 */
 }
 .safety-reason-image-wrapper:hover {
     transform: scale(1.05);
 }
-.safety-reason-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+/* 2. safety-reason-image-wrapper内の画像を枠いっぱいに表示 */
+.safety-reason-image-wrapper img,
+.safety-reason-image { /* imgタグに直接クラスがついている場合も考慮 */
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
     border-radius: 13px;
+    display: block;
+    /* position: absolute; は画像コンテナで定義されるため、ここでは不要 */
+    /* transform: scale(); も個別の拡大指定がなければ不要 */
 }
 .safety-reason-detail {
     flex-grow: 1; /* この行はPC版で維持 */
@@ -2020,6 +2093,29 @@ body {
     line-height: 1.7;
     /* text-align: center !important;  ★修正: PC版では削除し、モバイルメディアクエリ内に移動 */
 }
+/* 4. 既存のobject-fitプロパティを強制的に上書き (汎用セレクタ) */
+.solution-point-item img,
+.safety-reason-item img,
+.cause-reason-item img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+/* 5. 画像コンテナのサイズを確実に設定 */
+.point-media,
+.safety-reason-image-wrapper,
+.cause-reason-image-wrapper {
+    position: relative; /* !important を削除 */
+    overflow: hidden; /* !important を削除 */
+    display: flex; /* 元に戻す */
+    align-items: center; /* 元に戻す */
+    justify-content: center; /* 元に戻す */
+    /* width, height は個別のセレクタや親のフレックスアイテムで制御 */
+    /* !important を多用するとレイアウト崩れの原因になるため削除 */
+}
+
 .cta-title {
     font-size: clamp(38px, 7vw, 46px);
     font-weight: 900;
@@ -2027,6 +2123,7 @@ body {
     color: var(--text-dark);
     position: relative;
     text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+    text-align: center !important; /* ★追加: 中央揃え */
 }
 .cta-title::after {
     content: '';
@@ -2155,7 +2252,7 @@ body {
 .final-message-bold-italic {
     font-weight: bold;
     font-style: italic;
-    color: var(--text-dark); /* 暗めのテキスト色 */
+    color: var(--text-dark);
     text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.1);
 }
 .final-message-important {
@@ -2189,7 +2286,7 @@ body {
     backdrop-filter: blur(20px);
     border-radius: 25px;
     padding: 50px;
-    box-shadow: 
+    box-shadow:
         0 25px 80px var(--luxury-shadow-color),
         inset 0 1px 0 rgba(255,255,255,0.6);
     border: 1px solid rgba(76, 175, 80, 0.2);
@@ -2197,6 +2294,11 @@ body {
     overflow: hidden;
     will-change: transform, box-shadow, filter;
 }
+/* ★追加: フォームの初期非表示クラス */
+.form-initial-hidden {
+    display: none;
+}
+
 .luxury-form-container::before {
     content: '';
     position: absolute;
@@ -2233,7 +2335,7 @@ body {
     color: var(--text-dark);
     transition: all var(--animation-speed-fast) var(--animation-easing);
     backdrop-filter: blur(10px);
-    box-shadow: 
+    box-shadow:
         0 10px 30px rgba(0,0,0,0.1),
         inset 0 1px 0 rgba(255,255,255,0.5);
     will-change: border-color, box-shadow, background;
@@ -2262,7 +2364,7 @@ body {
 }
 .floating-label-group input:focus {
     border-color: var(--luxury-accent);
-    box-shadow: 
+    box-shadow:
         0 0 0 4px var(--luxury-shadow-color),
         0 15px 40px var(--luxury-shadow-color),
         inset 0 1px 0 rgba(255,255,255,0.8);
@@ -2271,7 +2373,7 @@ body {
 /* バリデーション状態 */
 .floating-label-group input.valid {
     border-color: var(--primary-green);
-    box-shadow: 
+    box-shadow:
         0 0 0 4px rgba(76, 175, 80, 0.2),
         0 10px 30px rgba(76, 175, 80, 0.2);
 }
@@ -2280,7 +2382,7 @@ body {
 }
 .floating-label-group input.invalid {
     border-color: #e74c3c;
-    box-shadow: 
+    box-shadow:
         0 0 0 4px rgba(231, 76, 60, 0.2),
         0 10px 30px rgba(231, 76, 60, 0.2);
 }
@@ -2339,7 +2441,7 @@ body {
     position: relative;
     overflow: hidden;
     transition: all var(--animation-speed-fast) var(--animation-easing);
-    box-shadow: 
+    box-shadow:
         0 15px 35px var(--luxury-shadow-color),
         inset 0 1px 0 rgba(255,255,255,0.3);
     margin-top: 20px;
@@ -2360,7 +2462,7 @@ body {
 }
 .luxury-submit-btn:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 
+    box-shadow:
         0 25px 50px var(--luxury-shadow-color),
         inset 0 1px 0 rgba(255,255,255,0.4);
 }
@@ -2420,7 +2522,7 @@ body {
 }
 @keyframes confetti-fall {
     0% {
-        transform: translateY(-100vh) rotateZ(0deg);
+        transform: translateY(0) rotateZ(0deg); /* 修正: topを基準にしたアニメーション */
         opacity: 1;
     }
     100% {
@@ -2432,7 +2534,7 @@ body {
 .floating-label-group input::placeholder {
     opacity: 0;
 }
-/* --- 高級申し込みフォームのCSSここまで --- */
+/* --- 高級申し込みフォームのCSSここから --- */
 /* 安心・安全ポイントセクションの詳細テキストを中央揃えに (ユーザー要望による追加修正) */
 .safety-reason-detail {
     flex-grow: 1; /* この行はPC版で維持 */
@@ -2452,1800 +2554,161 @@ body {
     .desktop-only-text { display: none; }
     .mobile-only-text { display: block; }
 }
-```
 
----
+/* ★追加: インラインスタイルを移行したクラス */
+.solution-text--spacing {
+    margin-top: 50px;
+    padding: 25px;
+}
 
-### **変更後の `index.html` の内容**
+.point-content-ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
 
-ファイル名を `NEO菌活 html.txt` から `index.html` に変更したと仮定しています。
+.point-content-li {
+    margin-bottom: 10px;
+    font-size: clamp(16px, 2.5vw, 18px);
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: transparent;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex; /* Flexboxコンテナに */
+    align-items: center; /* 縦方向の中央揃え */
+    text-align: left; /* テキストは左揃えを維持 */
+    justify-content: flex-start; /* ★追加: 左寄せに */
+}
 
-```html
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 【1】キャッチコピー & 商品名 -->
-    <title>はじめての菌活 - 長年の不調を、腸から根本改善</title>
-    <meta name="description" content="慢性不調の70%は腸内環境の乱れが原因でした。薬では治らない理由が、ついに判明。対症療法から卒業。あなた専用の腸活データが教える、本当に整える科学的アプローチ。">
-    
-    <!-- ここからセキュリティ対策の追加・修正点 -->
-    <!-- CSP (Content Security Policy) の追加 -->
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'unsafe-inline' https://zipcode-jp.com https://api.zipaddress.net https://www.clarity.ms;
-        style-src 'self' 'unsafe-inline';
-        img-src 'self' data:;
-        font-src 'self';
-        connect-src 'self' https://zipcode-jp.com https://api.zipaddress.net https://www.clarity.ms;
-        frame-ancestors 'none';
-        base-uri 'self';
-    ">
-    <!-- ここまでセキュリティ対策の追加・修正点 -->
+.point-content-li-span {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--luxury-accent-dark);
+    text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6);
+    transition: color 0.3s ease;
+    flex-shrink: 0; /* アイコンが縮小されないようにする */
+    width: 1.2em; /* アイコンの固定幅 (font-sizeと合わせる) */
+    height: 1.2em; /* アイコンの固定高さ */
+    display: flex; /* アイコンの中央揃え用 */
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px; /* アイコンとテキストの間の余白 */
+}
 
-    <!-- ★★★ ここが変更点です！CSSを外部ファイルから読み込みます ★★★ -->
-    <link rel="stylesheet" href="style.css">
-    <!-- ★★★ ここが変更点です！CSSを外部ファイルから読み込みます ★★★ -->
+.point-content-li:hover {
+    background-color: var(--luxury-green-light);
+    border-radius: 5px;
+    transform: translateX(5px);
+}
 
-</head>
-<body>
-    <!-- Microsoft Clarity Tracking Code START -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "s0xbfe38ku");
-    </script>
-    <!-- Microsoft Clarity Tracking Code END -->
-    <!-- ローディング画面 -->
-    <div id="loading-overlay">
-        <div class="luxury-spinner"></div>
-        <div class="loading-text">高級菌活体験を準備中...</div>
-    </div>
-    <!-- プログレスバー -->
-    <div id="progress-bar"></div>
-    <main id="main-content">
-        <!-- ヒーローセクション -->
-        <section class="hero" role="banner">
-            <!-- ヒーローイメージを最上部に配置し、first5.pngに変更 -->
-            <!-- この画像がキャッチコピー、メインタイトル、サブコピーのテキストを含んでいるため、HTMLのテキスト要素は削除 -->
-            <div class="hero-image animated-item delay-0 touch-feedback">
-                <img src="first5.png" alt="はじめての菌活 検査キット" loading="lazy">
-            </div>
-            <div class="container">
-                <a href="javascript:void(0)" id="cta-button-open-form-top" class="cta-button-image-link animated-item delay-1 touch-feedback">
-                    <img src="CTA2.png" alt="申し込みは簡単3ステップ - 長年の疑問の答えが、きっとここにある" class="cta-button-image" loading="lazy">
-                </a>
-            </div>
-        </section>
-        <div class="luxury-divider"></div>
-        <!-- 冒頭部分（問題提起） -->
-        <section class="problem-section">
-            <div class="container">
-                <!-- PC表示用 -->
-                <p class="problem-quote animated-item desktop-only-text">
-                    薬に頼り続ける人生から、<br>いつになったら解放されるの？
-                </p>
-                <!-- スマホ表示用 -->
-                <p class="problem-quote animated-item mobile-only-text">
-                    薬に頼り続ける<br>人生から、<br>いつになったら<br>解放されるの？
-                </p>
-                
-                <ul class="problem-list animated-item delay-1">
-                    <li class="animated-item delay-1">
-                        <span>✓</span>
-                        アトピー・アレルギー・慢性疲労…どれも"症状を抑える"だけで根本解決できていない
-                    </li>
-                    <li class="animated-item delay-2">
-                        <span>✓</span>
-                        昔は自然に治ったのに、今は薬なしでは過ごせない
-                    </li>
-                    <li class="animated-item delay-3">
-                        <span>✓</span>
-                        不妊治療を続けているのに、なかなか結果が出ない
-                    </li>
-                    <li class="animated-item delay-4">
-                        <span>✓</span>
-                        花粉症の薬を飲み続けて10年、根本的に治したい
-                    </li>
-                    <li class="animated-item delay-5">
-                        <span>✓</span>
-                        知覚過敏で歯磨きが辛く, 口の中の環境も気になる
-                    </li>
-                </ul>
-                
-                <div class="problem-circle animated-item delay-2 touch-feedback">
-                    <img src="biyo2.jpg" alt="薬では治らない理由が、ついに判明。" onerror="this.style.display='none'; this.parentElement.innerHTML='💊';" loading="lazy">
-                </div>
-                
-                <!-- 腸内細菌の基礎知識 -->
-                <!-- PC表示用 -->
-                <p class="problem-text animated-item delay-3 slide-in-text desktop-only-text">
-                    注目されている<br><span class="highlight-yellow">「腸内細菌のバランス」</span>
-                </p>
-                <!-- スマホ表示用 -->
-                <p class="problem-text animated-item delay-3 slide-in-text mobile-only-text">
-                    注目されている<br><span class="highlight-yellow">「腸内細菌の<br>バランス」</span>
-                </p>
-                
-                <div class="solution-point-container">
-                    <div class="solution-point-item animated-item delay-4 touch-feedback">
-                        <div class="point-media">
-                            <img src="chounai.jpg" alt="腸内環境のイメージ" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='var(--secondary-beige)';" loading="lazy">
-                        </div>
-                        <div class="point-content">
-                            <h3>腸内環境＝健康的な<br>生活の土台として<br class="mobile-only">注目されています</h3>
-                            <p>最新の"<span class="blue-text">腸活</span>"は、<br>体の内側からのアプローチ</p>
-                        </div>
-                    </div>
-                    <div class="solution-point-item animated-item delay-5 touch-feedback">
-                        <div class="point-media">
-                            <img src="saikin.jpg" alt="腸内細菌のイメージ" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='var(--secondary-beige)';" loading="lazy">
-                        </div>
-                        <div class="point-content">
-                            <h3>腸内細菌は<br class="mobile-only">私たちの体に密接に<br class="mobile-only">関わっています</h3>
-                            <!-- ★★★ ここにインラインスタイルが残っていますが、まず全体移行を優先します。今後の改善点です。 ★★★ -->
-                            <ul style="list-style: none; padding: 0; text-align: left;">
-                                <li style="margin-bottom: 10px; font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; background-color: transparent; transition: background-color 0.3s ease, transform 0.3s ease; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
-                                    体のバランス維持に<br class="mobile-only">関わる要素の一つ
-                                </li>
-                                <li style="margin-bottom: 10px; font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; background-color: transparent; transition: background-color 0.3s ease, transform 0.3s ease; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
-                                    日々の生活習慣と関連があります
-                                </li>
-                                <li style="margin-bottom: 10px; font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; background-color: transparent; transition: background-color 0.3s ease, transform 0.3s ease; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
-                                    食事や環境の影響を<br class="mobile-only">受けます
-                                </li>
-                                <li style="font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; background-color: transparent; transition: background-color 0.3s ease, transform 0.3s ease; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
-                                    個人差が大きい分野です
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="luxury-divider"></div>
-        <!-- 『はじめての菌活』検査キット -->
-        <section class="service-section">
-            <div class="container">
-                <h2 class="section-title animated-item" style="text-align: center;">『はじめての菌活』<br>検査キット</h2>
-                
-                <div class="service-image animated-item touch-feedback">
-                    <img src="medicine.jpg" alt="はじめての菌活 検査キット" onerror="this.style.display='none'; this.parentElement.innerHTML='🧪';" loading="lazy">
-                </div>
-                
-                <a href="javascript:void(0)" id="cta-button-open-form-2" class="cta-button-image-link animated-item delay-1 touch-feedback">
-                    <img src="CTA2.png" alt="申し込みは簡単3ステップ - 長年の疑問の答えが、きっとここにある" class="cta-button-image" loading="lazy">
-                </a>
-            </div>
-        </section>
-       <div class="luxury-divider"></div>
-        <!-- サービスの流れ（4ステップ） -->
-        <section class="steps-section">
-            <div class="container">
-                <h2 class="section-title animated-item" style="text-align: center;">サービスの流れ</h2>
-                
-                <div class="steps-grid">
-                    <div class="step-item animated-item delay-1 touch-feedback">
-                        <div class="step-number" aria-label="ステップ1">1</div>
-                        <h3 class="step-title">検査キットを自宅へお届け</h3>
-                        <p class="step-description">ご自宅に便の検査キットをお送りします</p>
-                    </div>
-                    
-                    <div class="step-item animated-item delay-2 touch-feedback">
-                        <div class="step-number" aria-label="ステップ2">2</div>
-                        <h3 class="step-title">採取して返送</h3>
-                        <p class="step-description">簡単に採取して、<br>付属の返送用封筒で送り返すだけ</p>
-                    </div>
-                    
-                    <div class="step-item animated-item delay-3 touch-feedback">
-                        <div class="step-number" aria-label="ステップ3">3</div>
-                        <h3 class="step-title">菌を1つ1つ専門機関で分析</h3>
-                        <p class="step-description">高度な技術により、<br>あなたの菌を詳細に分析</p>
-                    </div>
-                    
-                    <div class="step-item animated-item delay-4 touch-feedback">
-                        <div class="step-number" aria-label="ステップ4">4</div>
-                        <h3 class="step-title">あなた専用の菌レポート＋<span class="no-wrap-text">生活習慣の提案</span></h3>
-                        <p class="step-description">分析結果とあなたに参考となる<br>生活習慣の情報をお届け</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="luxury-divider"></div>
-        <!-- 実績・信頼性セクション -->
-        <section class="trust-section" id="trust-section-js">
-            <div class="container">
-                <h2 class="section-title animated-item">実績・信頼性</h2>
-                <!-- <p class="section-subtitle animated-item delay-1">
-                    数字が証明する確かな実績と信頼
-                </p> --> <!-- 削除 -->
-                <!-- 統計グリッド -->
-                <div class="stats-grid">
-                    <div class="stat-card animated-item delay-2 touch-feedback">
-                        <div class="stat-icon"><img src="taiken.png" alt="100名以上が体験" loading="lazy"></div>
-                        <div class="stat-number" data-count="100">0</div>
-                        <div class="stat-label">名以上が体験</div>
-                        <div class="stat-description">全国のお客様から選ばれ続けています</div>
-                        <div class="progress-container">
-                            <div class="progress-bar" data-progress="95"></div>
-                        </div>
-                    </div>
-                    <div class="stat-card animated-item delay-3 touch-feedback">
-                        <div class="stat-icon"><img src="manzoku.png" alt="98% 満足度" loading="lazy"></div>
-                        <div class="stat-number" data-count="98">0</div>
-                        <div class="stat-label">％ 満足度</div>
-                        <div class="stat-description">お客様アンケート結果</div> <!-- 削除 -->
-                        <div class="progress-container">
-                            <div class="progress-bar" data-progress="98"></div>
-                        </div>
-                    </div>
-                    <div class="stat-card animated-item delay-4 touch-feedback">
-                        <div class="stat-icon"><img src="bunseki.png" alt="300種類の分析項目" loading="lazy"></div>
-                        <div class="stat-number" data-count="300">0</div>
-                        <div class="stat-label">種類の分析項目</div>
-                        <div class="stat-description">専門機関による詳細分析</div>
-                        <div class="progress-container">
-                            <div class="progress-bar" data-progress="100"></div>
-                        </div>
-                    </div>
-                    <div class="stat-card animated-item delay-5 touch-feedback">
-                        <div class="stat-icon"><img src="kouka.png" alt="92% 効果実感" loading="lazy"></div>
-                        <div class="stat-number" data-count="92">0</div>
-                        <div class="stat-label">％ 効果実感</div>
-                        <div class="stat-description">継続利用者の実感</div> <!-- 削除 -->
-                        <div class="progress-container">
-                            <div class="progress-bar" data-progress="92"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="luxury-divider"></div>
-        <!-- お客様の声（VOICE）セクション -->
-        <section class="voice-section" id="voice-section-js">
-            <div class="container">
-                <div class="luxury-testimonials">
-                    <h2 class="testimonials-title animated-item" style="text-align: center;">お客様の輝く<br>変化ストーリー</h2>
-                    
-                    <div class="testimonials-carousel" id="testimonialCarousel">
-                        <div class="testimonials-track" id="testimonialTrack">
-                            <!-- VOICE 01 -->
-                            <div class="testimonial-card animated-item delay-1 touch-feedback">
-                                <div class="testimonial-profile">
-                                    <div class="profile-image-container">
-                                        <img src="voice01.jpg" alt="40代 主婦 Mさん" class="profile-image touch-feedback" loading="lazy">
-                                    </div>
-                                    <div class="profile-name">主婦 M さん</div>
-                                    <div class="profile-info">40代</div>
-                                    <div class="rating-stars">
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                    </div>
-                                </div>
-                                <div class="testimonial-content">
-                                    <div class="testimonial-quote">
-                                        腸内環境について詳しく知ることができました。<span class="voice-highlight">自分の体の状態を数値で見ることができ、生活習慣を見直すきっかけになりました。</span>継続して取り組んでいます。
-                                    </div>
-                                    <div class="qa-section">
-                                        <div class="qa-item">
-                                            <div class="question">購入のきっかけは？</div>
-                                            <div class="answer">長年体調のことが気になっており、根本的な部分から見直したいと思っていました。</div>
-                                        </div>
-                                        <div class="qa-item">
-                                            <div class="question">どんな人におすすめ？</div>
-                                            <div class="answer">体調管理に関心がある方、自分の体の状態を知りたい方にぜひ試してほしいです。</div>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                            <!-- VOICE 02 -->
-                            <div class="testimonial-card animated-item delay-2 touch-feedback">
-                                <div class="testimonial-profile">
-                                    <div class="profile-image-container">
-                                        <img src="voice02.jpg" alt="50代 2児の母 Tさん" class="profile-image touch-feedback" loading="lazy">
-                                    </div>
-                                    <div class="profile-name">2児の母 T さん</div>
-                                    <div class="profile-info">50代</div>
-                                    <div class="rating-stars">
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                    </div>
-                                </div>
-                                <div class="testimonial-content">
-                                    <div class="testimonial-quote">
-                                        季節の体調変化が気になっていましたが、<span class="voice-highlight">腸内環境の状態を知ることで、食事や生活習慣について考え直すことができました。</span>とても参考になります。
-                                    </div>
-                                    <div class="qa-section">
-                                        <div class="qa-item">
-                                            <div class="question">購入のきっかけは？</div>
-                                            <div class="answer">季節によって体調が変わりやすく、何か対策はないかと思っていました。</div>
-                                        </div>
-                                        <div class="qa-item">
-                                            <div class="question">どんな人におすすめ？</div>
-                                            <div class="answer">季節の変化で体調が気になる方、健康管理に取り組みたい方におすすめです。</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- VOICE 03 -->
-                            <div class="testimonial-card animated-item delay-3 touch-feedback">
-                                <div class="testimonial-profile">
-                                    <div class="profile-image-container">
-                                        <!-- ★修正: onerror属性を追加し、画像がない場合の代替表示を改善 -->
-                                        <img src="voice03.jpg" alt="30代 ワーママ Yさん" class="profile-image" onerror="this.style.display='none'; this.parentElement.classList.add('no-image');" loading="lazy">
-                                    </div>
-                                    <div class="profile-name">ワーママ Y さん</div>
-                                    <div class="profile-info">30代</div>
-                                    <div class="rating-stars">
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                    </div>
-                                </div>
-                                <div class="testimonial-content">
-                                    <div class="testimonial-quote">
-                                        忙しい毎日で体調管理が難しかったのですが、<span class="voice-highlight">自分の腸内環境の状態を知ることができました。</span>朝の調子も安定してきて、日中も元気に過ごせています。
-                                    </div>
-                                    <div class="qa-section">
-                                        <div class="qa-item">
-                                            <div class="question">購入のきっかけは？</div>
-                                            <div class="answer">仕事と子育ての両立で体調管理が気になっていました。</div>
-                                        </div>
-                                        <div class="qa-item">
-                                            <div class="question">どんな人におすすめ？</div>
-                                            <div class="answer">忙しい毎日で体調管理が気になる方、パフォーマンスを向上させたい方におすすめです。</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- VOICE 04 -->
-                            <div class="testimonial-card animated-item delay-4 touch-feedback">
-                                <div class="testimonial-profile">
-                                    <div class="profile-image-container">
-                                        <!-- ★修正: onerror属性を追加し、画像がない場合の代替表示を改善 -->
-                                        <img src="voice04.jpg" alt="40代 看護師 Kさん" class="profile-image" onerror="this.style.display='none'; this.parentElement.classList.add('no-image');" loading="lazy">
-                                    </div>
-                                    <div class="profile-name">看護師 K さん</div>
-                                    <div class="profile-info">40代</div>
-                                    <div class="rating-stars">
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                    </div>
-                                </div>
-                                <div class="testimonial-content">
-                                    <div class="testimonial-quote">
-                                        お腹の調子について長年気になっていました。<span class="voice-highlight">検査結果で自分の状態を知ることができ、生活習慣について見直すことができました。</span>
-                                    </div>
-                                    <div class="qa-section">
-                                        <div class="qa-item">
-                                            <div class="question">購入のきっかけは？</div>
-                                            <div class="answer">お腹の調子について気になることがあり、根本的な部分を知りたいと思いました。</div>
-                                        </div>
-                                        <div class="qa-item">
-                                            <div class="question">どんな人におすすめ？</div>
-                                            <div class="answer">腸の状態が気になる方、健康的な生活を目指している方には、ぜひ試してほしいです。</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-nav">
-                        <button class="nav-btn touch-feedback" id="prevBtn">❮</button>
-                        <button class="nav-btn touch-feedback" id="nextBtn">❯</button>
-                    </div>
-                    <div class="swipe-indicator">← スワイプ →</div>
-                    <div class="carousel-indicators" id="indicators"></div>
-                </div>
-            </div>
-        </section>
-        <div class="luxury-divider"></div>
-        <!-- 安心・安全ポイント（信頼性補強） -->
-        <section class="safety-section">
-            <div class="container">
-                <h2 class="section-title animated-item" style="text-align: center;">安心・安全ポイント</h2>
-                
-                <div class="safety-reasons-container">
-                    <div class="safety-reason-item animated-item delay-1 touch-feedback">
-                        <h3 class="safety-reason-header">
-                            <span class="highlight-yellow">安心・安全の理由 01</span>
-                        </h3>
-                        <div class="safety-reason-content">
-                            <div class="safety-reason-image-wrapper touch-feedback">
-                                <img src="power.jpg" alt="健康食品の情報提供のイメージ" class="safety-reason-image" loading="lazy">
-                            </div>
-                            <div class="safety-reason-detail">
-                                <h4>健康食品の情報提供のため、<br>安心してご利用いただけます</h4>
-                                <p>食べ物由来の成分に関する<br class="mobile-only">情報提供を行っています。</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="safety-reason-item animated-item delay-2 touch-feedback">
-                        <h3 class="safety-reason-header">
-                            <span class="highlight-yellow">安心・安全の理由 02</span>
-                        </h3>
-                        <div class="safety-reason-content">
-                            <div class="safety-reason-image-wrapper touch-feedback">
-                                <img src="home.jpg" alt="在宅で完結、誰でも簡単にできるイメージ" class="safety-reason-image" loading="lazy">
-                            </div>
-                            <div class="safety-reason-detail">
-                                <h4>在宅で完結、<br>誰でも簡単にできる</h4>
-                                <p>お家で全て完結するので、<br>忙しい方でも続けやすいです。</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="safety-reason-item animated-item delay-3 touch-feedback">
-                        <h3 class="safety-reason-header">
-                            <span class="highlight-yellow">安心・安全の理由 03</span>
-                        </h3>
-                        <div class="safety-reason-content">
-                            <div class="safety-reason-image-wrapper touch-feedback">
-                                <img src="study.jpg" alt="専門機関による分析で客観的・確実な結果のイメージ" class="safety-reason-image" loading="lazy">
-                            </div>
-                            <div class="safety-reason-detail">
-                                <h4>専門機関での<br class="mobile-only">精密で詳細な分析</h4>
-                                <p>高度な分析技術で、<br>あなたの菌を個別に可視化します。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 継続サポート体制と科学的根拠 -->
-                <div class="solution-point-container" style="margin-top: 50px;">
-                    <div class="solution-point-item animated-item delay-4 touch-feedback">
-                        <div class="point-media">
-                            <img src="keizoku.jpg" alt="継続サポート体制のイメージ" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='var(--secondary-beige)';" loading="lazy">
-                        </div>
-                        <div class="point-content">
-                            <h3>継続サポート体制</h3>
-                            <!-- ★★★ ここにインラインスタイルが残っていますが、まず全体移行を優先します。今後の改善点です。 ★★★ -->
-                            <ul style="list-style: none; padding: 0; text-align: left;">
-                                <li style="margin-bottom: 10px; font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
-                                    検査後の<br class="mobile-only">フォローアップ体制完備
-                                </li>
-                                <li style="margin-bottom: 10px; font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
-                                    生活習慣の変化が<br class="mobile-only">実感できるよう<br class="mobile-only">専門家がサポート
-                                </li>
-                                <li style="font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
-                                    リピート率85%の<br class="mobile-only">信頼できるプログラム
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="solution-point-item animated-item delay-5 touch-feedback">
-                        <div class="point-media">
-                            <img src="kagaku.jpg" alt="科学的根拠のイメージ" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='var(--secondary-beige)';" loading="lazy">
-                        </div>
-                        <div class="point-content">
-                            <h3>科学的根拠</h3>
-                            <!-- ★★★ ここにインラインスタイルが残っていますが、まず全体移行を優先します。今後の改善点です。 ★★★ -->
-                            <ul style="list-style: none; padding: 0; text-align: left;">
-                                <li style="margin-bottom: 10px; font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
-                                    専門機関での<br class="mobile-only">精密で詳細な分析
-                                </li>
-                                <li style="margin-bottom: 10px; font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
-                                    独自の菌の個別特定技術
-                                </li>
-                                <li style="font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
-                                    科学的根拠に基づく<br class="mobile-only">生活習慣の提案
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="luxury-divider"></div>
-        <!-- 行動喚起（CTA） & よくある質問（FAQ）-->
-        <section class="cta-section">
-            <div class="container">
-                <h2 class="cta-title animated-item" style="text-align: center;">申し込みは<br>簡単3ステップ</h2>
-                
-                <div class="cta-steps animated-item delay-1">
-                    <h3 style="text-align: center;">サイト内のボタンから<br class="mobile-only">簡単3ステップ</h3>
-                    <ol>
-                        <li>名前・住所・メールを入力</li>
-                        <li>検査キットが届く</li>
-                        <li>あとは待つだけ</li>
-                    </ol>
-                </div>
-                
-                <p class="cta-message animated-item delay-2" style="text-align: center;">
-                    「長年の疑問の答えが、<br>きっとここにある」<br>
-                    今この瞬間が、<br>健康的な生活への第一歩です。
-                </p>
-                <a href="javascript:void(0)" id="cta-button-open-form-3" class="cta-button-image-link animated-item delay-3 touch-feedback">
-                    <img src="CTA2.png" alt="申し込みは簡単3ステップ - 長年の疑問の答えが、きっとここにある" class="cta-button-image" loading="lazy">
-                </a>
-                
-                <!-- よくある質問（FAQ）セクション -->
-                <!-- ★★★ ここにインラインスタイルが残っていますが、まず全体移行を優先します。今後の改善点です。 ★★★ -->
-                <div class="solution-text animated-item delay-4" style="margin-top: 50px; padding: 25px;">
-                    <h3 style="font-size: clamp(24px, 5vw, 30px); font-weight: 900; margin-bottom: 20px; text-shadow: 2px 2px 5px rgba(0,0,0,0.2);">
-                        よくある質問（FAQ）
-                    </h3>
-                    <div class="qa-section">
-                        <div class="qa-item">
-                            <div class="question">Q. 薬を飲んでいても大丈夫ですか？</div>
-                            <div class="answer">A. 健康食品に関する情報提供のため、お薬との併用に問題はありません。気になる場合は医師にご相談ください。</div>
-                        </div>
-                        <div class="qa-item">
-                            <div class="question">Q. 子どもも一緒に受けられますか？</div>
-                            <div class="answer">A. はい。お子様の将来の健康的な生活のためにもおすすめです。</div>
-                        </div>
-                        <div class="qa-item">
-                            <div class="question">Q. どのくらいで変化が実感できますか？</div>
-                            <div class="answer">A. 検査結果をお届け後、多くの方が腸内環境について新しい知識を得られたとご感想をいただいています。個人差はありますが、生活習慣を見直すきっかけとしてご活用いただけます。</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- フォーム本体をここに直接配置し、初期は非表示にする -->
-                <!-- ★Netlify Forms対応: name="contact"とdata-netlify="true"を追加。
-                     個人情報保護のため、各inputにname属性を付けてNetlifyがデータを正しく収集できるようにする。
-                     ハニーポットフィールドを追加し、botからのスパム投稿を防ぐ。 -->
-                <!-- ★★★ ここにインラインスタイルが残っていますが、まず全体移行を優先します。今後の改善点です。 ★★★ -->
-                <div id="order-form-direct" class="luxury-form-container" style="display:none;">
-                    <h2 class="form-title" style="text-align: center;">お申し込み<br>フォーム</h2>
-                    
-                    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-                        <!-- 必須: Netlifyがフォームを認識するための隠しフィールド -->
-                        <input type="hidden" name="form-name" value="contact" />
-                        <!-- ハニーポットフィールド (ボット対策) -->
-                        <p class="hidden" style="display: none;">
-                            <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-                        </p>
-                        <div class="floating-label-group">
-                            <input type="text" id="name" name="name" placeholder=" " required>
-                            <label for="name">お名前</label>
-                            <div class="validation-icon check">✓</div>
-                            <div class="validation-icon cross">✗</div>
-                        </div>
-                        <div class="floating-label-group">
-                            <input type="text" id="zipcode" name="zipcode" placeholder=" " pattern="[0-9]{3}-?[0-9]{4}" maxlength="8" required>
-                            <label for="zipcode">郵便番号（例：123-4567）</label>
-                            <div class="validation-icon check">✓</div>
-                            <div class="validation-icon cross">✗</div>
-                            <div class="address-status" id="addressStatus"></div>
-                        </div>
-                        <div class="floating-label-group">
-                            <input type="text" id="address" name="address" placeholder=" " required readonly>
-                            <label for="address">ご住所</label>
-                            <div class="validation-icon check">✓</div>
-                            <div class="validation-icon cross">✗</div>
-                        </div>
-                        <div class="floating-label-group">
-                            <input type="email" id="email" name="email" placeholder=" " required>
-                            <label for="email">メールアドレス</label>
-                            <div class="validation-icon check">✓</div>
-                            <div class="validation-icon cross">✗</div>
-                        </div>
-                        <button type="submit" class="luxury-submit-btn touch-feedback">
-                            <span class="btn-text">特別な菌活体験を申し込む</span>
-                        </button>
-                        <!-- 既存の閉じるボタンは、新しいフォームデザインでは不要になるため、スタイルで非表示にする -->
-                        <div class="form-buttons" style="display: none;">
-                            <button type="button" class="close-button">閉じる</button>
-                        </div>
-                    </form>
-                    <div class="form-success" id="formSuccess">
-                        <div style="font-size: 48px; margin-bottom: 20px;">🎉</div>
-                        <div>お申し込みありがとうございます！</div>
-                        <div style="font-size: 14px; margin-top: 10px; opacity: 0.8;">
-                            確認メールをお送りいたします
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- 販売者情報の上の文言（最終セクション）を復活 -->
-        <section class="final-section">
-            <div class="container">
-                <p class="final-message animated-item" style="text-align: center;">
-                    <span class="final-message-bold-italic">長い間、答えを探し続けてきたあなたへ。</span><br>
-                    この一歩が、
-                    <strong class="final-message-strong-accent">5〜10年後</strong>
-                    <span class="final-message-highlight">あなたの人生を</span>
-                    <br>
-                    <span class="final-message-important">より健康にする出発点</span>
-                    になるかもしれません。
-                </p>
-            </div>
-        </section>
-    </main>
-    <!-- ★★★ ここからが追加された隠しフォームです ★★★ -->
-    <!-- Netlify FormsがJavaScriptで送信されるフォームを検出するための隠しフォーム -->
-    <!-- このフォーム自体はユーザーには見えませんが、NetlifyがこのHTMLを解析してフォームを認識するために必要です -->
-    <form name="contact" netlify hidden>
-      <input type="text" name="name" />
-      <input type="text" name="zipcode" />
-      <input type="text" name="address" />
-      <input type="email" name="email" />
-      <input type="text" name="bot-field" /> <!-- ハニーポットフィールドも忘れずに -->
-    </form>
-    <!-- ★★★ ここまでが追加された隠しフォームです ★★★ -->
-    <!-- 【10】販売者情報 -->
-    <footer class="footer">
-        <div class="container">
-            <!-- リンクの追加 -->
-            <div class="footer-links" style="margin-bottom: 10px;">
-                <a href="./index.html">トップページ</a> | 
-                <a href="./tokutei.html">特定商取引法の表記</a> | 
-                <a href="./privacy.html">プライバシーポリシー</a> | 
-                <a href="./terms.html">利用規約</a>
-            </div>
-            <!-- Copyrightの表示（既存のものをそのまま使用） -->
-            <p style="font-size: 14px; line-height: 1.6;">
-                Copyright (C) 2025 Scarab All Rights Reserved.
-            </p>
-        </div>
-    </footer>
+.point-content-li:hover .point-content-li-span {
+    color: var(--luxury-accent);
+}
 
+/* solution-point-container のインラインスタイル対応 */
+.solution-point-container--spacing {
+    margin-top: 50px;
+}
 
-    <!-- ★★★ 外部JavaScriptファイルの読み込み ★★★ -->
-    <!-- ファイル名も script.js に変更します -->
-    <script src="script.js" defer></script>
-</body>
-</html>
-```
+/* 最終的な画像サイズ修正 - CSSファイルの最後に追加 */
 
----
+/* picture要素とimg要素の両方に対する修正 */
+/* これらのルールは冗長になる可能性が高いため、よりシンプルな形に戻す */
+.point-media picture,
+.safety-reason-image-wrapper picture,
+.cause-reason-image-wrapper picture {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    /* position: absolute !important; top, left, right, bottom は削除 */
+}
 
-### **JavaScriptファイル `script.js` の内容**
+/* 画像要素自体の修正 */
+/* ここで主にobject-fit: cover を強制する */
+.point-media picture img,
+.safety-reason-image-wrapper picture img,
+.cause-reason-image-wrapper picture img,
+.point-media img,
+.safety-reason-image-wrapper img,
+.cause-reason-image-wrapper img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    border-radius: 13px !important;
+    display: block !important;
+    /* position: absolute !important; top, left, right, bottom は削除 */
+}
 
-ファイル名を `NEO菌活 js.txt` から `script.js` に変更したと仮定しています。
-**このファイルの内容は、変更ありません。** （すでに外部ファイルとして独立しているため）
+/* 画像コンテナの設定 */
+/* レイアウトを崩さないよう、既存の定義を尊重しつつ調整 */
+.point-media,
+.safety-reason-image-wrapper,
+.cause-reason-image-wrapper {
+    position: relative; /* !important を削除 */
+    overflow: hidden; /* !important を削除 */
+    display: flex; /* 元に戻す */
+    align-items: center; /* 元に戻す */
+    justify-content: center; /* 元に戻す */
+    /* width, height は個別のセレクタや親のフレックスアイテムで制御 */
+    /* !important を多用するとレイアウト崩れの原因になるため削除 */
+}
 
-```javascript
-// script.js の内容 (変更なし)
+/* 特別に問題がある箇所の強制修正 */
+/* 元のサイズ定義に戻す */
+.solution-point-item .point-media,
+.safety-reason-item .safety-reason-image-wrapper,
+.cause-reason-item .cause-reason-image-wrapper {
+    /* min-height, min-width の !important を削除。
+       必要であれば、元のheight/widthの定義を調整する。 */
+    /* 以前の修正でheightとwidthが固定値になっていたので、その定義を尊重 */
+    height: 280px; /* point-mediaの元の値 */
+    width: 40%; /* point-mediaの元の値 */
+    /* safety-reason-image-wrapperは個別の定義があるので、ここでは一般的なものとして扱う */
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-    // ローディング画面制御
-    const loadingOverlay = document.getElementById('loading-overlay');
-    const progressBar = document.getElementById('progress-bar');
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            loadingOverlay.classList.add('hidden');
-            document.body.style.overflow = '';
-        }, 1000);
-    });
-    setTimeout(() => { // 念のため、少し遅れてフェードアウト
-        loadingOverlay.classList.add('hidden');
-        document.body.style.overflow = ''; // スクロール可能に
-    }, 500); // 0.5秒後に非表示を開始
-    // プログレスバー更新
-    const updateProgressBar = () => {
-        const docElem = document.documentElement;
-        const scrollPos = docElem.scrollTop;
-        const scrollHeight = docElem.scrollHeight - docElem.clientHeight;
-        const progress = (scrollPos / scrollHeight) * 100;
-        progressBar.style.width = `${progress}%`;
-    };
-    window.addEventListener('scroll', updateProgressBar);
-    updateProgressBar(); // 初期表示時にも更新
-    // スクロールアニメーション (Intersection Observer)
-    const animateOnScroll = (entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                
-                // highlight-yellow と section-title の下線アニメーションをトリガー
-                const highlightYellowElement = entry.target.querySelector('.highlight-yellow');
-                if (highlightYellowElement) {
-                    highlightYellowElement.classList.add('is-visible');
-                }
-                const sectionTitleElement = entry.target.querySelector('.section-title');
-                // trust-section内のタイトルは個別のスタイルがあるため、is-visible付与を抑制
-                if (sectionTitleElement && !entry.target.closest('.trust-section')) { 
-                    sectionTitleElement.classList.add('is-visible');
-                }
-            } else {
-                // 画面外に出たらアニメーションをリセットする (オプション)
-                // entry.target.classList.remove('is-visible');
-                const highlightYellowElement = entry.target.querySelector('.highlight-yellow');
-                if (highlightYellowElement) {
-                    highlightYellowElement.classList.remove('is-visible');
-                }
-                const sectionTitleElement = entry.target.querySelector('.section-title');
-                if (sectionTitleElement && !entry.target.closest('.trust-section')) {
-                    sectionTitleElement.classList.remove('is-visible');
-                }
-            }
-        });
-    };
-    const intersectionObserver = new IntersectionObserver(animateOnScroll, {
-        root: null, // ビューポートをルートとする
-        rootMargin: '0px',
-        threshold: 0.1 // 10%が見えたら発火
-    });
-    // animated-itemを持つ要素を監視
-    document.querySelectorAll('.animated-item').forEach(el => {
-        intersectionObserver.observe(el);
-    });
-    // 音響効果（オプション - ユーザーの許可が必要）
-    function playClickSound() {
-        // デバッグパネルで音響効果がオフになっていたら再生しない
-        if (window.luxuryDebug && !luxuryDebug.isSoundEnabled()) {
-            return;
-        }
-        try {
-            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            const oscillator = audioContext.createOscillator();
-            const gainNode = audioContext.createGain();
-            
-            oscillator.connect(gainNode);
-            gainNode.connect(audioContext.destination);
-            
-            oscillator.frequency.setValueAtTime(440, audioContext.currentTime); // A4
-            oscillator.frequency.exponentialRampToValueAtTime(880, audioContext.currentTime + 0.05); // A5まで急速に上がる
-            
-            gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.1);
-            
-            oscillator.start(audioContext.currentTime);
-            oscillator.stop(audioContext.currentTime + 0.1);
-        } catch (e) {
-            // console.error("Audio playback error:", e); // デバッグ用
-        }
-    }
-    // CTAボタンに効果音を追加（ユーザーインタラクション後）
-    let audioEnabled = false;
-    document.addEventListener('click', () => {
-        if (!audioEnabled) {
-            audioEnabled = true; // 初回クリックで音声再生を許可
-        }
-    }, { once: true }); // 一度だけ実行
-    document.querySelectorAll('.cta-button-image-link').forEach(button => {
-        button.addEventListener('click', () => {
-            if (audioEnabled) {
-                playClickSound();
-            }
-        });
-    });
-    // 磁石効果（CTAボタンにマウスが近づくと引き寄せられる）
-    document.querySelectorAll('.cta-button-image').forEach(button => {
-        button.addEventListener('mousemove', function(e) {
-            const rect = this.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            const deltaX = e.clientX - centerX;
-            const deltaY = e.clientY - centerY;
-            const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-            
-            const maxDistance = 100; // この距離内で効果が発動
-            if (distance < maxDistance) {
-                const force = (maxDistance - distance) / maxDistance; // 0 (遠い) to 1 (近い)
-                const moveX = deltaX * force * 0.1; // 移動量調整
-                const moveY = deltaY * force * 0.1;
-                
-                let newTransform = `translate(${moveX}px, ${moveY}px)`;
-                
-                if (this.style.transform.includes('scale')) {
-                    const scaleMatch = this.style.transform.match(/scale\((.*?)\)/);
-                    const currentScale = scaleMatch ? parseFloat(scaleMatch[1]) : 1;
-                    newTransform += ` scale(${currentScale + force * 0.05})`;
-                } else {
-                     newTransform += ` scale(${1 + force * 0.05})`;
-                }
-                
-                if (this.style.transform.includes('rotate')) {
-                    const rotateXMatch = this.style.transform.match(/rotateX\((.*?)\)/);
-                    const rotateYMatch = this.style.transform.match(/rotateY\((.*?)\)/);
-                    const rotateZMatch = this.style.transform.match(/rotateZ\((.*?)\)/);
-                    if (rotateXMatch) newTransform += ` rotateX(${rotateXMatch[1]})`;
-                    if (rotateYMatch) newTransform += ` rotateY(${rotateYMatch[1]})`;
-                    if (rotateZMatch) newTransform += ` rotateZ(${rotateZMatch[1]})`;
-                }
-                this.style.transform = `perspective(1000px) ${newTransform}`;
-            } else {
-                // 距離が遠くなったら元に戻す
-                this.style.transform = 'perspective(1000px) scale(1)';
-            }
-        });
-        
-        button.addEventListener('mouseleave', function() {
-            // マウスが離れたら元のCSSアニメーションと変形に戻す
-            this.style.transform = ''; // インラインスタイルをリセット
-        });
-    });
-    // スムーススクロールの実装 (既存LPより)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-    /* === お客様の声カルーセル機能の統合 === */
-    class LuxuryTestimonials {
-        constructor() {
-            this.track = document.getElementById('testimonialTrack');
-            this.prevBtn = document.getElementById('prevBtn');
-            this.nextBtn = document.getElementById('nextBtn');
-            this.indicatorsContainer = document.getElementById('indicators');
-            this.cards = this.track.querySelectorAll('.testimonial-card');
-            this.currentIndex = 0;
-            this.isAnimating = false;
-            this.autoplayInterval = null;
-            this.isTextMarked = false; // 新規追加: テキストマーカー適用済みフラグ
-            this.startX = 0;
-            this.currentTranslate = 0;
-            this.prevTranslate = 0;
-            this.animationID = null;
-            this.startY = 0; // 追加: 縦方向の開始座標
-            this.isScrollingVertically = false; // 追加: 縦スクロール中かどうかのフラグ
-            this.init();
-        }
-        init() {
-            this.createIndicators();
-            this.setupEventListeners();
-            this.startAutoplay();
-            this.animateStars();
-            this.applyDynamicTextMarker(); // ★新規追加: 動的マーカー適用関数を呼び出す
-        }
-        createIndicators() {
-            this.indicatorsContainer.innerHTML = ''; // インジケーターをクリア
-            this.cards.forEach((_, index) => {
-                const indicator = document.createElement('div');
-                indicator.className = `indicator ${index === 0 ? 'active' : ''}`;
-                indicator.addEventListener('click', () => this.goToSlide(index));
-                this.indicatorsContainer.appendChild(indicator);
-            });
-        }
-        setupEventListeners() {
-            this.prevBtn.addEventListener('click', () => this.prevSlide());
-            this.nextBtn.addEventListener('click', () => this.nextSlide());
-            
-            // ホバー時に自動再生を停止
-            const carousel = document.getElementById('testimonialCarousel');
-            carousel.addEventListener('mouseenter', () => this.stopAutoplay());
-            carousel.addEventListener('mouseleave', () => this.startAutoplay());
-            
-            // キーボードナビゲーション
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') this.prevSlide();
-                if (e.key === 'ArrowRight') this.nextSlide();
-            });
-            // マウス追従による3D傾斜効果を削除
-            // document.querySelectorAll('.testimonial-card').forEach(card => {
-            //     card.addEventListener('mousemove', function(e) {
-            //         const rect = this.getBoundingClientRect();
-            //         const x = e.clientX - rect.left;
-            //         const y = e.clientY - rect.top;
-                    
-            //         const centerX = rect.width / 2;
-            //         const centerY = rect.height / 2;
-                    
-            //         const rotateX = (y - centerY) / 20; // 傾斜の度合いを調整
-            //         const rotateY = (centerX - x) / 20;
-                    
-            //         this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            //     });
-                
-            //     card.addEventListener('mouseleave', function() {
-            //         this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-            //     });
-            // });
-            // スワイプジェスチャーイベントリスナー
-            this.track.addEventListener('touchstart', this.touchStart.bind(this));
-            this.track.addEventListener('touchmove', this.touchMove.bind(this));
-            this.track.addEventListener('touchend', this.touchEnd.bind(this));
-            this.track.addEventListener('touchcancel', this.touchEnd.bind(this));
-        }
-        touchStart(e) {
-            this.isAnimating = true; // アニメーション中フラグを設定
-            this.stopAutoplay();
-            this.startX = e.touches[0].clientX;
-            this.startY = e.touches[0].clientY; // 追加
-            this.prevTranslate = this.currentTranslate;
-            cancelAnimationFrame(this.animationID);
-            this.isScrollingVertically = false; // リセット
-        }
-        touchMove(e) {
-            if (!this.isAnimating) return;
-            const currentX = e.touches[0].clientX;
-            const currentY = e.touches[0].clientY; // 追加
-            const diffX = currentX - this.startX;
-            const diffY = currentY - this.startY; // 追加
-            // スクロール方向を判定
-            // 横方向の移動量が縦方向の移動量よりも大きい場合にのみ preventDefault() を呼び出す
-            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 10) { // 閾値10pxを設定
-                e.preventDefault(); // 横スクロールが優勢な場合のみデフォルトの縦スクロールを抑制
-                this.currentTranslate = this.prevTranslate + diffX;
-                this.setSliderPosition();
-            } else if (Math.abs(diffY) > Math.abs(diffX) && Math.abs(diffY) > 10) {
-                // 縦スクロールが優勢な場合は、何もせずブラウザのデフォルト動作を許可
-                this.isScrollingVertically = true; // 縦スクロール中フラグを設定
-                this.isAnimating = false; // カルースルアニメーションを停止
-                this.startAutoplay(); // オートプレイ再開
-            }
-        }
-        touchEnd() {
-            if (this.isScrollingVertically) { // 縦スクロール中に終了した場合はカルーセル操作を確定しない
-                this.isAnimating = false;
-                this.startAutoplay();
-                return;
-            }
-            this.isAnimating = false;
-            const movedBy = this.currentTranslate - this.prevTranslate;
-            if (movedBy < -100) { // 左にスワイプ
-                this.nextSlide();
-            } else if (movedBy > 100) { // 右にスвайプ
-                this.prevSlide();
-            } else { // 十分な移動がない場合は元の位置に戻す
-                this.goToSlide(this.currentIndex);
-            }
-            this.startAutoplay();
-        }
-        setSliderPosition() {
-            this.track.style.transform = `translateX(${this.currentTranslate}px)`;
-        }
-        goToSlide(index) {
-            if (this.isAnimating) return;
-            
-            this.isAnimating = true;
-            this.currentIndex = index;
-            
-            const cardWidth = this.cards[0].offsetWidth; // カードの幅を取得
-            const translateX = -index * cardWidth;
-            this.track.style.transform = `translateX(${translateX}px)`; // px単位で移動
-            this.currentTranslate = translateX; // 現在のtranslateを更新
-            this.prevTranslate = translateX; // PrevTranslateも更新
-            
-            setTimeout(() => {
-                this.isAnimating = false;
-            }, 800);
-            
-            this.updateIndicators();
-            this.updateButtons();
-        }
-        nextSlide() {
-            const nextIndex = (this.currentIndex + 1) % this.cards.length;
-            this.goToSlide(nextIndex);
-        }
-        prevSlide() {
-            const prevIndex = (this.currentIndex - 1 + this.cards.length) % this.cards.length;
-            this.goToSlide(prevIndex);
-        }
-        updateIndicators() {
-            const indicators = this.indicatorsContainer.querySelectorAll('.indicator');
-            indicators.forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === this.currentIndex);
-            });
-        }
-        updateButtons() {
-            // ループするカルーセルの場合、ボタンは常に有効
-            this.prevBtn.disabled = false;
-            this.nextBtn.disabled = false;
-        }
-        startAutoplay() {
-            this.stopAutoplay();
-            this.autoplayInterval = setInterval(() => {
-                if (this.currentIndex === this.cards.length - 1) {
-                    this.goToSlide(0);
-                } else {
-                    this.nextSlide();
-                }
-            }, 5000);
-        }
-        stopAutoplay() {
-            if (this.autoplayInterval) {
-                clearInterval(this.autoplayInterval);
-                this.autoplayInterval = null;
-            }
-        }
-        animateStars() {
-            const stars = document.querySelectorAll('.star.filled');
-            stars.forEach((star, index) => {
-                star.style.animation = 'starTwinkle 2s ease-in-out infinite';
-                star.style.animationDelay = `${index * 0.2}s`;
-            });
-        }
-        // ★新規追加: テキスト内容に基づいて動的にマーカーを適用する関数
-        applyDynamicTextMarker() {
-            if (this.isTextMarked) return; // 既に適用済みなら何もしない
-            this.isTextMarked = true;
-            // マーカーのパターンを定義
-            // { text: 検索するテキスト, className: 適用するクラス名 }
-            const markerPatterns = [
-                { text: "自分の体の状態を数値で見ることができ、生活習慣を見直すきっかけになりました。", className: "voice-highlight-dynamic" },
-                { text: "腸内環境の状態を知ることで、食事や生活習慣について考え直すことができました。", className: "voice-highlight-dynamic" },
-                { text: "自分の腸内環境の状態を知ることができました。", className: "voice-highlight-dynamic" },
-                { text: "検査結果で自分の状態を知ることができ、生活習慣について見直すことができました。", className: "voice-highlight-dynamic" }
-            ];
-            // 各testimonial-quote要素に対して処理
-            document.querySelectorAll('.testimonial-quote').forEach(quoteElement => {
-                let originalHtml = quoteElement.innerHTML;
-                let modifiedHtml = originalHtml;
-                markerPatterns.forEach(pattern => {
-                    // 正規表現で検索文字列をエスケープし、グローバル検索を有効にする
-                    const regex = new RegExp(`(${pattern.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'g');
-                    // 注意: すでにspanで囲まれている場合は二重にならないようにする
-                    // ただし、このチェックは簡易的なものなので、より厳密な実装が必要な場合はDOMパースなどが必要
-                    if (!modifiedHtml.includes(`<span class="${pattern.className}">`) && regex.test(originalHtml)) {
-                        modifiedHtml = modifiedHtml.replace(regex, `<span class="${pattern.className}">$1</span>`);
-                    }
-                });
-                if (originalHtml !== modifiedHtml) {
-                    quoteElement.innerHTML = modifiedHtml;
-                }
-            });
-        }
-    }
-    /* === 高級統計・信頼性セクション - JavaScript実装 === */
-    class LuxuryStatistics {
-        constructor() {
-            this.init();
-            /* setupIntersectionObserverForStats() は animateOnScroll と重複するため削除しました */
-        }
-        init() {
-            // カウントアップアニメーション
-            this.animateCounters();
-            this.animateProgressBars();
-            this.addMouseTrackingEffect(); // マウス追跡効果を追加
-        }
-        animateCounters() {
-            const counters = document.querySelectorAll('.trust-section [data-count]'); // trust-section内のカウンターのみ対象
-            
-            counters.forEach(counter => {
-                const target = parseInt(counter.dataset.count);
-                const duration = 2000;
-                const increment = target / (duration / 16);
-                let current = 0;
-                const updateCounter = () => {
-                    if (current < target) {
-                        current += increment;
-                        counter.textContent = Math.floor(current);
-                        counter.classList.add('counting');
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        counter.textContent = target;
-                        counter.classList.remove('counting');
-                        this.createCounterParticles(counter);
-                    }
-                };
-                // intersection observerで可視化された後にアニメーションを開始
-                counter.dataset.startAnimation = 'false'; // 初期状態
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting && entry.target.dataset.startAnimation === 'false') {
-                            entry.target.dataset.startAnimation = 'true';
-                            updateCounter();
-                            observer.unobserve(entry.target); // 一度実行したら監視を停止
-                        }
-                    });
-                }, { threshold: 0.7 }); // 70%見えたら発火
-                observer.observe(counter);
-            });
-        }
-        animateProgressBars() {
-            const progressBars = document.querySelectorAll('.trust-section .progress-bar'); // trust-section内のプログレスバーのみ対象
-            
-            progressBars.forEach((bar) => {
-                const progress = parseInt(bar.dataset.progress);
-                bar.dataset.startAnimation = 'false'; // 初期状態
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting && entry.target.dataset.startAnimation === 'false') {
-                            entry.target.dataset.startAnimation = 'true';
-                            entry.target.style.width = `${progress}%`;
-                            observer.unobserve(entry.target); // 一度実行したら監視を停止
-                        }
-                    });
-                }, { threshold: 0.7 }); // 70%見えたら発火
-                observer.observe(bar);
-            });
-        }
-        createCounterParticles(counter) {
-            // デバッグパネルでパーティクルがオフになっていたら再生しない
-            if (window.luxuryDebug && !luxuryDebug.isParticleEnabled()) {
-                return;
-            }
-            const rect = counter.getBoundingClientRect();
-            const particleCount = 5; // ★修正: 10から5に減らしました
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.style.position = 'fixed';
-                particle.style.left = rect.left + rect.width / 2 + 'px';
-                particle.style.top = rect.top + rect.height / 2 + Math.random() * 20 + 'px';
-                particle.style.width = '4px';
-                particle.style.height = '4px';
-                particle.style.background = 'var(--luxury-accent)';
-                particle.style.borderRadius = '50%';
-                particle.style.pointerEvents = 'none';
-                particle.style.zIndex = '1000';
-                particle.style.boxShadow = '0 0 10px var(--luxury-accent)';
-                
-                document.body.appendChild(particle);
-                
-                const angle = (Math.PI * 2 * i) / particleCount;
-                const distance = 50 + Math.random() * 50;
-                const endX = rect.left + rect.width / 2 + Math.cos(angle) * distance;
-                const endY = rect.top + rect.height / 2 + Math.sin(angle) * distance;
-                
-                particle.animate([
-                    { 
-                        transform: 'scale(1)',
-                        opacity: 1
-                    },
-                    { 
-                        transform: `translate(${endX - rect.left - rect.width/2}px, ${endY - rect.top - rect.height/2}px) scale(0)`,
-                        opacity: 0
-                    }
-                ], {
-                    duration: 1000,
-                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-                }).onfinish = () => particle.remove();
-            }
-        }
-        // 統計カードのマウス追従効果
-        addMouseTrackingEffect() {
-            const statCards = document.querySelectorAll('.trust-section .stat-card');
-            
-            statCards.forEach(card => {
-                card.addEventListener('mousemove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    
-                    const centerX = rect.width / 2;
-                    const centerY = rect.height / 2;
-                    
-                    const rotateX = (y - centerY) / 10;
-                    const rotateY = (centerX - x) / 10;
-                    
-                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
-                });
-                
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)';
-                });
-            }
-            );
-        }
-    }
-    /* === 高級統計・信頼性セクション - JavaScript実装 END === */
-    // 初期化を遅延させるためのオブザーバー
-    const sectionObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                if (entry.target.id === 'voice-section-js' && !window.luxuryTestimonialsInstance) {
-                    window.luxuryTestimonialsInstance = new LuxuryTestimonials();
-                }
-                if (entry.target.id === 'trust-section-js' && !window.luxuryStatisticsInstance) {
-                    window.luxuryStatisticsInstance = new LuxuryStatistics();
-                }
-                observer.unobserve(entry.target); // 一度初期化したら監視を停止
-            }
-        });
-    }, {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    });
-    // HTMLにIDがない場合は、要素を追加
-    // HTML内にIDが直接記載されているため、このチェックは不要または冗長になりますが、念のため残しておきます。
-    if (!document.getElementById('voice-section-js')) {
-        const voiceSection = document.querySelector('.voice-section');
-        if (voiceSection) voiceSection.id = 'voice-section-js';
-    }
-    if (!document.getElementById('trust-section-js')) {
-        const trustSection = document.querySelector('.trust-section');
-        if (trustSection) trustSection.id = 'trust-section-js';
-    }
-    sectionObserver.observe(document.getElementById('voice-section-js'));
-    sectionObserver.observe(document.getElementById('trust-section-js'));
-    
-    /* --- 申し込みフォームのJavaScriptここから --- */
-    class LuxuryForm {
-        constructor(formElement) {
-            this.form = formElement;
-            this.inputs = this.form.querySelectorAll('input:not([name="bot-field"])'); // bot-fieldを除外
-            this.submitBtn = this.form.querySelector('.luxury-submit-btn');
-            this.successDiv = document.getElementById('formSuccess');
-            this.addressStatus = document.getElementById('addressStatus');
-            
-            this.initEventListeners();
-            this.resetForm(); // 初期化時にフォームをリセット
-        }
-        initEventListeners() {
-            // リアルタイムバリデーション
-            this.inputs.forEach(input => {
-                input.addEventListener('input', () => this.validateInput(input));
-                input.addEventListener('blur', () => this.validateInput(input));
-            });
-            // 郵便番号自動補完
-            const zipcodeInput = document.getElementById('zipcode');
-            if (zipcodeInput) { // zipcode inputが存在する場合のみ
-                zipcodeInput.addEventListener('input', () => this.handleZipcodeInput());
-            }
-            // フォーム送信
-            // Netlify Formsにデータを送信するため、JavaScriptでのfetch送信ではなく、
-            // フォームのHTML属性に任せる形に変更します。
-            // したがって、handleSubmitの内容は成功メッセージの表示とリセットのみに絞り、
-            // 実際にはformのsubmitイベントが発火しNetlifyが処理します。
-            this.form.addEventListener('submit', (e) => this.handleLocalSubmit(e));
-            // 入力フィールドにフォーカス時のキラキラエフェクト
-            document.querySelectorAll('.floating-label-group input').forEach(input => {
-                input.addEventListener('focus', function() {
-                    createFocusSparkles(this);
-                });
-            });
-        }
-        validateInput(input) {
-            // .validation-icon はHTMLに存在しない場合があるため、ここでは直接扱わない
-            // ただし、以前の完全版のHTMLでは存在していたため、CSS定義は残しています。
-            const isValid = input.checkValidity() && input.value.trim() !== '';
-            
-            input.classList.remove('valid', 'invalid');
-            
-            if (input.value.trim() === '') {
-                return;
-            }
-            
-            if (isValid) {
-                input.classList.add('valid');
-                // .validation-icon の表示はCSSで制御されている
-                this.createValidationParticles(input);
-            } else {
-                input.classList.add('invalid');
-                // .validation-icon の表示はCSSで制御されている
-                this.shakeInput(input);
-            }
-        }
-        createValidationParticles(input) {
-            // デバッグパネルでパーティクルがオフになっていたら再生しない
-            if (window.luxuryDebug && !luxuryDebug.isParticleEnabled()) {
-                return;
-            }
-            const rect = input.getBoundingClientRect();
-            const particles = 3; // ★修正: 5から3に減らしました
-            
-            for (let i = 0; i < particles; i++) {
-                const particle = document.createElement('div');
-                particle.style.position = 'fixed';
-                particle.style.left = rect.right - 30 + Math.random() * 20 + 'px';
-                particle.style.top = rect.top + rect.height / 2 + Math.random() * 20 + 'px';
-                particle.style.width = '4px';
-                particle.style.height = '4px';
-                particle.style.background = 'var(--primary-green)';
-                particle.style.borderRadius = '50%';
-                particle.style.pointerEvents = 'none';
-                particle.style.zIndex = '1000';
-                particle.style.boxShadow = '0 0 10px var(--primary-green)'; /* var(--luxury-accent) に修正してもよい */
-                
-                document.body.appendChild(particle);
-                
-                // パーティクルアニメーション
-                particle.animate([
-                    { transform: 'scale(1) translateY(0)', opacity: 1 },
-                    { transform: 'scale(0) translateY(-30px)', opacity: 0 }
-                ], {
-                    duration: 800,
-                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-                }).onfinish = () => particle.remove();
-            }
-        }
-        shakeInput(input) {
-            input.animate([
-                { transform: 'translateX(0)' },
-                { transform: 'translateX(-10px)' },
-                { transform: 'translateX(10px)' },
-                { transform: 'translateX(-10px)' },
-                { transform: 'translateX(0)' }
-            ], {
-                duration: 500,
-                easing: 'ease-in-out'
-            });
-        }
-        async handleZipcodeInput() {
-            const zipcode = document.getElementById('zipcode').value.replace(/[^0-9]/g, '');
-            const addressInput = document.getElementById('address');
-            
-            // 郵便番号が7桁になったら検索を開始
-            if (zipcode.length === 7) {
-                if (this.addressStatus) { // addressStatus要素が存在する場合のみ
-                    this.showAddressStatus('住所を検索中...', 'loading');
-                }
-                
-                try {
-                    const result = await this.fetchAddress(zipcode);
-                    if (result) {
-                        addressInput.value = result;
-                        addressInput.removeAttribute('readonly');
-                        this.validateInput(addressInput);
-                        if (this.addressStatus) {
-                            this.showAddressStatus('住所が自動入力されました', 'success');
-                        }
-                        
-                        setTimeout(() => {
-                            if (this.addressStatus) this.hideAddressStatus();
-                        }, 3000);
-                    } else {
-                        this.handleAddressError();
-                    }
-                } catch (error) {
-                    this.handleAddressError();
-                }
-            } else {
-                addressInput.value = '';
-                addressInput.setAttribute('readonly', true);
-                if (this.addressStatus) this.hideAddressStatus();
-                // 郵便番号が7桁未満になったらバリデーション状態をリセット
-                const zipcodeInput = document.getElementById('zipcode');
-                zipcodeInput.classList.remove('valid', 'invalid');
-            }
-        }
-        // LPコードにあったマルチAPI対応のfetchAddressを移植
-        async fetchAddress(zipCode) {
-            return new Promise(async (resolve, reject) => {
-                const addressAPIs = [
-                    {
-                        name: 'zipcode-jp',
-                        fetch: () => {
-                            return new Promise((resolveInner, rejectInner) => {
-                                const callbackName = 'zipcode_callback_' + Date.now();
-                                const script = document.createElement('script');
-                                
-                                const timeoutId = setTimeout(() => {
-                                    cleanup();
-                                    rejectInner(new Error('タイムアウト'));
-                                }, 8000); // 8秒タイムアウト
-                                const cleanup = () => {
-                                    clearTimeout(timeoutId);
-                                    if (script.parentNode) {
-                                        document.head.removeChild(script);
-                                    }
-                                    delete window[callbackName];
-                                };
-                                window[callbackName] = (data) => {
-                                    cleanup();
-                                    try {
-                                        if (data && data.code === 200 && data.data) {
-                                            const address = `${data.data.prefecture}${data.data.city}${data.data.town || ''}`;
-                                            resolveInner({ success: true, address });
-                                        } else {
-                                            resolveInner({ success: false, message: '住所が見つかりませんでした (zipcode-jp)' });
-                                        }
-                                    } catch (error) {
-                                        rejectInner(error);
-                                    }
-                                };
-                                script.onerror = () => {
-                                    cleanup();
-                                    rejectInner(new Error('ネットワークエラー (zipcode-jp)'));
-                                };
-                                script.src = `https://zipcode-jp.com/${zipCode}.js?callback=${callbackName}`;
-                                document.head.appendChild(script);
-                            });
-                        }
-                    },
-                    {
-                        name: 'zipaddress.net',
-                        fetch: async () => {
-                            const url = `https://api.zipaddress.net/?zipcode=${zipCode}`;
-                            try {
-                                const response = await fetch(url, {
-                                    method: 'GET',
-                                    headers: {
-                                        'Accept': 'application/json',
-                                    }
-                                });
-                                if (!response.ok) {
-                                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-                                }
-                                const data = await response.json();
-                                if (data.code === 200 && data.data) {
-                                    const result = data.data;
-                                    const address = `${result.pref}${result.city}${result.town || ''}`;
-                                    return { success: true, address };
-                                } else {
-                                    return { success: false, message: '住所が見つかりませんでした (zipaddress.net)' };
-                                }
-                            } catch (error) {
-                                throw new Error(`検索に失敗しました: ${error.message} (zipaddress.net)`);
-                            }
-                        }
-                    }
-                ];
-                for (const api of addressAPIs) {
-                    try {
-                        const result = await api.fetch();
-                        if (result.success) {
-                            resolve(result.address);
-                            return;
-                        }
-                    } catch (error) {
-                        // console.error(`API ${api.name} failed:`, error); // デバッグ用
-                        continue;
-                    }
-                }
-                resolve(null); // 全てのAPIで失敗した場合
-            });
-        }
-        handleAddressError() {
-            const addressInput = document.getElementById('address');
-            addressInput.value = '';
-            addressInput.removeAttribute('readonly');
-            if (this.addressStatus) {
-                this.showAddressStatus('住所が見つかりません。手入力してください。', 'error');
-                setTimeout(() => this.hideAddressStatus(), 5000);
-            }
-        }
-        showAddressStatus(message, type) {
-            if (this.addressStatus) {
-                this.addressStatus.textContent = message;
-                this.addressStatus.className = `address-status visible ${type}`;
-            }
-        }
-        hideAddressStatus() {
-            if (this.addressStatus) {
-                this.addressStatus.classList.remove('visible');
-            }
-        }
-        // ★修正: Netlify Formsにデータを送信するための新しいハンドル関数
-        async handleLocalSubmit(e) {
-            e.preventDefault(); // デフォルトの送信を一時的に抑制
-            
-            // 全フィールドのバリデーション
-            let isFormValid = true;
-            this.inputs.forEach(input => {
-                this.validateInput(input);
-                if (!input.checkValidity() || input.value.trim() === '') {
-                    isFormValid = false;
-                }
-            });
-            if (!isFormValid) {
-                this.shakeForm();
-                return;
-            }
-            
-            // ローディング状態
-            this.submitBtn.classList.add('loading');
-            
-            // フォームデータをFormDataオブジェクトに変換
-            const formData = new FormData(this.form);
-            
-            // Netlify Formsに送信 (hidden iframeを使ってページ遷移なしで送信)
-            // または、JavaScriptのFetch APIで送信（Netlifyの推奨方法の一つ）
-            // Netlifyのドキュメント: https://docs.netlify.com/forms/setup/#submit-html-forms-with-ajax
-            try {
-                await fetch("/", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: new URLSearchParams(formData).toString(),
-                });
-                
-                // 成功処理
-                this.showSuccess();
-            } catch (error) {
-                console.error("Form submission error:", error);
-                alert("フォームの送信中にエラーが発生しました。もう一度お試しください。");
-                this.submitBtn.classList.remove('loading');
-            }
-        }
-        
-        shakeForm() {
-            this.form.animate([
-                { transform: 'translateX(0)' },
-                { transform: 'translateX(-10px)' },
-                { transform: 'translateX(10px)' },
-                { transform: 'translateX(-10px)' },
-                { transform: 'translateX(0)' }
-            ], {
-                duration: 500,
-                easing: 'ease-in-out'
-            });
-        }
-        showSuccess() {
-            this.form.style.display = 'none';
-            this.successDiv.classList.add('show');
-            this.createConfetti();
-            
-            // 効果音（ユーザーインタラクション後のみ）
-            this.playSuccessSound();
-        }
-        createConfetti() {
-            // デバッグパネルでパーティクルがオフになっていたら再生しない
-            if (window.luxuryDebug && !luxuryDebug.isParticleEnabled()) {
-                return;
-            }
-            // LPのグリーン系アクセントカラーと他の色を混ぜる
-            const colors = [
-                'var(--luxury-accent)', 
-                'var(--luxury-accent-dark)', 
-                '#98FB98', // 薄い緑
-                '#87CEEB', // 水色
-                'var(--highlight-yellow)'
-            ];
-            const confettiCount = 25; // ★修正: 50から25に減らしました
-            
-            for (let i = 0; i < confettiCount; i++) {
-                setTimeout(() => {
-                    const confetti = document.createElement('div');
-                    confetti.className = 'confetti';
-                    confetti.style.left = Math.random() * 100 + 'vw';
-                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                    confetti.style.animation = 'confetti-fall linear forwards';
-                    
-                    document.body.appendChild(confetti);
-                    
-                    setTimeout(() => confetti.remove(), 5000);
-                }, i * 50);
-            }
-        }
-        playSuccessSound() {
-            // デバッグパネルでパーティクルがオフになっていたら再生しない
-            if (window.luxuryDebug && !luxuryDebug.isSoundEnabled()) {
-                return;
-            }
-            try {
-                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                
-                // 成功音のメロディー
-                const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
-                
-                notes.forEach((freq, index) => {
-                    setTimeout(() => {
-                        const oscillator = audioContext.createOscillator();
-                        const gainNode = audioContext.createGain();
-                        
-                        oscillator.connect(gainNode);
-                        gainNode.connect(audioContext.destination);
-                        
-                        oscillator.frequency.setValueAtTime(freq, audioContext.currentTime);
-                        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
-                        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-                        
-                        oscillator.start(audioContext.currentTime);
-                        oscillator.stop(audioContext.currentTime + 0.3);
-                    }, index * 150);
-                });
-            } catch (error) {
-                // console.error("Success audio playback error:", error); // デバッグ用
-            }
-        }
-        // フォームのリセットメソッドをLuxuryFormクラスに追加
-        resetForm() {
-            this.form.reset(); // フォームの入力値をリセット
-            this.inputs.forEach(input => {
-                input.classList.remove('valid', 'invalid'); // バリデーション状態をリセット
-            });
-            if (this.addressStatus) this.hideAddressStatus(); // 住所ステータスを非表示に
-            this.successDiv.classList.remove('show'); // 成功メッセージを非表示に
-            this.form.style.display = 'block'; // フォームを再表示
-            this.submitBtn.classList.remove('loading'); // ローディング状態を解除
-        }
-    }
-    /* --- 申し込みフォームのJavaScriptここまで --- */
-    // CTAボタンとLuxuryFormの連携ロジック
-    let luxuryFormInstance = null; // LuxuryFormのインスタンスを保持する変数
-    const orderFormContainer = document.getElementById('order-form-direct'); // HTMLにid="order-form-direct"が定義されているため
-    const orderFormElement = orderFormContainer.querySelector('form');
-    
-    const ctaButtons = [
-        document.getElementById('cta-button-open-form-top'),
-        document.getElementById('cta-button-open-form-2'),
-        document.getElementById('cta-button-open-form-3')
-    ];
-    ctaButtons.forEach(button => {
-        if (button) {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (orderFormContainer.style.display === 'block') {
-                    // フォームが既に開いている場合は閉じる
-                    orderFormContainer.style.display = 'none';
-                    if (luxuryFormInstance) {
-                        luxuryFormInstance.resetForm(); // 閉じる時にリセット
-                    }
-                } else {
-                    // フォームを開く
-                    orderFormContainer.style.display = 'block';
-                    orderFormContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    
-                    // LuxuryFormを初期化またはリセット
-                    if (!luxuryFormInstance) {
-                        luxuryFormInstance = new LuxuryForm(orderFormElement);
-                    } else {
-                        luxuryFormInstance.resetForm();
-                    }
-                }
-            });
-        }
-    });
-    // フォーカス時のキラキラエフェクト関数 (LuxuryFormクラスの外部に定義)
-    function createFocusSparkles(input) {
-        // デバッグパネルでパーティクルがオフになっていたら再生しない
-        if (window.luxuryDebug && !luxuryDebug.isParticleEnabled()) {
-                return;
-            }
-        const rect = input.getBoundingClientRect();
-        const sparkleCount = 4; // ★修正: 8から4に減らしました
-        
-        for (let i = 0; i < sparkleCount; i++) {
-            const sparkle = document.createElement('div');
-            sparkle.style.position = 'fixed';
-            sparkle.style.left = rect.left + Math.random() * rect.width + 'px';
-            sparkle.style.top = rect.top + Math.random() * rect.height + 'px';
-            sparkle.style.width = '3px';
-            sparkle.style.height = '3px';
-            sparkle.style.background = 'var(--luxury-accent)';
-            sparkle.style.borderRadius = '50%';
-            sparkle.style.pointerEvents = 'none';
-            sparkle.style.zIndex = '1000';
-            sparkle.style.boxShadow = '0 0 6px var(--luxury-accent)';
-            
-            document.body.appendChild(sparkle);
-            
-            sparkle.animate([
-                { 
-                    transform: 'scale(0) rotate(0deg)', 
-                    opacity: 1 
-                },
-                { 
-                    transform: 'scale(1) rotate(180deg)', 
-                    opacity: 1,
-                    offset: 0.5
-                },
-                { 
-                    transform: 'scale(0) rotate(360deg)', 
-                    opacity: 0 
-                }
-            ], {
-                duration: 1000,
-                easing: 'ease-out'
-            }).onfinish = () => sparkle.remove();
-        }
-    }
-});
-
-
-// 開発用デバッグパネル（本番環境では自動的に無効）
-class LuxuryDebugPanel {
-    constructor() {
-        // ★セキュリティ対策: デバッグパネルはlocalhostでのみ表示し、本番環境では無効にする
-        const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-        const isDebugMode = window.location.search.includes('debug=true'); // debug=true パラメータがある場合
-        
-        if (isLocalhost || isDebugMode) { // ローカルホストまたは明示的なデバッグモードでのみ有効
-            this.createDebugPanel();
-            this.loadSettings();
-            this.applySettings();
-        } else {
-            // 非デバッグモードの場合、デフォルトで全て有効にする
-            this._isParticleEnabled = true;
-            this._isAnimationEnabled = true;
-            this._isSoundEnabled = true;
-            // アニメーション速度のCSS変数をデフォルト値に設定（必要に応じて）
-            const root = document.documentElement;
-            root.style.setProperty('--animation-speed-fast', '0.3s');
-            root.style.setProperty('--animation-speed-normal', '0.6s');
-            root.style.setProperty('--animation-speed-slow', '1.2s');
-        }
-    }
-    createDebugPanel() {
-        const panel = document.createElement('div');
-        panel.style.cssText = `
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: rgba(0,0,0,0.8);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            z-index: 10000;
-            font-family: Arial, sans-serif;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-        `;
-        panel.innerHTML = `
-            <h3 style="margin-top: 0; margin-bottom: 15px; font-size: 18px; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 10px;">エフェクト制御</h3>
-            <label style="display: block; margin-bottom: 10px;">
-                <input type="checkbox" id="debug-particles" checked style="margin-right: 8px;">パーティクル効果
-            </label>
-            <label style="display: block; margin-bottom: 10px;">
-                <input type="checkbox" id="debug-animations" checked style="margin-right: 8px;">アニメーション効果
-            </label>
-            <label style="display: block; margin-bottom: 15px;">
-                <input type="checkbox" id="debug-sounds" checked style="margin-right: 8px;">音響効果
-            </label>
-            <button onclick="location.reload()" style="background: var(--luxury-accent-dark); color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-size: 14px; transition: background 0.3s;">リロード</button>
-            <p style="font-size: 12px; margin-top: 15px; opacity: 0.7;">設定はリロード後に適用</p>
-        `;
-        document.body.appendChild(panel);
-        this.particleCheckbox = document.getElementById('debug-particles');
-        this.animationCheckbox = document.getElementById('debug-animations');
-        this.soundCheckbox = document.getElementById('debug-sounds');
-        this.particleCheckbox.addEventListener('change', () => this.saveSettings());
-        this.animationCheckbox.addEventListener('change', () => this.saveSettings());
-        this.soundCheckbox.addEventListener('change', () => this.saveSettings());
-    }
-    saveSettings() {
-        localStorage.setItem('debugParticles', this.particleCheckbox.checked);
-        localStorage.setItem('debugAnimations', this.animationCheckbox.checked);
-        localStorage.setItem('debugSounds', this.soundCheckbox.checked);
-    }
-    loadSettings() {
-        const particles = localStorage.getItem('debugParticles');
-        const animations = localStorage.getItem('debugAnimations');
-        const sounds = localStorage.getItem('debugSounds');
-        this.particleCheckbox.checked = (particles === 'true' || particles === null); // デフォルトは有効
-        this.animationCheckbox.checked = (animations === 'true' || animations === null); // デフォルトは有効
-        this.soundCheckbox.checked = (sounds === 'true' || sounds === null); // デフォルトは有効
-    }
-    applySettings() {
-        this._isParticleEnabled = this.particleCheckbox.checked;
-        this._isAnimationEnabled = this.animationCheckbox.checked;
-        this._isSoundEnabled = this.soundCheckbox.checked;
-        // アニメーションをグローバルに制御するCSS変数を設定
-        const root = document.documentElement;
-        if (this._isAnimationEnabled) {
-            root.style.setProperty('--animation-speed-fast', '0.3s');
-            root.style.setProperty('--animation-speed-normal', '0.6s');
-            root.style.setProperty('--animation-speed-slow', '1.2s');
-        } else {
-            root.style.setProperty('--animation-speed-fast', '0s');
-            root.style.setProperty('--animation-speed-normal', '0s');
-            root.style.setProperty('--animation-speed-slow', '0s');
-        }
-        // will-change も制御対象外とする (アニメーションが0sになるため実質不要だが念のため)
-        if (!this._isAnimationEnabled) {
-            document.querySelectorAll('[will-change]').forEach(el => {
-                el.style.willChange = 'unset';
-            });
-        }
-    }
-    isParticleEnabled() {
-        return this._isParticleEnabled;
-    }
-    isAnimationEnabled() {
-        return this._isAnimationEnabled;
-    }
-    isSoundEnabled() {
-        return this._isSoundEnabled;
+/* モバイル対応 */
+@media (max-width: 768px) {
+    .solution-point-item .point-media,
+    .safety-reason-item .safety-reason-image-wrapper,
+    .cause-reason-item .cause-reason-image-wrapper {
+        /* モバイル版のサイズを元に戻す */
+        height: 200px !important; /* point-mediaの元のモバイル値 */
+        width: 100% !important; /* point-mediaの元のモバイル値 */
+        max-width: 280px !important; /* point-mediaの元のモバイル値 */
+        min-height: auto !important; /* min-heightを削除 */
+        min-width: auto !important; /* min-widthを削除 */
     }
 }
-window.luxuryDebug = new LuxuryDebugPanel();
-```
 
----
+/* 安心・安全ポイントセクション専用の修正 */
+/* これらのセレクタは最も優先度が高いことに注意 */
+.safety-section .safety-reason-image-wrapper {
+    width: 250px !important; /* 元の値に戻す */
+    height: 250px !important; /* 元の値に戻す */
+}
 
-### **手順まとめ**
+.safety-section .safety-reason-image-wrapper picture,
+.safety-section .safety-reason-image-wrapper picture img,
+.safety-section .safety-reason-image-wrapper img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
 
-1.  上記「新しいファイル `style.css` の内容」をコピーし、`style.css` という名前で新しいテキストファイルを作成・保存します。
-2.  上記「変更後の `index.html` の内容」をコピーし、元の `NEO菌活 html.txt` の内容を上書きして `index.html` という名前で保存します。
-3.  `NEO菌活 js.txt` のファイル名を `script.js` に変更します（内容の変更は不要です）。
+/* 問題提起セクション専用の修正 */
+/* これらのセレクタは最も優先度が高いことに注意 */
+.problem-section .point-media {
+    width: 350px !important; /* 元の値に戻す */
+    height: 280px !important; /* 元の値に戻す */
+}
 
-これで、CSSは外部ファイルに移行され、ブラウザのキャッシュ機能が利用できるようになります。これにより、2回目以降のアクセスでCSSのダウンロードが不要になり、ページ表示が高速化するはずです。
-
-HTML内の**インラインスタイル (`style="..."`)** がいくつか残っていますが、これらはHTML要素に直接適用されているため、CSS外部化の初期ステップでは触れずにそのままにしています。これらは後からさらに最適化する際に、対応するCSSクラスに置き換えていくことで、よりクリーンなコードにできます。
-
-まずはこちらをお試しください。何か問題が発生した場合は、お知らせください。
+.problem-section .point-media picture,
+.problem-section .point-media picture img,
+.problem-section .point-media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
