@@ -1,0 +1,438 @@
+/* 基本リセットと全体スタイル */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans JP', sans-serif; /* Google Fontsを使用 */
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8; /* 全体の背景色 */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* 画像の下の余白をなくす */
+}
+
+a {
+    text-decoration: none;
+    color: inherit; /* リンクの色を親要素から継承 */
+}
+
+/* コンテナ */
+.container {
+    max-width: 960px; /* コンテンツの最大幅 */
+    margin: 0 auto; /* 中央寄せ */
+    padding: 0 20px; /* 左右に余白 */
+}
+
+/* セクション共通スタイル */
+.section {
+    padding: 60px 0; /* 上下のパディング */
+    text-align: center; /* デフォルトで中央揃え */
+}
+
+.section-gray {
+    background-color: #eee; /* グレー背景のセクション */
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+h1 {
+    font-size: 32px;
+    color: #007bff; /* メインカラーの例 */
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* CTAボタン */
+.cta-button {
+    display: inline-block;
+    background-color: #ff6f00; /* ボタンの背景色 */
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 15px 30px;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    background-color: #f57f17; /* ホバー時の色 */
+}
+
+.cta-button.large {
+    font-size: 30px;
+    padding: 20px 40px;
+    margin-top: 30px;
+}
+
+/* ヒーローセクション */
+.hero {
+    background: url('https://sb.aubstore.com/ab/img/base_20220831_2/bg_main.webp') no-repeat center center/cover; /* 背景画像 */
+    color: #fff; /* テキスト色 */
+    padding: 80px 0 40px; /* 上下のパディング */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* テキストに影 */
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 中央寄せ */
+}
+
+.hero h1 {
+    color: #fff; /* ヒーローセクションの見出し色 */
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.hero .sub-headline {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    margin-bottom: 20px;
+    max-width: 500px; /* 画像の最大幅 */
+}
+
+.hero .catchphrase {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+
+/* 問題提起セクション */
+.problem-solution .problems {
+    display: flex;
+    justify-content: center; /* 中央寄せ */
+    flex-wrap: wrap; /* 折り返し */
+    gap: 20px; /* アイテム間の隙間 */
+    margin-bottom: 40px;
+}
+
+.problem-item {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    font-weight: 700;
+    color: #555;
+}
+
+.problem-item img {
+    width: 24px;
+    margin-right: 10px;
+}
+
+.problem-solution .solution h3 {
+    color: #d32f2f; /* 強調色 */
+    font-size: 24px;
+    margin-top: 30px;
+}
+
+.problem-solution .solution img {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+/* 製品特徴/メリットセクション */
+.features .feature-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.feature-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 300px; /* アイテムの最大幅 */
+    text-align: left; /* テキストを左寄せ */
+}
+
+.feature-item img {
+    margin-bottom: 20px;
+    border-radius: 4px; /* 画像の角を丸く */
+}
+
+.feature-item h3 {
+    color: #007bff; /* ポイントの見出し色 */
+    font-size: 20px;
+}
+
+.feature-item p {
+    font-size: 16px;
+    color: #555;
+}
+
+
+/* 顧客の声セクション */
+.testimonial-items {
+    display: grid; /* グリッドレイアウト */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* レスポンシブ対応 */
+    gap: 30px;
+    text-align: left; /* テキストを左寄せ */
+}
+
+.testimonial-item {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-item img {
+    width: 80px; /* お客様画像のサイズ */
+    height: 80px;
+    border-radius: 50%; /* 丸くする */
+    object-fit: cover; /* 画像の比率を維持 */
+    margin-bottom: 15px;
+}
+
+.testimonial-item .voice-text {
+    font-style: italic; /* 斜体 */
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.testimonial-item .customer-info {
+    font-size: 14px;
+    text-align: right; /* お客様情報を右寄せ */
+    color: #777;
+}
+
+/* 商品詳細セクション */
+.product-details .details-content {
+    display: flex;
+    flex-wrap: wrap; /* 折り返し */
+    align-items: center;
+    gap: 40px; /* アイテム間の隙間 */
+    margin-bottom: 40px;
+}
+
+.product-details .details-content img {
+    flex: 1 1 300px; /* 伸縮・基準幅 */
+    max-width: 400px; /* 画像の最大幅 */
+    margin: 0 auto; /* 中央寄せ */
+}
+
+.product-details .details-text {
+    flex: 1 1 400px; /* 伸縮・基準幅 */
+    text-align: left;
+}
+
+.product-details .details-text h3 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+.product-details .supplementary-info {
+    text-align: left;
+    margin-top: 30px;
+    border-top: 1px dashed #ccc;
+    padding-top: 30px;
+}
+
+.supplementary-info h3 {
+    color: #007bff;
+}
+
+.supplementary-info table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.supplementary-info th, .supplementary-info td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.supplementary-info th {
+    background-color: #f2f2f2;
+    font-weight: 700;
+    width: 30%; /* 列幅の調整 */
+}
+
+.supplementary-info ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.supplementary-info li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+
+/* CTAセクション (価格) */
+.cta {
+    background-color: #ffeb3b; /* 目を引く背景色 */
+    color: #333;
+}
+
+.cta h2 {
+    color: #d32f2f; /* 強調色 */
+    font-size: 30px;
+}
+
+.price-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: inline-block; /* コンテンツに合わせて幅を調整 */
+    margin-bottom: 30px;
+}
+
+.price-label {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.regular-price {
+    font-size: 24px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.price-label.special {
+    font-size: 22px;
+    color: #d32f2f; /* 特別価格のラベル色 */
+    margin-bottom: 5px;
+}
+
+.special-price {
+    font-size: 48px;
+    font-weight: 700;
+    color: #d32f2f; /* 特別価格の色 */
+    margin-bottom: 10px;
+}
+
+.special-price span {
+    font-size: 24px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.tax-info {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.catchphrase-small {
+    font-size: 18px;
+    font-weight: 700;
+    color: #007bff; /* キャッチフレーズの色 */
+    margin-bottom: 20px;
+}
+
+.small-text {
+    font-size: 14px;
+    color: #555;
+    margin-top: 15px;
+}
+
+.guarantee-badge {
+    margin-top: 30px;
+}
+
+.guarantee-badge img {
+    max-width: 200px; /* バッジの最大幅 */
+    margin: 0 auto;
+}
+
+
+/* フッター */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px 0;
+    font-size: 14px;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column; /* 縦並び */
+    align-items: center;
+    gap: 10px; /* アイテム間の隙間 */
+}
+
+.footer-links a {
+    color: #ccc;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* スマートフォン対応 (簡易的なもの) */
+@media (max-width: 768px) {
+    h1 { font-size: 28px; }
+    h2 { font-size: 24px; }
+    h3 { font-size: 20px; }
+    .cta-button { font-size: 20px; padding: 12px 25px; }
+    .cta-button.large { font-size: 24px; padding: 15px 30px; }
+    .section { padding: 40px 0; }
+    .price-box { padding: 20px; }
+    .special-price { font-size: 40px; }
+    .special-price span { font-size: 20px; }
+
+    .problem-item {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+
+    .testimonial-items {
+        grid-template-columns: 1fr; /* 1列にする */
+    }
+
+    .product-details .details-content {
+         flex-direction: column; /* 縦並び */
+    }
+    .product-details .details-content img {
+        order: -1; /* 画像を上に移動 */
+    }
+
+    .footer .container {
+        text-align: center;
+    }
+    .footer-links {
+        margin-top: 10px;
+    }
+}
