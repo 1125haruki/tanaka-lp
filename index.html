@@ -26,6 +26,8 @@
     <!-- ここまでセキュリティ対策の追加・修正点 -->
 
 
+
+
     <style>
         :root {
             --primary-beige: #f9f7f1;
@@ -1254,7 +1256,7 @@
             font-size: clamp(15px, 2.5vw, 17px);
             color: var(--text-medium);
             line-height: 1.7;
-            /* text-align: center !important;  ★修正: PC版では削除し、モバイルメディアクエリ内に移動 */
+            /* text-align: center !important;  ★修正: PC版では削除し、モバイルメディアメディアクエリ内に移動 */
         }
         /* point-content内の箇条書きの視覚的強調 */
         .point-content ul li {
@@ -2414,6 +2416,10 @@
 
 
 
+
+
+
+
         @media (max-width: 768px) {
             .desktop-only-text { display: none; }
             .mobile-only-text { display: block; }
@@ -2524,24 +2530,6 @@
                                 <li style="font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; background-color: transparent; transition: background-color 0.3s ease, transform 0.3s ease; display: flex; align-items: center;">
                                     <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
                                     個人差が大きい分野です
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="solution-point-item animated-item delay-6 touch-feedback">
-                        <div class="point-media">
-                            <img src="chigai.jpg" alt="従来の腸活との違いのイメージ" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='var(--secondary-beige)';">
-                        </div>
-                        <div class="point-content">
-                            <h3>従来の腸活との<br>決定的な違い</h3>
-                            <ul style="list-style: none; padding: 0; text-align: left;">
-                                <li style="margin-bottom: 10px; font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; background-color: transparent; transition: background-color 0.3s ease, transform 0.3s ease; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
-                                    一般的な腸活 →<br class="mobile-only">なんとなく良さそう
-                                </li>
-                                <li style="font-size: clamp(16px, 2.5vw, 18px); color: var(--text-dark); line-height: 1.6; background-color: transparent; transition: background-color 0.3s ease, transform 0.3s ease; display: flex; align-items: center;">
-                                    <span style="font-size: 1.2em; font-weight: bold; color: var(--luxury-accent-dark); text-shadow: 1px 1px 4px rgba(76, 175, 80, 0.6); transition: color 0.3s ease; flex-shrink: 0; width: 1.2em; height: 1.2em; display: flex; align-items: center; justify-content: center; margin-right: 10px;">◆</span>
-                                    『はじめての菌活』 →<br class="mobile-only">あなた専用の科学的<br class="mobile-only">データに基づく情報提供
                                 </li>
                             </ul>
                         </div>
@@ -2952,6 +2940,8 @@
                         </p>
 
 
+
+
                         <div class="floating-label-group">
                             <input type="text" id="name" name="name" placeholder=" " required>
                             <label for="name">お名前</label>
@@ -2995,17 +2985,20 @@
                 </div>
             </div>
         </section>
-        <div class="luxury-divider"></div>
-        <!-- クロージングメッセージ -->
-        <section class="final-section" id="order">
-            <div class="container">
-                <p class="final-message animated-item" style="text-align: center;">
-                    長い間、答えを探し続けてきた<span class="final-message-highlight">あなたへ。</span><br>
-                    <span class="final-message-bold-italic">この一歩が、</span>5〜10年後の<br class="mobile-only">あなたの人生を<br class="mobile-only">より健康的にする出発点に<br class="mobile-only">なるかもしれません。
-                </p>
-            </div>
-        </section>
     </main>
+
+    <!-- ★★★ ここからが追加された隠しフォームです ★★★ -->
+    <!-- Netlify FormsがJavaScriptで送信されるフォームを検出するための隠しフォーム -->
+    <!-- このフォーム自体はユーザーには見えませんが、NetlifyがこのHTMLを解析してフォームを認識するために必要です -->
+    <form name="contact" netlify hidden>
+      <input type="text" name="name" />
+      <input type="text" name="zipcode" />
+      <input type="text" name="address" />
+      <input type="email" name="email" />
+      <input type="text" name="bot-field" /> <!-- ハニーポットフィールドも忘れずに -->
+    </form>
+    <!-- ★★★ ここまでが追加された隠しフォームです ★★★ -->
+
     <!-- 【10】販売者情報 -->
     <footer class="footer">
         <div class="container">
@@ -3316,6 +3309,7 @@
                     this.track.style.transform = `translateX(${translateX}px)`; // px単位で移動
                     this.currentTranslate = translateX; // 現在のtranslateを更新
                     this.prevTranslate = translateX; // PrevTranslateも更新
+                    
                     this.updateIndicators();
                     this.updateButtons();
                     
@@ -3773,6 +3767,10 @@
                                 }
                             }
                         ];
+
+
+
+
 
 
 
