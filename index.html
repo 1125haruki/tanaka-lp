@@ -28,6 +28,10 @@
 
 
 
+
+
+
+
     <style>
         :root {
             --primary-beige: #f9f7f1;
@@ -2425,6 +2429,14 @@
 
 
 
+
+
+
+
+
+
+
+
         @media (max-width: 768px) {
             .desktop-only-text { display: none; }
             .mobile-only-text { display: block; }
@@ -2951,6 +2963,14 @@
 
 
 
+
+
+
+
+
+
+
+
                         <div class="floating-label-group">
                             <input type="text" id="name" name="name" placeholder=" " required>
                             <label for="name">お名前</label>
@@ -2996,9 +3016,17 @@
         </section>
     </main>
 
-
-    <!-- 以前追加された隠しフォームは削除しました -->
-
+    <!-- ★★★ ここからが修正箇所(1)です ★★★ -->
+    <!-- Netlifyにフォームを認識させるための「隠しフォーム」を復活させました。 -->
+    <!-- このフォームはサイトの安定運用のために必要です。 -->
+    <form name="contact" netlify hidden>
+      <input type="text" name="name" />
+      <input type="text" name="zipcode" />
+      <input type="text" name="address" />
+      <input type="email" name="email" />
+      <input type="text" name="bot-field" /> <!-- ハニーポットフィールドも忘れずに -->
+    </form>
+    <!-- ★★★ ここまでが修正箇所(1)です ★★★ -->
 
     <!-- 【10】販売者情報 -->
     <footer class="footer">
@@ -3579,16 +3607,12 @@
                     if (zipcodeInput) { // zipcode inputが存在する場合のみ
                         zipcodeInput.addEventListener('input', () => this.handleZipcodeInput());
                     }
-                    // フォーム送信
-                    // ★修正: JavaScriptによるフォーム送信イベントリスナーを無効化（ユーザーの指示）
-                    // この行をコメントアウトすることで、フォームはJavaScriptで制御されず、
-                    // HTMLの標準的なフォーム送信として機能します。
-                    // そのため、LP側のJavaScriptによる成功メッセージ（「お申し込みありがとうございます！」）や
-                    // 紙吹雪のアニメーションは**表示されなくなります。**
-                    // 代わりに、Netlifyが用意するデフォルトのサンクスページに遷移するか、
-                    // NetlifyのForms設定で指定したリダイレクトURLに遷移します。
-                    // フォームデータの収集は、Netlify Formsによって行われます。
-                    // this.form.addEventListener('submit', (e) => this.handleLocalSubmit(e)); 
+
+                    // ★★★ ここからが修正箇所(2)です ★★★
+                    // JavaScriptによるフォーム送信処理を再度有効にしました。
+                    // これにより、郵便番号検索や送信完了アニメーションが正しく動作します。
+                    this.form.addEventListener('submit', (e) => this.handleLocalSubmit(e)); 
+                    // ★★★ ここまでが修正箇所(2)です ★★★
 
                     // 入力フィールドにフォーカス時のキラキラエフェクト
                     document.querySelectorAll('.floating-label-group input').forEach(input => {
@@ -3774,21 +3798,6 @@
                             }
                         ];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         for (const api of addressAPIs) {
                             try {
                                 const result = await api.fetch();
@@ -3824,15 +3833,10 @@
                         this.addressStatus.classList.remove('visible');
                     }
                 }
-                // ★修正: JavaScriptによるフォーム送信処理は行いません。
-                //         HTMLの標準的なフォーム送信に任せるため、この関数は呼ばれません。
-                //         LP側の成功メッセージやアニメーションは表示されなくなります。
                 async handleLocalSubmit(e) {
-                    e.preventDefault(); // デフォルトの送信を一時的に抑制 (この行は維持しますが、submitイベントリスナーが無効化されているため、実際には呼ばれません。)
+                    e.preventDefault(); // デフォルトの送信（ページ遷移）を抑制
                     
-                    // 全フィールドのバリデーション (このバリデーションは、イベントリスナーが無効化されているため、
-                    // フォーム送信時には機能しません。LP側のバリデーションが必要であれば、
-                    // inputイベントやblurイベントでのリアルタイムバリデーションのみが有効です。)
+                    // 全フィールドのバリデーション
                     let isFormValid = true;
                     this.inputs.forEach(input => {
                         this.validateInput(input);
@@ -3845,14 +3849,27 @@
                         return;
                     }
                     
-                    // この下のコードは、JavaScriptによるフォーム送信が有効な場合にのみ機能します。
-                    // 現在の修正では、これらの処理は実行されません。
-                    this.submitBtn.classList.add('loading'); // ローディング状態
-                    // const formData = new FormData(this.form);
-                    // await fetch("/", { ... });
-                    // this.showSuccess(); // 成功処理
+                    // ローディング状態
+                    this.submitBtn.classList.add('loading');
                     
-                    // このコメントブロックは、コード生成の目的のためであり、LPには含めません。
+                    // フォームデータをFormDataオブジェクトに変換
+                    const formData = new FormData(this.form);
+                    
+                    // Netlify Formsに送信
+                    try {
+                        await fetch("/", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                            body: new URLSearchParams(formData).toString(),
+                        });
+                        
+                        // 成功処理
+                        this.showSuccess();
+                    } catch (error) {
+                        console.error("Form submission error:", error);
+                        alert("フォームの送信中にエラーが発生しました。もう一度お試しください。");
+                        this.submitBtn.classList.remove('loading');
+                    }
                 }
                 
                 shakeForm() {
