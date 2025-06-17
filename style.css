@@ -471,10 +471,12 @@ body {
 
 
     .point-media {
-        width: 100% !important;
-        max-width: 250px !important; /* 少し小さくする */
-        height: 180px !important; /* 少し小さくする */
-        margin: 0 auto !important; /* 中央寄せを確実に */
+        width: 100% !important; /* 全幅に */
+        max-width: 250px !important; /* 最大幅を大きく */
+        height: 200px !important; /* 高さ調整 */
+        aspect-ratio: 1 / 1; /* ★追加: アスペクト比を1:1に設定 */
+        object-fit: cover !important; /* ★修正: !important を追加 */
+        margin: 0 auto !important; /* 中央寄せ */
         border-radius: 15px;
         flex-shrink: 0;
     }
@@ -521,8 +523,8 @@ body {
         margin-bottom: 12px;
         padding: 8px 12px;
         background-color: rgba(255, 255, 255, 0.8);
-        border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        border-radius: 8px; /* Added missing border-radius */
     }
 
 
@@ -608,17 +610,12 @@ body {
         gap: 20px;
         align-items: center; /* これを追加 */
     }
-    .cause-reason-image-wrapper {
-        width: 180px !important; /* 少し小さくする */
-        height: 180px !important; /* 少し小さくする */
-        margin: 0 auto;
-        border-radius: 8px;
-    }
+    .cause-reason-image-wrapper,
     .safety-reason-image-wrapper {
-        width: 220px !important; /* 少し小さくする */
-        height: 180px !important; /* 少し小さくする */
-        margin: 0 auto;
+        width: 150px;
+        height: 150px;
         border-radius: 8px;
+        margin: 0 auto;
     }
     /* .cause-reason-detail, .safety-reason-detail は別途定義 */
     .cause-reason-detail, /* 追加 */
@@ -2720,7 +2717,7 @@ body {
         /* モバイル版のサイズを元に戻す */
         height: 200px !important; /* point-mediaの元のモバイル値 */
         width: 100% !important; /* point-mediaの元のモバイル値 */
-        max-width: 280px !important; /* point-mediaの元のモバイル値 */
+        max-width: 250px !important; /* point-mediaの元のモバイル値 */
         min-height: auto !important; /* min-heightを削除 */
         min-width: auto !important; /* min-widthを削除 */
     }
