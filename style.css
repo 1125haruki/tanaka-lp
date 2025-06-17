@@ -1,3 +1,4 @@
+Generated css
 :root {
     --primary-beige: #f9f7f1;
     --secondary-beige: #f5f2e8;
@@ -457,7 +458,7 @@ body {
     .solution-point-item {
         flex-direction: column !important; /* 強制的に縦並び */
         gap: 20px;
-        padding: 25px 20px; /* パディングを調整 */
+        padding: 25px 15px; /* 左右のパディングを減らす */
         margin-bottom: 30px;
         text-align: center; /* 全体を中央揃え */
     }
@@ -468,10 +469,8 @@ body {
 
     .point-media {
         width: 100% !important; /* 全幅に */
-        max-width: 280px !important; /* 最大幅を大きく */
+        max-width: 300px !important; /* 最大幅を制限 */
         height: 200px !important; /* 高さ調整 */
-        aspect-ratio: 1 / 1; /* ★追加: アスペクト比を1:1に設定 */
-        object-fit: cover !important; /* ★修正: !important を追加 */
         margin: 0 auto !important; /* 中央寄せ */
         border-radius: 15px;
         flex-shrink: 0;
@@ -479,7 +478,7 @@ body {
 
     .point-content {
         width: 100% !important; /* 全幅に */
-        padding: 0 10px; /* 左右の余白を最小限に */
+        padding: 0 5px; /* 左右の余白を最小限に */
         text-align: center !important; /* 中央揃え */
         max-width: none; /* 最大幅制限を解除 */
     }
@@ -523,16 +522,60 @@ body {
         font-size: 1.1em;
     }
 
+    /* 安心・安全ポイントセクション専用の修正 */
+    .safety-section .safety-reason-image-wrapper {
+        width: 280px !important; /* サイズを小さく */
+        height: 200px !important; /* 高さを調整 */
+        margin: 0 auto !important; /* 中央寄せ */
+    }
+
+    .safety-reason-content {
+        flex-direction: column !important;
+        gap: 20px;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .safety-reason-detail {
+        flex-grow: 0;
+        margin: 0 auto;
+        text-align: center !important;
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    /* 菌活の重要性セクション */
+    .cause-reason-content {
+        flex-direction: column !important;
+        gap: 20px;
+        align-items: center !important;
+    }
+
+    .cause-reason-image-wrapper {
+        width: 200px !important; /* サイズを小さく */
+        height: 200px !important;
+        margin: 0 auto !important; /* 中央寄せ */
+    }
+
+    .cause-reason-detail {
+        flex-grow: 0;
+        margin: 0 auto;
+        text-align: center !important;
+        width: 100%;
+        padding: 0 10px;
+    }
+
     /* コンテナの余白も調整 */
-    .solution-point-container, .solution-point-container--spacing { /* ★修正: クラスも追加 */
+    .solution-point-container, 
+    .solution-point-container--spacing {
         margin: 30px 0;
-        padding: 0 15px; /* 左右の余白を追加 */
+        padding: 0 10px; /* 左右の余白を減らす */
     }
 
     /* 特定のセクションの調整 */
     .problem-section .solution-point-container,
     .safety-section .solution-point-container {
-        padding: 0 15px; /* より広い余白 */
+        padding: 0 10px; /* より狭い余白 */
     }
 
     /* 画像が表示されない場合の代替表示も調整 */
@@ -553,6 +596,36 @@ body {
         z-index: 2; /* 画像のレイヤーの上に表示 */
     }
 
+    /* 画像の表示を確実にする */
+    .point-media img,
+    .safety-reason-image-wrapper img,
+    .cause-reason-image-wrapper img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block !important;
+    }
+
+    /* picture要素も同様に */
+    .point-media picture,
+    .safety-reason-image-wrapper picture,
+    .cause-reason-image-wrapper picture {
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+    }
+
+    .point-media picture img,
+    .safety-reason-image-wrapper picture img,
+    .cause-reason-image-wrapper picture img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        border-radius: 13px !important;
+        display: block !important;
+    }
 
     /* .point-media:empty::before { /* こちらは汎用的な画像フォールバックなのでそのまま維持 */
         /* content: "📷";
@@ -588,12 +661,6 @@ body {
         font-size: 16px;
         margin-bottom: 15px;
         text-align: center;
-    }
-    .cause-reason-content,
-    .safety-reason-content {
-        flex-direction: column;
-        gap: 20px;
-        align-items: center; /* これを追加 */
     }
     .cause-reason-image-wrapper,
     .safety-reason-image-wrapper {
@@ -890,6 +957,7 @@ body {
     }
 } /* @media (max-width: 768px) の閉じタグ */
 
+
 /* 基本的なセクションスタイル (既存LPのものを残しつつ調整) */
 .problem-section,
 .cause-section,
@@ -1019,6 +1087,8 @@ body {
     color: var(--primary-blue);
     font-weight: 900;
 }
+
+
 
 
 /* 『はじめての菌活』の文字を黒文字かつ重ならないように調整 */
@@ -1171,6 +1241,7 @@ body {
     right: auto !important;
     bottom: auto !important;
 }
+
 
 .problem-circle picture img {
     width: 100% !important;
@@ -1370,6 +1441,7 @@ body {
     color: var(--luxury-accent);
 }
 
+
 .service-image {
     width: 500px;
     height: auto;
@@ -1457,6 +1529,8 @@ body {
     50% { box-shadow: 0 0 25px rgba(76, 175, 80, 0.7), 0 0 35px rgba(76, 175, 80, 0.5); }
     100% { box-shadow: 0 4px 15px var(--luxury-shadow-color); }
 }
+
+
 
 
 /* 高級統計・信頼性セクション - 新規追加CSS */
@@ -1633,6 +1707,8 @@ body {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
 }
+
+
 
 
 .trust-section > * {
@@ -1998,6 +2074,8 @@ body {
 }
 
 
+
+
 .safety-reasons-container {
     display: flex;
     flex-direction: column;
@@ -2103,6 +2181,7 @@ body {
     object-position: center !important;
 }
 
+
 /* 5. 画像コンテナのサイズを確実に設定 */
 .point-media,
 .safety-reason-image-wrapper,
@@ -2115,6 +2194,7 @@ body {
     /* width, height は個別のセレクタや親のフレックスアイテムで制御 */
     /* !important を多用するとレイアウト崩れの原因になるため削除 */
 }
+
 
 .cta-title {
     font-size: clamp(38px, 7vw, 46px);
@@ -2298,6 +2378,7 @@ body {
 .form-initial-hidden {
     display: none;
 }
+
 
 .luxury-form-container::before {
     content: '';
@@ -2555,17 +2636,20 @@ body {
     .mobile-only-text { display: block; }
 }
 
+
 /* ★追加: インラインスタイルを移行したクラス */
 .solution-text--spacing {
     margin-top: 50px;
     padding: 25px;
 }
 
+
 .point-content-ul {
     list-style: none;
     padding: 0;
     text-align: left;
 }
+
 
 .point-content-li {
     margin-bottom: 10px;
@@ -2579,6 +2663,7 @@ body {
     text-align: left; /* テキストは左揃えを維持 */
     justify-content: flex-start; /* ★追加: 左寄せに */
 }
+
 
 .point-content-li-span {
     font-size: 1.2em;
@@ -2595,22 +2680,27 @@ body {
     margin-right: 10px; /* アイコンとテキストの間の余白 */
 }
 
+
 .point-content-li:hover {
     background-color: var(--luxury-green-light);
     border-radius: 5px;
     transform: translateX(5px);
 }
 
+
 .point-content-li:hover .point-content-li-span {
     color: var(--luxury-accent);
 }
+
 
 /* solution-point-container のインラインスタイル対応 */
 .solution-point-container--spacing {
     margin-top: 50px;
 }
 
+
 /* 最終的な画像サイズ修正 - CSSファイルの最後に追加 */
+
 
 /* picture要素とimg要素の両方に対する修正 */
 /* これらのルールは冗長になる可能性が高いため、よりシンプルな形に戻す */
@@ -2622,6 +2712,7 @@ body {
     display: block !important;
     /* position: absolute !important; top, left, right, bottom は削除 */
 }
+
 
 /* 画像要素自体の修正 */
 /* ここで主にobject-fit: cover を強制する */
@@ -2640,6 +2731,7 @@ body {
     /* position: absolute !important; top, left, right, bottom は削除 */
 }
 
+
 /* 画像コンテナの設定 */
 /* レイアウトを崩さないよう、既存の定義を尊重しつつ調整 */
 .point-media,
@@ -2654,6 +2746,7 @@ body {
     /* !important を多用するとレイアウト崩れの原因になるため削除 */
 }
 
+
 /* 特別に問題がある箇所の強制修正 */
 /* 元のサイズ定義に戻す */
 .solution-point-item .point-media,
@@ -2666,6 +2759,7 @@ body {
     width: 40%; /* point-mediaの元の値 */
     /* safety-reason-image-wrapperは個別の定義があるので、ここでは一般的なものとして扱う */
 }
+
 
 /* モバイル対応 */
 @media (max-width: 768px) {
@@ -2681,12 +2775,14 @@ body {
     }
 }
 
+
 /* 安心・安全ポイントセクション専用の修正 */
 /* これらのセレクタは最も優先度が高いことに注意 */
 .safety-section .safety-reason-image-wrapper {
     width: 250px !important; /* 元の値に戻す */
     height: 250px !important; /* 元の値に戻す */
 }
+
 
 .safety-section .safety-reason-image-wrapper picture,
 .safety-section .safety-reason-image-wrapper picture img,
@@ -2697,12 +2793,14 @@ body {
     object-position: center !important;
 }
 
+
 /* 問題提起セクション専用の修正 */
 /* これらのセレクタは最も優先度が高いことに注意 */
 .problem-section .point-media {
     width: 350px !important; /* 元の値に戻す */
     height: 280px !important; /* 元の値に戻す */
 }
+
 
 .problem-section .point-media picture,
 .problem-section .point-media picture img,
@@ -2712,4 +2810,122 @@ body {
     object-fit: cover !important;
     object-position: center !important;
 }
+/* 既存のモバイル用メディアクエリ内に以下を追加または修正 */
+@media (max-width: 768px) {
+    
+    /* 左右交互レイアウトのモバイル調整を強化 */
+    .solution-point-item {
+        flex-direction: column !important; /* 強制的に縦並び */
+        gap: 20px;
+        padding: 25px 15px; /* 左右のパディングを減らす */
+        margin-bottom: 30px;
+        text-align: center; /* 全体を中央揃え */
+    }
 
+    .solution-point-item:nth-child(even) {
+        flex-direction: column !important; /* 反転も解除 */
+    }
+
+    .point-media {
+        width: 100% !important; /* 全幅に */
+        max-width: 300px !important; /* 最大幅を制限 */
+        height: 200px !important; /* 高さ調整 */
+        margin: 0 auto !important; /* 中央寄せ */
+        border-radius: 15px;
+        flex-shrink: 0;
+    }
+
+    .point-content {
+        width: 100% !important; /* 全幅に */
+        padding: 0 5px; /* 左右の余白を最小限に */
+        text-align: center !important; /* 中央揃え */
+        max-width: none; /* 最大幅制限を解除 */
+    }
+
+    /* 安心・安全ポイントセクション専用の修正 */
+    .safety-section .safety-reason-image-wrapper {
+        width: 280px !important; /* サイズを小さく */
+        height: 200px !important; /* 高さを調整 */
+        margin: 0 auto !important; /* 中央寄せ */
+    }
+
+    .safety-reason-content {
+        flex-direction: column !important;
+        gap: 20px;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .safety-reason-detail {
+        flex-grow: 0;
+        margin: 0 auto;
+        text-align: center !important;
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    /* 菌活の重要性セクション */
+    .cause-reason-content {
+        flex-direction: column !important;
+        gap: 20px;
+        align-items: center !important;
+    }
+
+    .cause-reason-image-wrapper {
+        width: 200px !important; /* サイズを小さく */
+        height: 200px !important;
+        margin: 0 auto !important; /* 中央寄せ */
+    }
+
+    .cause-reason-detail {
+        flex-grow: 0;
+        margin: 0 auto;
+        text-align: center !important;
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    /* コンテナの余白も調整 */
+    .solution-point-container, 
+    .solution-point-container--spacing {
+        margin: 30px 0;
+        padding: 0 10px; /* 左右の余白を減らす */
+    }
+
+    /* 特定のセクションの調整 */
+    .problem-section .solution-point-container,
+    .safety-section .solution-point-container {
+        padding: 0 10px; /* より狭い余白 */
+    }
+
+    /* 画像の表示を確実にする */
+    .point-media img,
+    .safety-reason-image-wrapper img,
+    .cause-reason-image-wrapper img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        display: block !important;
+    }
+
+    /* picture要素も同様に */
+    .point-media picture,
+    .safety-reason-image-wrapper picture,
+    .cause-reason-image-wrapper picture {
+        width: 100% !important;
+        height: 100% !important;
+        display: block !important;
+    }
+
+    .point-media picture img,
+    .safety-reason-image-wrapper picture img,
+    .cause-reason-image-wrapper picture img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        border-radius: 13px !important;
+        display: block !important;
+    }
+}
