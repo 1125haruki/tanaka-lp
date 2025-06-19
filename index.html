@@ -1,760 +1,686 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 【1】キャッチコピー & 商品名 -->
-    <title>はじめての菌活 - 長年の不調を、腸から根本改善</title>
-    <meta name="description" content="慢性不調の70%は腸内環境の乱れが原因でした。薬では治らない理由が、ついに判明。対症療法から卒業。あなた専用の腸活データが教える、本当に整える科学的アプローチ。">
-    
-    <!-- ここからセキュリティ対策の追加・修正点 -->
-    <!-- CSP (Content Security Policy) の追加 -->
-    <meta http-equiv="Content-Security-Policy" content="
-        default-src 'self';
-        script-src 'self' 'unsafe-inline' https://zipcode-jp.com https://api.zipaddress.net https://www.clarity.ms;
-        style-src 'self' 'unsafe-inline';
-        img-src 'self' data:;
-        font-src 'self';
-        connect-src 'self' https://zipcode-jp.com https://api.zipaddress.net https://www.clarity.ms;
-        frame-ancestors 'none';
-        base-uri 'self';
-    ">
-    <!-- ここまでセキュリティ対策の追加・修正点 -->
-
-
-    <!-- ★★★ ここが変更点です！CSSを外部ファイルから読み込みます ★★★ -->
-    <link rel="stylesheet" href="style.css">
-    <!-- ★★★ ここが変更点です！CSSを外部ファイルから読み込みます ★★★ -->
-
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>はじめての菌活 - 長年の不調を、腸から根本改善</title>
+<meta name="description" content="慢性不調の70%は腸内環境の乱れが原因でした。薬では治らない理由が、ついに判明。対症療法から卒業。あなた専用の腸活データが教える、本当に整える科学的アプローチ。">
+<!-- ▼▼▼ 修正箇所 ▼▼▼ -->
+<meta http-equiv="Content-Security-Policy" content="
+    default-src 'self' 'unsafe-inline' 'unsafe-eval';
+    connect-src 'self' https:;
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https:;
+">
+<!-- ▲▲▲ 修正箇所 ▲▲▲ -->
+<link rel="stylesheet" href="style.css">
 </head>
+
+
+
+
 <body>
-    <!-- Microsoft Clarity Tracking Code START -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "s0xbfe38ku");
-    </script>
-    <!-- Microsoft Clarity Tracking Code END -->
-    <!-- ローディング画面 -->
-    <div id="loading-overlay">
-        <div class="luxury-spinner"></div>
-        <div class="loading-text">高級菌活体験を準備中...</div>
-    </div>
-    <!-- プログレスバー -->
-    <div id="progress-bar"></div>
-    <main id="main-content">
-        <!-- ヒーローセクション -->
-        <section class="hero" role="banner">
-            <!-- ヒーローイメージを最上部に配置し、first5.pngに変更 -->
-            <!-- この画像がキャッチコピー、メインタイトル、サブコピーのテキストを含んでいるため、HTMLのテキスト要素は削除 -->
-            <div class="hero-image animated-item delay-0 touch-feedback">
-                <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                <picture>
-                    <source srcset="first5.webp" type="image/webp">
-                    <img src="first5.png" alt="はじめての菌活 検査キット" loading="lazy">
-                </picture>
-                <!-- ★★★ ここまで変更点です ★★★ -->
-            </div>
-            <div class="container">
-                <a href="javascript:void(0)" id="cta-button-open-form-top" class="cta-button-image-link animated-item delay-1 touch-feedback">
-                    <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                    <picture>
-                        <source srcset="CTA2.webp" type="image/webp">
-                        <img src="CTA2.png" alt="申し込みは簡単3ステップ - 長年の疑問の答えが、きっとここにある" class="cta-button-image" loading="lazy">
-                    </picture>
-                    <!-- ★★★ ここまで変更点です ★★★ -->
-                </a>
-            </div>
-        </section>
-        <div class="luxury-divider"></div>
-        <!-- 冒頭部分（問題提起） -->
-        <section class="problem-section">
-            <div class="container">
-                <!-- PC表示用 -->
-                <p class="problem-quote animated-item desktop-only-text">
-                    薬に頼り続ける人生から、<br>いつになったら解放されるの？
-                </p>
-                <!-- スマホ表示用 -->
-                <p class="problem-quote animated-item mobile-only-text">
-                    薬に頼り続ける<br>人生から、<br>いつになったら<br>解放されるの？
-                </p>
-                
-                <ul class="problem-list animated-item delay-1">
-                    <li class="animated-item delay-1">
-                        <span>✓</span>
-                        アトピー・アレルギー・慢性疲労…どれも"症状を抑える"だけで根本解決できていない
-                    </li>
-                    <li class="animated-item delay-2">
-                        <span>✓</span>
-                        昔は自然に治ったのに、今は薬なしでは過ごせない
-                    </li>
-                    <li class="animated-item delay-3">
-                        <span>✓</span>
-                        不妊治療を続けているのに、なかなか結果が出ない
-                    </li>
-                    <li class="animated-item delay-4">
-                        <span>✓</span>
-                        花粉症の薬を飲み続けて10年、根本的に治したい
-                    </li>
-                    <li class="animated-item delay-5">
-                        <span>✓</span>
-                        知覚過敏で歯磨きが辛く, 口の中の環境も気になる
-                    </li>
-                </ul>
-                
-                <div class="problem-circle animated-item delay-2 touch-feedback">
-                    <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                    <picture>
-                        <source srcset="biyo2.webp" type="image/webp">
-                        <img src="biyo2.jpg" alt="薬では治らない理由が、ついに判明。" onerror="this.style.display='none'; this.parentElement.innerHTML='💊';" loading="lazy">
-                    </picture>
-                    <!-- ★★★ ここまで変更点です ★★★ -->
-                </div>
-                
-                <!-- 腸内細菌の基礎知識 -->
-                <!-- PC表示用 -->
-                <p class="problem-text animated-item delay-3 slide-in-text desktop-only-text">
-                    注目されている<br><span class="highlight-yellow">「腸内細菌のバランス」</span>
-                </p>
-                <!-- スマホ表示用 -->
-                <p class="problem-text animated-item delay-3 slide-in-text mobile-only-text">
-                    注目されている<br><span class="highlight-yellow">「腸内細菌の<br>バランス」</span>
-                </p>
-                
-                <div class="solution-point-container">
-                    <div class="solution-point-item animated-item delay-4 touch-feedback">
-                        <div class="point-media">
-                            <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                            <picture>
-                                <source srcset="chounai.webp" type="image/webp">
-                                <img src="chounai.jpg" alt="腸内環境のイメージ" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='var(--secondary-beige)';" loading="lazy">
-                            </picture>
-                            <!-- ★★★ ここまで変更点です ★★★ -->
-                        </div>
-                        <div class="point-content">
-                            <h3>腸内環境＝健康的な<br>生活の土台として<br class="mobile-only">注目されています</h3>
-                            <p>最新の"<span class="blue-text">腸活</span>"は、<br>体の内側からのアプローチ</p>
-                        </div>
-                    </div>
-                    <div class="solution-point-item animated-item delay-5 touch-feedback">
-                        <div class="point-media">
-                            <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                            <picture>
-                                <source srcset="saikin.webp" type="image/webp">
-                                <img src="saikin.jpg" alt="腸内細菌のイメージ" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='var(--secondary-beige)';" loading="lazy">
-                            </picture>
-                            <!-- ★★★ ここまで変更点です ★★★ -->
-                        </div>
-                        <div class="point-content">
-                            <h3>腸内細菌は<br class="mobile-only">私たちの体に密接に<br class="mobile-only">関わっています</h3>
-                            <!-- ★★★ 修正箇所: ここからインラインスタイルを削除します ★★★ -->
-                            <ul class="point-content-ul">
-                                <li class="point-content-li">
-                                    <span class="point-content-li-span">◆</span>
-                                    体のバランス維持に<br class="mobile-only">関わる要素の一つ
-                                </li>
-                                <li class="point-content-li">
-                                    <span class="point-content-li-span">◆</span>
-                                    日々の生活習慣と関連があります
-                                </li>
-                                <li class="point-content-li">
-                                    <span class="point-content-li-span">◆</span>
-                                    食事や環境の影響を<br class="mobile-only">受けます
-                                </li>
-                                <li class="point-content-li">
-                                    <span class="point-content-li-span">◆</span>
-                                    個人差が大きい分野です
-                                </li>
-                            </ul>
-                            <!-- ★★★ ここまで修正箇所です ★★★ -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="luxury-divider"></div>
-        <!-- 『はじめての菌活』検査キット -->
-        <section class="service-section">
-            <div class="container">
-                <h2 class="section-title animated-item">『はじめての菌活』<br>検査キット</h2>
-                
-                <div class="service-image animated-item touch-feedback">
-                    <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                    <picture>
-                        <source srcset="medicine.webp" type="image/webp">
-                        <img src="medicine.jpg" alt="はじめての菌活 検査キット" onerror="this.style.display='none'; this.parentElement.innerHTML='🧪';" loading="lazy">
-                    </picture>
-                    <!-- ★★★ ここまで変更点です ★★★ -->
-                </div>
-                
-                <a href="javascript:void(0)" id="cta-button-open-form-2" class="cta-button-image-link animated-item delay-1 touch-feedback">
-                    <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                    <picture>
-                        <source srcset="CTA2.webp" type="image/webp">
-                        <img src="CTA2.png" alt="申し込みは簡単3ステップ - 長年の疑問の答えが、きっとここにある" class="cta-button-image" loading="lazy">
-                    </picture>
-                    <!-- ★★★ ここまで変更点です ★★★ -->
-                </a>
-            </div>
-        </section>
-       <div class="luxury-divider"></div>
-        <!-- サービスの流れ（4ステップ） -->
-        <section class="steps-section">
-            <div class="container">
-                <h2 class="section-title animated-item">サービスの流れ</h2>
-                
-                <div class="steps-grid">
-                    <div class="step-item animated-item delay-1 touch-feedback">
-                        <div class="step-number" aria-label="ステップ1">1</div>
-                        <h3 class="step-title">検査キットを自宅へお届け</h3>
-                        <p class="step-description">ご自宅に便の検査キットをお送りします</p>
-                    </div>
-                    
-                    <div class="step-item animated-item delay-2 touch-feedback">
-                        <div class="step-number" aria-label="ステップ2">2</div>
-                        <h3 class="step-title">採取して返送</h3>
-                        <p class="step-description">簡単に採取して、<br>付属の返送用封筒で送り返すだけ</p>
-                    </div>
-                    
-                    <div class="step-item animated-item delay-3 touch-feedback">
-                        <div class="step-number" aria-label="ステップ3">3</div>
-                        <h3 class="step-title">菌を1つ1つ専門機関で分析</h3>
-                        <p class="step-description">高度な技術により、<br>あなたの菌を詳細に分析</p>
-                    </div>
-                    
-                    <div class="step-item animated-item delay-4 touch-feedback">
-                        <div class="step-number" aria-label="ステップ4">4</div>
-                        <h3 class="step-title">あなた専用の菌レポート＋<span class="no-wrap-text">生活習慣の提案</span></h3>
-                        <p class="step-description">分析結果とあなたに参考となる<br>生活習慣の情報をお届け</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="luxury-divider"></div>
-        <!-- 実績・信頼性セクション -->
-        <section class="trust-section" id="trust-section-js">
-            <div class="container">
-                <h2 class="section-title animated-item">実績・信頼性</h2>
-                <!-- <p class="section-subtitle animated-item delay-1">
-                    数字が証明する確かな実績と信頼
-                </p> --> <!-- 削除 -->
-                <!-- 統計グリッド -->
-                <div class="stats-grid">
-                    <div class="stat-card animated-item delay-2 touch-feedback">
-                        <div class="stat-icon">
-                            <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                            <picture>
-                                <source srcset="taiken.webp" type="image/webp">
-                                <img src="taiken.png" alt="100名以上が体験" loading="lazy">
-                            </picture>
-                            <!-- ★★★ ここまで変更点です ★★★ -->
-                        </div>
-                        <div class="stat-number" data-count="100">0</div>
-                        <div class="stat-label">名以上が体験</div>
-                        <div class="stat-description">全国のお客様から選ばれ続けています</div>
-                        <div class="progress-container">
-                            <div class="progress-bar" data-progress="95"></div>
-                        </div>
-                    </div>
-                    <div class="stat-card animated-item delay-3 touch-feedback">
-                        <div class="stat-icon">
-                            <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                            <picture>
-                                <source srcset="manzoku.webp" type="image/webp">
-                                <img src="manzoku.png" alt="98% 満足度" loading="lazy">
-                            </picture>
-                            <!-- ★★★ ここまで変更点です ★★★ -->
-                        </div>
-                        <div class="stat-number" data-count="98">0</div>
-                        <div class="stat-label">％ 満足度</div>
-                        <div class="stat-description">お客様アンケート結果</div> <!-- 削除 -->
-                        <div class="progress-container">
-                            <div class="progress-bar" data-progress="98"></div>
-                        </div>
-                    </div>
-                    <div class="stat-card animated-item delay-4 touch-feedback">
-                        <div class="stat-icon">
-                            <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                            <picture>
-                                <source srcset="bunseki.webp" type="image/webp">
-                                <img src="bunseki.png" alt="300種類の分析項目" loading="lazy">
-                            </picture>
-                            <!-- ★★★ ここまで変更点です ★★★ -->
-                        </div>
-                        <div class="stat-number" data-count="300">0</div>
-                        <div class="stat-label">種類の分析項目</div>
-                        <div class="stat-description">専門機関による詳細分析</div>
-                        <div class="progress-container">
-                            <div class="progress-bar" data-progress="100"></div>
-                        </div>
-                    </div>
-                    <div class="stat-card animated-item delay-5 touch-feedback">
-                        <div class="stat-icon">
-                            <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                            <picture>
-                                <source srcset="kouka.webp" type="image/webp">
-                                <img src="kouka.png" alt="92% 効果実感" loading="lazy">
-                            </picture>
-                            <!-- ★★★ ここまで変更点です ★★★ -->
-                        </div>
-                        <div class="stat-number" data-count="92">0</div>
-                        <div class="stat-label">％ 効果実感</div>
-                        <div class="stat-description">継続利用者の実感</div> <!-- 削除 -->
-                        <div class="progress-container">
-                            <div class="progress-bar" data-progress="92"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div class="luxury-divider"></div>
-        <!-- お客様の声（VOICE）セクション -->
-        <section class="voice-section" id="voice-section-js">
-            <div class="container">
-                <div class="luxury-testimonials">
-                    <h2 class="testimonials-title animated-item">お客様の輝く<br>変化ストーリー</h2>
-                    
-                    <div class="testimonials-carousel" id="testimonialCarousel">
-                        <div class="testimonials-track" id="testimonialTrack">
-                            <!-- VOICE 01 -->
-                            <div class="testimonial-card animated-item delay-1 touch-feedback">
-                                <div class="testimonial-profile">
-                                    <div class="profile-image-container">
-                                        <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                                        <picture>
-                                            <source srcset="voice01.webp" type="image/webp">
-                                            <img src="voice01.jpg" alt="40代 主婦 Mさん" class="profile-image touch-feedback" loading="lazy">
-                                        </picture>
-                                        <!-- ★★★ ここまで変更点です ★★★ -->
-                                    </div>
-                                    <div class="profile-name">主婦 M さん</div>
-                                    <div class="profile-info">40代</div>
-                                    <div class="rating-stars">
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                    </div>
-                                </div>
-                                <div class="testimonial-content">
-                                    <div class="testimonial-quote">
-                                        腸内環境について詳しく知ることができました。<span class="voice-highlight">自分の体の状態を数値で見ることができ、生活習慣を見直すきっかけになりました。</span>継続して取り組んでいます。
-                                    </div>
-                                    <div class="qa-section">
-                                        <div class="qa-item">
-                                            <div class="question">購入のきっかけは？</div>
-                                            <div class="answer">長年体調のことが気になっており、根本的な部分から見直したいと思っていました。</div>
-                                        </div>
-                                        <div class="qa-item">
-                                            <div class="question">どんな人におすすめ？</div>
-                                            <div class="answer">体調管理に関心がある方、自分の体の状態を知りたい方にぜひ試してほしいです。</div>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
-                            <!-- VOICE 02 -->
-                            <div class="testimonial-card animated-item delay-2 touch-feedback">
-                                <div class="testimonial-profile">
-                                    <div class="profile-image-container">
-                                        <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                                        <picture>
-                                            <source srcset="voice02.webp" type="image/webp">
-                                            <img src="voice02.jpg" alt="50代 2児の母 Tさん" class="profile-image touch-feedback" loading="lazy">
-                                        </picture>
-                                        <!-- ★★★ ここまで変更点です ★★★ -->
-                                    </div>
-                                    <div class="profile-name">2児の母 T さん</div>
-                                    <div class="profile-info">50代</div>
-                                    <div class="rating-stars">
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                    </div>
-                                </div>
-                                <div class="testimonial-content">
-                                    <div class="testimonial-quote">
-                                        季節の体調変化が気になっていましたが、<span class="voice-highlight">腸内環境の状態を知ることで、食事や生活習慣について考え直すことができました。</span>とても参考になります。
-                                    </div>
-                                    <div class="qa-section">
-                                        <div class="qa-item">
-                                            <div class="question">購入のきっかけは？</div>
-                                            <div class="answer">季節によって体調が変わりやすく、何か対策はないかと思っていました。</div>
-                                        </div>
-                                        <div class="qa-item">
-                                            <div class="question">どんな人におすすめ？</div>
-                                            <div class="answer">季節の変化で体調が気になる方、健康管理に取り組みたい方におすすめです。</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- VOICE 03 -->
-                            <div class="testimonial-card animated-item delay-3 touch-feedback">
-                                <div class="testimonial-profile">
-                                    <div class="profile-image-container">
-                                        <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                                        <picture>
-                                            <source srcset="voice03.webp" type="image/webp">
-                                            <img src="voice03.jpg" alt="30代 ワーママ Yさん" class="profile-image" onerror="this.style.display='none'; this.parentElement.classList.add('no-image');" loading="lazy">
-                                        </picture>
-                                        <!-- ★★★ ここまで変更点です ★★★ -->
-                                    </div>
-                                    <div class="profile-name">ワーママ Y さん</div>
-                                    <div class="profile-info">30代</div>
-                                    <div class="rating-stars">
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                    </div>
-                                </div>
-                                <div class="testimonial-content">
-                                    <div class="testimonial-quote">
-                                        忙しい毎日で体調管理が難しかったのですが、<span class="voice-highlight">自分の腸内環境の状態を知ることができました。</span>朝の調子も安定してきて、日中も元気に過ごせています。
-                                    </div>
-                                    <div class="qa-section">
-                                        <div class="qa-item">
-                                            <div class="question">購入のきっかけは？</div>
-                                            <div class="answer">仕事と子育ての両立で体調管理が気になっていました。</div>
-                                        </div>
-                                        <div class="qa-item">
-                                            <div class="question">どんな人におすすめ？</div>
-                                            <div class="answer">忙しい毎日で体調管理が気になる方、パフォーマンスを向上させたい方におすすめです。</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- VOICE 04 -->
-                            <div class="testimonial-card animated-item delay-4 touch-feedback">
-                                <div class="testimonial-profile">
-                                    <div class="profile-image-container">
-                                        <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                                        <picture>
-                                            <source srcset="voice04.webp" type="image/webp">
-                                            <img src="voice04.jpg" alt="40代 看護師 Kさん" class="profile-image" onerror="this.style.display='none'; this.parentElement.classList.add('no-image');" loading="lazy">
-                                        </picture>
-                                        <!-- ★★★ ここまで変更点です ★★★ -->
-                                    </div>
-                                    <div class="profile-name">看護師 K さん</div>
-                                    <div class="profile-info">40代</div>
-                                    <div class="rating-stars">
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                    </div>
-                                </div>
-                                <div class="testimonial-content">
-                                    <div class="testimonial-quote">
-                                        お腹の調子について長年気になっていました。<span class="voice-highlight">検査結果で自分の状態を知ることができ、生活習慣について見直すことができました。</span>
-                                    </div>
-                                    <div class="qa-section">
-                                        <div class="qa-item">
-                                            <div class="question">購入のきっかけは？</div>
-                                            <div class="answer">お腹の調子について気になることがあり、根本的な部分を知りたいと思いました。</div>
-                                        </div>
-                                        <div class="qa-item">
-                                            <div class="question">どんな人におすすめ？</div>
-                                            <div class="answer">腸の状態が気になる方、健康的な生活を目指している方には、ぜひ試してほしいです。</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-nav">
-                        <button class="nav-btn touch-feedback" id="prevBtn">❮</button>
-                        <button class="nav-btn touch-feedback" id="nextBtn">❯</button>
-                    </div>
-                    <div class="swipe-indicator">← スワイプ →</div>
-                    <div class="carousel-indicators" id="indicators"></div>
-                </div>
-            </div>
-        </section>
-        <div class="luxury-divider"></div>
-        <!-- 安心・安全ポイント（信頼性補強） -->
-        <section class="safety-section">
-            <div class="container">
-                <h2 class="section-title animated-item">安心・安全ポイント</h2>
-                
-                <div class="safety-reasons-container">
-                    <div class="safety-reason-item animated-item delay-1 touch-feedback">
-                        <h3 class="safety-reason-header">
-                            <span class="highlight-yellow">安心・安全の理由 01</span>
-                        </h3>
-                        <div class="safety-reason-content">
-                            <div class="safety-reason-image-wrapper touch-feedback">
-                                <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                                <picture>
-                                    <source srcset="power.webp" type="image/webp">
-                                    <img src="power.jpg" alt="健康食品の情報提供のイメージ" class="safety-reason-image" loading="lazy">
-                                </picture>
-                                <!-- ★★★ ここまで変更点です ★★★ -->
-                            </div>
-                            <div class="safety-reason-detail">
-                                <h4>健康食品の情報提供のため、<br>安心してご利用いただけます</h4>
-                                <p>食べ物由来の成分に関する<br class="mobile-only">情報提供を行っています。</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="safety-reason-item animated-item delay-2 touch-feedback">
-                        <h3 class="safety-reason-header">
-                            <span class="highlight-yellow">安心・安全の理由 02</span>
-                        </h3>
-                        <div class="safety-reason-content">
-                            <div class="safety-reason-image-wrapper touch-feedback">
-                                <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                                <picture>
-                                    <source srcset="home.webp" type="image/webp">
-                                    <img src="home.jpg" alt="在宅で完結、誰でも簡単にできるイメージ" class="safety-reason-image" loading="lazy">
-                                </picture>
-                                <!-- ★★★ ここまで変更点です ★★★ -->
-                            </div>
-                            <div class="safety-reason-detail">
-                                <h4>在宅で完結、<br>誰でも簡単にできる</h4>
-                                <p>お家で全て完結するので、<br>忙しい方でも続けやすいです。</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="safety-reason-item animated-item delay-3 touch-feedback">
-                        <h3 class="safety-reason-header">
-                            <span class="highlight-yellow">安心・安全の理由 03</span>
-                        </h3>
-                        <div class="safety-reason-content">
-                            <div class="safety-reason-image-wrapper touch-feedback">
-                                <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                                <picture>
-                                    <source srcset="study.webp" type="image/webp">
-                                    <img src="study.jpg" alt="専門機関による分析で客観的・確実な結果のイメージ" class="safety-reason-image" loading="lazy">
-                                </picture>
-                                <!-- ★★★ ここまで変更点です ★★★ -->
-                            </div>
-                            <div class="safety-reason-detail">
-                                <h4>専門機関での<br class="mobile-only">精密で詳細な分析</h4>
-                                <p>高度な分析技術で、<br>あなたの菌を個別に可視化します。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 継続サポート体制と科学的根拠 -->
-                <!-- ★★★ 修正箇所: ここからインラインスタイルを削除します ★★★ -->
-                <div class="solution-point-container solution-point-container--spacing">
-                    <div class="solution-point-item animated-item delay-4 touch-feedback">
-                        <div class="point-media">
-                            <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                            <picture>
-                                <source srcset="keizoku.webp" type="image/webp">
-                                <img src="keizoku.jpg" alt="継続サポート体制のイメージ" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='var(--secondary-beige)';" loading="lazy">
-                            </picture>
-                            <!-- ★★★ ここまで変更点です ★★★ -->
-                        </div>
-                        <div class="point-content">
-                            <h3>継続サポート体制</h3>
-                            <ul class="point-content-ul">
-                                <li class="point-content-li">
-                                    <span class="point-content-li-span">◆</span>
-                                    検査後の<br class="mobile-only">フォローアップ体制完備
-                                </li>
-                                <li class="point-content-li">
-                                    <span class="point-content-li-span">◆</span>
-                                    生活習慣の変化が<br class="mobile-only">実感できるよう<br class="mobile-only">専門家がサポート
-                                </li>
-                                <li class="point-content-li">
-                                    <span class="point-content-li-span">◆</span>
-                                    リピート率85%の<br class="mobile-only">信頼できるプログラム
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="solution-point-item animated-item delay-5 touch-feedback">
-                        <div class="point-media">
-                            <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                            <picture>
-                                <source srcset="kagaku.webp" type="image/webp">
-                                <img src="kagaku.jpg" alt="科学的根拠のイメージ" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='var(--secondary-beige)';" loading="lazy">
-                            </picture>
-                            <!-- ★★★ ここまで変更点です ★★★ -->
-                        </div>
-                        <div class="point-content">
-                            <h3>科学的根拠</h3>
-                            <ul class="point-content-ul">
-                                <li class="point-content-li">
-                                    <span class="point-content-li-span">◆</span>
-                                    専門機関での<br class="mobile-only">精密で詳細な分析
-                                </li>
-                                <li class="point-content-li">
-                                    <span class="point-content-li-span">◆</span>
-                                    独自の菌の個別特定技術
-                                </li>
-                                <li class="point-content-li">
-                                    <span class="point-content-li-span">◆</span>
-                                    科学的根拠に基づく<br class="mobile-only">生活習慣の提案
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- ★★★ ここまで修正箇所です ★★★ -->
-            </div>
-        </section>
-        <div class="luxury-divider"></div>
-        <!-- 行動喚起（CTA） & よくある質問（FAQ）-->
-        <section class="cta-section">
-            <div class="container">
-                <h2 class="cta-title animated-item">申し込みは<br>簡単3ステップ</h2>
-                
-                <div class="cta-steps animated-item delay-1">
-                    <h3 style="text-align: center;">サイト内のボタンから<br class="mobile-only">簡単3ステップ</h3>
-                    <ol>
-                        <li>名前・住所・メールを入力</li>
-                        <li>検査キットが届く</li>
-                        <li>あとは待つだけ</li>
-                    </ol>
-                </div>
-                
-                <p class="cta-message animated-item delay-2" style="text-align: center;">
-                    「長年の疑問の答えが、<br>きっとここにある」<br>
-                    今この瞬間が、<br>健康的な生活への第一歩です。
-                </p>
-                <a href="javascript:void(0)" id="cta-button-open-form-3" class="cta-button-image-link animated-item delay-3 touch-feedback">
-                    <!-- ★★★ ここが変更点です！WebP画像対応 ★★★ -->
-                    <picture>
-                        <source srcset="CTA2.webp" type="image/webp">
-                        <img src="CTA2.png" alt="申し込みは簡単3ステップ - 長年の疑問の答えが、きっとここにある" class="cta-button-image" loading="lazy">
-                    </picture>
-                    <!-- ★★★ ここまで変更点です ★★★ -->
-                </a>
-                
-                <!-- よくある質問（FAQ）セクション -->
-                <!-- ★★★ 修正箇所: ここからインラインスタイルを削除します ★★★ -->
-                <div class="solution-text animated-item delay-4 solution-text--spacing">
-                    <h3 style="font-size: clamp(24px, 5vw, 30px); font-weight: 900; margin-bottom: 20px; text-shadow: 2px 2px 5px rgba(0,0,0,0.2);">
-                        よくある質問（FAQ）
-                    </h3>
-                    <div class="qa-section">
-                        <div class="qa-item">
-                            <div class="question">Q. 薬を飲んでいても大丈夫ですか？</div>
-                            <div class="answer">A. 健康食品に関する情報提供のため、お薬との併用に問題はありません。気になる場合は医師にご相談ください。</div>
-                        </div>
-                        <div class="qa-item">
-                            <div class="question">Q. 子どもも一緒に受けられますか？</div>
-                            <div class="answer">A. はい。お子様の将来の健康的な生活のためにもおすすめです。</div>
-                        </div>
-                        <div class="qa-item">
-                            <div class="question">Q. どのくらいで変化が実感できますか？</div>
-                            <div class="answer">A. 検査結果をお届け後、多くの方が腸内環境について新しい知識を得られたとご感想をいただいています。個人差はありますが、生活習慣を見直すきっかけとしてご活用いただけます。</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ★★★ ここまで修正箇所です ★★★ -->
-                <!-- フォーム本体をここに直接配置し、初期は非表示にする -->
-                <!-- ★★★ 修正箇所: ここからインラインスタイルを削除します ★★★ -->
-                <div id="order-form-direct" class="luxury-form-container form-initial-hidden">
-                    <h2 class="form-title" style="text-align: center;">お申し込み<br>フォーム</h2>
-                    
-                    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-                        <!-- 必須: Netlifyがフォームを認識するための隠しフィールド -->
-                        <input type="hidden" name="form-name" value="contact" />
-                        <!-- ハニーポットフィールド (ボット対策) -->
-                        <p class="hidden" style="display: none;">
-                            <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-                        </p>
-                        <div class="floating-label-group">
-                            <input type="text" id="name" name="name" placeholder=" " required>
-                            <label for="name">お名前</label>
-                            <div class="validation-icon check">✓</div>
-                            <div class="validation-icon cross">✗</div>
-                        </div>
-                        <div class="floating-label-group">
-                            <input type="text" id="zipcode" name="zipcode" placeholder=" " pattern="[0-9]{3}-?[0-9]{4}" maxlength="8" required>
-                            <label for="zipcode">郵便番号（例：123-4567）</label>
-                            <div class="validation-icon check">✓</div>
-                            <div class="validation-icon cross">✗</div>
-                            <div class="address-status" id="addressStatus"></div>
-                        </div>
-                        <div class="floating-label-group">
-                            <input type="text" id="address" name="address" placeholder=" " required readonly>
-                            <label for="address">ご住所</label>
-                            <div class="validation-icon check">✓</div>
-                            <div class="validation-icon cross">✗</div>
-                        </div>
-                        <div class="floating-label-group">
-                            <input type="email" id="email" name="email" placeholder=" " required>
-                            <label for="email">メールアドレス</label>
-                            <div class="validation-icon check">✓</div>
-                            <div class="validation-icon cross">✗</div>
-                        </div>
-                        <button type="submit" class="luxury-submit-btn touch-feedback">
-                            <span class="btn-text">特別な菌活体験を申し込む</span>
-                        </button>
-                        <!-- 既存の閉じるボタンは、新しいフォームデザインでは不要になるため、スタイルで非表示にする -->
-                        <div class="form-buttons" style="display: none;">
-                            <button type="button" class="close-button">閉じる</button>
-                        </div>
-                    </form>
-                    <div class="form-success" id="formSuccess">
-                        <div style="font-size: 48px; margin-bottom: 20px;">🎉</div>
-                        <div>お申し込みありがとうございます！</div>
-                        <div style="font-size: 14px; margin-top: 10px; opacity: 0.8;">
-                            確認メールをお送りいたします
-                        </div>
-                    </div>
-                </div>
-                <!-- ★★★ ここまで修正箇所です ★★★ -->
-            </div>
-        </section>
-        <!-- 販売者情報の上の文言（最終セクション）を復活 -->
-        <section class="final-section">
-            <div class="container">
-                <p class="final-message animated-item">
-                    <span class="final-message-bold-italic">長い間、答えを探し続けてきたあなたへ。</span><br>
-                    この一歩が、
-                    <strong class="final-message-strong-accent">5〜10年後</strong>
-                    <span class="final-message-highlight">あなたの人生を</span>
-                    <br>
-                    <span class="final-message-important">より健康にする出発点</span>
-                    になるかもしれません。
-                </p>
-            </div>
-        </section>
-    </main>
-    <!-- ★★★ ここからが追加された隠しフォームです ★★★ -->
-    <!-- Netlify FormsがJavaScriptで送信されるフォームを検出するための隠しフォーム -->
-    <!-- このフォーム自体はユーザーには見えませんが、NetlifyがこのHTMLを解析してフォームを認識するために必要です -->
-    <form name="contact" netlify hidden>
-      <input type="text" name="name" />
-      <input type="text" name="zipcode" />
-      <input type="text" name="address" />
-      <input type="email" name="email" />
-      <input type="text" name="bot-field" /> <!-- ハニーポットフィールドも忘れずに -->
-    </form>
-    <!-- ★★★ ここまでが追加された隠しフォームです ★★★ -->
-    <!-- 【10】販売者情報 -->
-    <footer class="footer">
-        <div class="container">
-            <!-- リンクの追加 -->
-            <div class="footer-links" style="margin-bottom: 10px;">
-                <a href="./index.html">トップページ</a> |
-                <a href="./tokutei.html">特定商取引法の表記</a> |
-                <a href="./privacy.html">プライバシーポリシー</a> |
-                <a href="./terms.html">利用規約</a>
-            </div>
-            <!-- Copyrightの表示（既存のものをそのまま使用） -->
-            <p style="font-size: 14px; line-height: 1.6;">
-                Copyright (C) 2025 Scarab All Rights Reserved.
-            </p>
+<!-- Microsoft Clarity Tracking Code -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "s0xbfe38ku");
+</script>
+
+
+
+
+<!-- ローディング画面 -->
+<div id="loading-overlay">
+    <div class="luxury-spinner"></div>
+    <div class="loading-text">高級菌活体験を準備中...</div>
+</div>
+
+
+
+
+<!-- プログレスバー -->
+<div id="progress-bar"></div>
+
+
+
+
+<main id="main-content">
+    <!-- ヒーローセクション -->
+    <section class="hero" role="banner">
+        <div class="hero-image animated-item delay-0 touch-feedback">
+            <picture>
+                <source srcset="first5.webp" type="image/webp">
+                <img src="first5.png" alt="はじめての菌活 検査キット" loading="lazy">
+            </picture>
         </div>
-    </footer>
+        <div class="container">
+            <a href="javascript:void(0)" id="cta-button-open-form-top" class="cta-button-image-link animated-item delay-1 touch-feedback">
+                <picture>
+                    <source srcset="CTA2.webp" type="image/webp">
+                    <img src="CTA2.png" alt="申し込みは簡単3ステップ - 長年の疑問の答えが、きっとここにある" class="cta-button-image" loading="lazy">
+                </picture>
+            </a>
+        </div>
+    </section>
 
 
-    <!-- ★★★ 外部JavaScriptファイルの読み込み ★★★ -->
-    <script src="script.js" defer></script>
+
+
+    <div class="luxury-divider"></div>
+
+
+
+
+    <!-- 問題提起セクション -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="problem-quote-image-container animated-item">
+                <picture>
+                    <source srcset="second1.webp" type="image/webp">
+                    <img src="second1.png" alt="薬に頼り続ける人生から、いつになったら解放されるの？" loading="lazy" class="problem-quote-image">
+                </picture>
+            </div>
+        
+            <ul class="problem-list animated-item delay-1">
+                <li class="animated-item delay-1"><span>✓</span>アトピー・アレルギー・慢性疲労…どれも"症状を抑える"だけで根本解決できていない</li>
+                <li class="animated-item delay-2"><span>✓</span>昔は自然に治ったのに、今は薬なしでは過ごせない</li>
+                <li class="animated-item delay-3"><span>✓</span>不妊治療を続けているのに、なかなか結果が出ない</li>
+                <li class="animated-item delay-4"><span>✓</span>花粉症の薬を飲み続けて10年、根本的に治したい</li>
+                <li class="animated-item delay-5"><span>✓</span>知覚過敏で歯磨きが辛く, 口の中の環境も気になる</li>
+            </ul>
+        
+            <div class="problem-circle animated-item delay-2 touch-feedback">
+                <picture>
+                    <source srcset="biyo2.webp" type="image/webp">
+                    <img src="biyo2.jpg" alt="薬では治らない理由が、ついに判明。" loading="lazy">
+                </picture>
+            </div>
+        
+            <!-- ★修正: 引用符とカギ括弧を削除 -->
+            <p class="problem-text animated-item delay-3 slide-in-text underline-animated">
+                注目されている<br>
+                <span class="highlight-yellow">
+                    腸内細菌のバランス
+                </span>
+            </p>
+        
+            <div class="solution-point-container">
+                <div class="solution-point-item animated-item delay-4 touch-feedback">
+                    <div class="point-media">
+                        <picture>
+                            <source srcset="chounai.webp" type="image/webp">
+                            <img src="chounai.jpg" alt="腸内環境のイメージ" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="point-content">
+                        <h3>腸内環境＝健康的な<br>生活の土台として<br class="mobile-only">注目されています</h3>
+                        <p>最新の"<span class="blue-text">腸活</span>"は、<br>体の内側からのアプローチ</p>
+                    </div>
+                </div>
+                <div class="solution-point-item animated-item delay-5 touch-feedback">
+                    <div class="point-media">
+                        <picture>
+                            <source srcset="saikin.webp" type="image/webp">
+                            <img src="saikin.jpg" alt="腸内細菌のイメージ" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="point-content">
+                        <h3>腸内細菌は<br class="mobile-only">私たちの体に密接に<br class="mobile-only">関わっています</h3>
+                        <ul class="point-content-ul">
+                            <li class="point-content-li"><span class="point-content-li-span">◆</span>体のバランス維持に<br class="mobile-only">関わる要素の一つ</li>
+                            <li class="point-content-li"><span class="point-content-li-span">◆</span>日々の生活習慣と関連があります</li>
+                            <li class="point-content-li"><span class="point-content-li-span">◆</span>食事や環境の影響を<br class="mobile-only">受けます</li>
+                            <li class="point-content-li"><span class="point-content-li-span">◆</span>個人差が大きい分野です</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <div class="luxury-divider"></div>
+
+
+
+
+    <!-- 『はじめての菌活』検査キット -->
+    <section class="service-section">
+        <div class="container">
+            <h2 class="section-title animated-item">『はじめての菌活』<br>検査キット</h2>
+        
+            <div class="service-image animated-item touch-feedback">
+                <picture>
+                    <source srcset="medicine.webp" type="image/webp">
+                    <img src="medicine.jpg" alt="はじめての菌活 検査キット" loading="lazy">
+                </picture>
+            </div>
+        
+            <a href="javascript:void(0)" id="cta-button-open-form-2" class="cta-button-image-link animated-item delay-1 touch-feedback">
+                <picture>
+                    <source srcset="CTA2.webp" type="image/webp">
+                    <img src="CTA2.png" alt="申し込みは簡単3ステップ - 長年の疑問の答えが、きっとここにある" class="cta-button-image" loading="lazy">
+                </picture>
+            </a>
+        </div>
+    </section>
+
+
+
+
+   <div class="luxury-divider"></div>
+
+
+
+
+    <!-- サービスの流れ -->
+    <section class="steps-section">
+        <div class="container">
+            <h2 class="section-title animated-item">サービスの流れ</h2>
+        
+            <div class="steps-grid">
+                <div class="step-item animated-item delay-1 touch-feedback">
+                    <div class="step-number" aria-label="ステップ1">1</div>
+                    <h3 class="step-title">検査キットを自宅へお届け</h3>
+                    <p class="step-description">ご自宅に便の検査キットをお送りします</p>
+                </div>
+            
+                <div class="step-item animated-item delay-2 touch-feedback">
+                    <div class="step-number" aria-label="ステップ2">2</div>
+                    <h3 class="step-title">採取して返送</h3>
+                    <p class="step-description">簡単に採取して、<br>付属の返送用封筒で送り返すだけ</p>
+                </div>
+            
+                <div class="step-item animated-item delay-3 touch-feedback">
+                    <div class="step-number" aria-label="ステップ3">3</div>
+                    <h3 class="step-title">菌を1つ1つ専門機関で分析</h3>
+                    <p class="step-description">高度な技術により、<br>あなたの菌を詳細に分析</p>
+                </div>
+            
+                <div class="step-item animated-item delay-4 touch-feedback">
+                    <div class="step-number" aria-label="ステップ4">4</div>
+                    <h3 class="step-title">あなた専用の菌レポート＋<span class="no-wrap-text">生活習慣の提案</span></h3>
+                    <p class="step-description">分析結果とあなたに参考となる<br>生活習慣の情報をお届け</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <div class="luxury-divider"></div>
+
+
+
+
+    <!-- 実績・信頼性セクション -->
+    <section class="trust-section" id="trust-section-js">
+        <div class="container">
+            <h2 class="section-title animated-item">実績・信頼性</h2>
+            <div class="stats-grid">
+                <div class="stat-card animated-item delay-2 touch-feedback">
+                    <div class="stat-icon">
+                        <picture>
+                            <source srcset="taiken.webp" type="image/webp">
+                            <img src="taiken.png" alt="100名以上が体験" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="stat-number" data-count="100">0</div>
+                    <div class="stat-label">名以上が体験</div>
+                    <div class="stat-description">全国のお客様から選ばれ続けています</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" data-progress="95"></div>
+                    </div>
+                </div>
+                <div class="stat-card animated-item delay-3 touch-feedback">
+                    <div class="stat-icon">
+                        <picture>
+                            <source srcset="manzoku.webp" type="image/webp">
+                            <img src="manzoku.png" alt="98% 満足度" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="stat-number" data-count="98">0</div>
+                    <div class="stat-label">％ 満足度</div>
+                    <div class="stat-description">お客様アンケート結果</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" data-progress="98"></div>
+                    </div>
+                </div>
+                <div class="stat-card animated-item delay-4 touch-feedback">
+                    <div class="stat-icon">
+                        <picture>
+                            <source srcset="bunseki.webp" type="image/webp">
+                            <img src="bunseki.png" alt="300種類の分析項目" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="stat-number" data-count="300">0</div>
+                    <div class="stat-label">種類の分析項目</div>
+                    <div class="stat-description">専門機関による詳細分析</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" data-progress="100"></div>
+                    </div>
+                </div>
+                <div class="stat-card animated-item delay-5 touch-feedback">
+                    <div class="stat-icon">
+                        <picture>
+                            <source srcset="kouka.webp" type="image/webp">
+                            <img src="kouka.png" alt="92% 効果実感" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="stat-number" data-count="92">0</div>
+                    <div class="stat-label">％ 効果実感</div>
+                    <div class="stat-description">継続利用者の実感</div>
+                    <div class="progress-container">
+                        <div class="progress-bar" data-progress="92"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <div class="luxury-divider"></div>
+
+
+
+
+    <!-- お客様の声セクション -->
+    <section class="voice-section" id="voice-section-js">
+        <div class="container">
+            <div class="luxury-testimonials">
+                <h2 class="testimonials-title animated-item">お客様の輝く<br>変化ストーリー</h2>
+            
+                <div class="testimonials-carousel" id="testimonialCarousel">
+                    <div class="testimonials-track" id="testimonialTrack">
+                        <!-- VOICE 01 -->
+                        <div class="testimonial-card animated-item touch-feedback">
+                            <div class="testimonial-profile">
+                                <div class="profile-image-container">
+                                    <picture>
+                                        <source srcset="voice01.webp" type="image/webp">
+                                        <img src="voice01.jpg" alt="40代 主婦 Mさん" class="profile-image" loading="lazy">
+                                    </picture>
+                                </div>
+                                <div class="profile-name">主婦 M さん</div>
+                                <div class="profile-info">40代</div>
+                                <div class="rating-stars">
+                                    <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="testimonial-quote">腸内環境について詳しく知ることができました。<span class="voice-highlight">自分の体の状態を数値で見ることができ、生活習慣を見直すきっかけになりました。</span>継続して取り組んでいます。</div>
+                                <div class="qa-section">
+                                    <div class="qa-item">
+                                        <div class="question">購入のきっかけは？</div>
+                                        <div class="answer">長年体調のことが気になっており、根本的な部分から見直したいと思っていました。</div>
+                                    </div>
+                                    <div class="qa-item">
+                                        <div class="question">どんな人におすすめ？</div>
+                                        <div class="answer">体調管理に関心がある方、自分の体の状態を知りたい方にぜひ試してほしいです。</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- VOICE 02 -->
+                        <div class="testimonial-card animated-item touch-feedback">
+                            <div class="testimonial-profile">
+                                <div class="profile-image-container">
+                                    <picture>
+                                        <source srcset="voice02.webp" type="image/webp">
+                                        <img src="voice02.jpg" alt="50代 2児の母 Tさん" class="profile-image" loading="lazy">
+                                    </picture>
+                                </div>
+                                <div class="profile-name">2児の母 T さん</div>
+                                <div class="profile-info">50代</div>
+                                <div class="rating-stars">
+                                    <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="testimonial-quote">季節の体調変化が気になっていましたが、<span class="voice-highlight">腸内環境の状態を知ることで、食事や生活習慣について考え直すことができました。</span>とても参考になります。</div>
+                                <div class="qa-section">
+                                    <div class="qa-item">
+                                        <div class="question">購入のきっかけは？</div>
+                                        <div class="answer">季節によって体調が変わりやすく、何か対策はないかと思っていました。</div>
+                                    </div>
+                                    <div class="qa-item">
+                                        <div class="question">どんな人におすすめ？</div>
+                                        <div class="answer">季節の変化で体調が気になる方、健康管理に取り組みたい方におすすめです。</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- VOICE 03 -->
+                        <div class="testimonial-card animated-item touch-feedback">
+                            <div class="testimonial-profile">
+                                <div class="profile-image-container">
+                                    <picture>
+                                        <source srcset="voice03.webp" type="image/webp">
+                                        <img src="voice03.jpg" alt="30代 ワーママ Yさん" class="profile-image" loading="lazy">
+                                    </picture>
+                                </div>
+                                <div class="profile-name">ワーママ Y さん</div>
+                                <div class="profile-info">30代</div>
+                                <div class="rating-stars">
+                                    <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="testimonial-quote">忙しい毎日で体調管理が難しかったのですが、<span class="voice-highlight">自分の腸内環境の状態を知ることができました。</span>朝の調子も安定してきて、日中も元気に過ごせています。</div>
+                                <div class="qa-section">
+                                    <div class="qa-item">
+                                        <div class="question">購入のきっかけは？</div>
+                                        <div class="answer">仕事と子育ての両立で体調管理が気になっていました。</div>
+                                    </div>
+                                    <div class="qa-item">
+                                        <div class="question">どんな人におすすめ？</div>
+                                        <div class="answer">忙しい毎日で体調管理が気になる方、パフォーマンスを向上させたい方におすすめです。</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- VOICE 04 -->
+                        <div class="testimonial-card animated-item touch-feedback">
+                            <div class="testimonial-profile">
+                                <div class="profile-image-container">
+                                    <picture>
+                                        <source srcset="voice04.webp" type="image/webp">
+                                        <img src="voice04.jpg" alt="40代 看護師 Kさん" class="profile-image" loading="lazy">
+                                    </picture>
+                                </div>
+                                <div class="profile-name">看護師 K さん</div>
+                                <div class="profile-info">40代</div>
+                                <div class="rating-stars">
+                                    <span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span><span class="star filled">★</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-content">
+                                <div class="testimonial-quote"><span class="voice-highlight">お腹の調子について長年気になっていました。検査結果で自分の状態を知ることができ、生活習慣について見直すことができました。</span></div>
+                                <div class="qa-section">
+                                    <div class="qa-item">
+                                        <div class="question">購入のきっかけは？</div>
+                                        <div class="answer">お腹の調子について気になることがあり、根本的な部分を知りたいと思いました。</div>
+                                    </div>
+                                    <div class="qa-item">
+                                        <div class="question">どんな人におすすめ？</div>
+                                        <div class="answer">腸の状態が気になる方、健康的な生活を目指している方には、ぜひ試してほしいです。</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button type="button" class="nav-btn touch-feedback" id="prevBtn">❮</button>
+                    <button type="button" class="nav-btn touch-feedback" id="nextBtn">❯</button>
+                </div>
+                <div class="swipe-indicator">← スワイプ →</div>
+                <div class="carousel-indicators" id="indicators"></div>
+            </div>
+        </div>
+    </section>
+  
+    <div class="luxury-divider"></div>
+
+
+
+
+    <!-- 安心・安全ポイントセクション -->
+    <section class="safety-section">
+        <div class="container">
+            <h2 class="section-title animated-item">安心・安全ポイント</h2>
+        
+            <div class="reasons-container">
+                <div class="reason-card animated-item delay-1 touch-feedback">
+                    <h3 class="reason-header"><span class="highlight-yellow">安心・安全の理由 01</span></h3>
+                    <div class="reason-content">
+                        <div class="reason-image-wrapper touch-feedback">
+                            <picture>
+                                <source srcset="power.webp" type="image/webp">
+                                <img src="power.jpg" alt="健康食品の情報提供のイメージ" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="reason-detail">
+                            <h4 class="underline-animated">健康食品の情報提供のため、<br>安心してご利用いただけます</h4>
+                            <p>食べ物由来の成分に関する<br class="mobile-only">情報提供を行っています。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reason-card animated-item delay-2 touch-feedback">
+                    <h3 class="reason-header"><span class="highlight-yellow">安心・安全の理由 02</span></h3>
+                    <div class="reason-content">
+                        <div class="reason-image-wrapper touch-feedback">
+                            <picture>
+                                <source srcset="home.webp" type="image/webp">
+                                <img src="home.jpg" alt="在宅で完結、誰でも簡単にできるイメージ" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="reason-detail">
+                            <h4 class="underline-animated">在宅で完結、<br>誰でも簡単にできる</h4>
+                            <p>お家で全て完結するので、<br>忙しい方でも続けやすいです。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reason-card animated-item delay-3 touch-feedback">
+                    <h3 class="reason-header"><span class="highlight-yellow">安心・安全の理由 03</span></h3>
+                    <div class="reason-content">
+                        <div class="reason-image-wrapper touch-feedback">
+                            <picture>
+                                <source srcset="study.webp" type="image/webp">
+                                <img src="study.jpg" alt="専門機関による分析で客観的・確実な結果のイメージ" loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="reason-detail">
+                            <h4 class="underline-animated">専門機関での<br class="mobile-only">精密で詳細な分析</h4>
+                            <p>高度な分析技術で、<br>あなたの菌を個別に可視化します。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="solution-point-container solution-point-container--spacing">
+                <div class="solution-point-item animated-item delay-4 touch-feedback">
+                    <div class="point-media">
+                        <picture>
+                            <source srcset="keizoku.webp" type="image/webp">
+                            <img src="keizoku.jpg" alt="継続サポート体制のイメージ" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="point-content">
+                        <h3>継続サポート体制</h3>
+                        <ul class="point-content-ul">
+                            <li class="point-content-li"><span class="point-content-li-span">◆</span>検査後の<br class="mobile-only">フォローアップ体制完備</li>
+                            <li class="point-content-li"><span class="point-content-li-span">◆</span>生活習慣の変化が<br class="mobile-only">実感できるよう<br class="mobile-only">専門家がサポート</li>
+                            <li class="point-content-li"><span class="point-content-li-span">◆</span>リピート率85%の<br class="mobile-only">信頼できるプログラム</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="solution-point-item animated-item delay-5 touch-feedback">
+                    <div class="point-media">
+                        <picture>
+                            <source srcset="kagaku.webp" type="image/webp">
+                            <img src="kagaku.jpg" alt="科学的根拠のイメージ" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="point-content">
+                        <h3>科学的根拠</h3>
+                        <ul class="point-content-ul">
+                            <li class="point-content-li"><span class="point-content-li-span">◆</span>専門機関での<br class="mobile-only">精密で詳細な分析</li>
+                            <li class="point-content-li"><span class="point-content-li-span">◆</span>独自の菌の個別特定技術</li>
+                            <li class="point-content-li"><span class="point-content-li-span">◆</span>科学的根拠に基づく<br class="mobile-only">生活習慣の提案</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <div class="luxury-divider"></div>
+
+
+
+
+    <!-- CTA & FAQセクション -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title animated-item">申し込みは<br>簡単3ステップ</h2>
+        
+            <div class="cta-steps animated-item delay-1">
+                <h3>サイト内のボタンから<br class="mobile-only">簡単3ステップ</h3>
+                <ol>
+                    <li>名前・住所・メールを入力</li>
+                    <li>検査キットが届く</li>
+                    <li>あとは待つだけ</li>
+                </ol>
+            </div>
+        
+            <div class="cta-message-image-container animated-item delay-2">
+                <picture>
+                    <source srcset="third1.webp" type="image/webp">
+                    <img src="third1.png" alt="長年の疑問の答えが、きっとここにある" loading="lazy" class="cta-message-image">
+                </picture>
+            </div>
+            <p class="cta-final-call-message animated-item delay-2">今この瞬間が、<br>健康的な生活への第一歩です。</p>
+
+
+
+
+            <a href="javascript:void(0)" id="cta-button-open-form-3" class="cta-button-image-link animated-item delay-3 touch-feedback">
+                <picture>
+                    <source srcset="CTA2.webp" type="image/webp">
+                    <img src="CTA2.png" alt="申し込みは簡単3ステップ - 長年の疑問の答えが、きっとここにある" class="cta-button-image" loading="lazy">
+                </picture>
+            </a>
+        
+            <!-- ▼▼▼ 修正箇所 ▼▼▼ -->
+            <div class="solution-text animated-item delay-4 solution-text--spacing">
+                <h3 class="faq-title">よくある質問（FAQ）</h3>
+                <div class="qa-section">
+                    <div class="qa-item">
+                        <div class="question">Q. 薬を飲んでいても大丈夫ですか？</div>
+                        <div class="answer">A. 健康食品に関する情報提供のため、お薬との併用に問題はありません。気になる場合は医師にご相談ください。</div>
+                    </div>
+                    <div class="qa-item">
+                        <div class="question">Q. 子どもも一緒に受けられますか？</div>
+                        <div class="answer">A. はい。お子様の将来の健康的な生活のためにもおすすめです。</div>
+                    </div>
+                    <div class="qa-item">
+                        <div class="question">Q. どのくらいで変化が実感できますか？</div>
+                        <div class="answer">A. 検査結果をお届け後、多くの方が腸内環境について新しい知識を得られたとご感想をいただいています。個人差はありますが、生活習慣を見直すきっかけとしてご活用いただけます。</div>
+                    </div>
+                </div>
+            </div>
+            <!-- ▲▲▲ 修正箇所 ▲▲▲ -->
+
+
+
+
+            <!-- フォーム本体 -->
+            <div id="order-form-direct" class="luxury-form-container form-initial-hidden">
+                <h2 class="form-title">お申し込み<br>フォーム</h2>
+            
+                <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="contact">
+                    <p class="hidden" hidden><label>Don’t fill this out if you’re human: <input name="bot-field"></label></p>
+                  
+                    <div class="floating-label-group">
+                        <input type="text" id="name" name="name" placeholder=" " required>
+                        <label for="name">お名前</label>
+                        <span class="validation-icon check">✓</span>
+                        <span class="validation-icon cross">✗</span>
+                    </div>
+                    <div class="floating-label-group">
+                        <input type="text" id="zipcode" name="zipcode" placeholder="例：123-4567" pattern="[0-9]{3}-?[0-9]{4}" maxlength="8" required>
+                        <label for="zipcode">郵便番号（7桁で自動入力）</label>
+                        <span class="validation-icon check">✓</span>
+                        <span class="validation-icon cross">✗</span>
+                        <div class="address-status" id="addressStatus"></div>
+                    </div>
+                    <div class="floating-label-group">
+                        <input type="text" id="address" name="address" placeholder="住所を入力または郵便番号から自動入力" required>
+                        <label for="address">ご住所</label>
+                        <span class="validation-icon check">✓</span>
+                        <span class="validation-icon cross">✗</span>
+                    </div>
+                    <div class="floating-label-group">
+                        <input type="email" id="email" name="email" placeholder=" " required>
+                        <label for="email">メールアドレス</label>
+                        <span class="validation-icon check">✓</span>
+                        <span class="validation-icon cross">✗</span>
+                    </div>
+                    <button type="submit" class="luxury-submit-btn touch-feedback">
+                        <span class="btn-text">特別な菌活体験を申し込む</span>
+                    </button>
+                    <div class="form-buttons" style="display: none;">
+                        <button type="button" class="close-button">閉じる</button>
+                    </div>
+                </form>
+                <div class="form-success" id="formSuccess">
+                    <div style="font-size: 48px; margin-bottom: 20px;">🎉</div>
+                    <div>お申し込みありがとうございます！</div>
+                    <div style="font-size: 14px; margin-top: 10px; opacity: 0.8;">確認メールをお送りいたします</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- 最終セクション -->
+    <section class="final-section">
+        <div class="container">
+            <div class="final-message-image-container">
+                <picture>
+                    <source srcset="last1.webp" type="image/webp">
+                    <img src="last1.png" alt="より健康な未来への出発点" loading="lazy" class="final-message-image">
+                </picture>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+
+
+<!-- Netlify FormsがAjax送信を検出するための隠しフォーム -->
+<form name="contact" netlify hidden>
+  <input type="text" name="name">
+  <input type="text" name="zipcode">
+  <input type="text" name="address">
+  <input type="email" name="email">
+  <input type="text" name="bot-field">
+</form>
+
+
+
+
+<!-- フッター -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-links">
+            <a href="./index.html">トップページ</a> |
+            <a href="./tokutei.html">特定商取引法の表記</a> |
+            <a href="./privacy.html">プライバシーポリシー</a> |
+            <a href="./terms.html">利用規約</a>
+        </div>
+        <p>Copyright (C) 2025 Scarab All Rights Reserved.</p>
+    </div>
+</footer>
+
+
+
+
+<script src="script.js" defer></script>
 </body>
 </html>
