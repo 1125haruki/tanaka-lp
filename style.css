@@ -21,6 +21,22 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --- 変数定義 --- */
 :root {
     --primary-beige: #f9f7f1;
@@ -46,6 +62,22 @@
     --animation-speed-slow: 1.2s;
     --animation-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -90,6 +122,22 @@ body {
     /* スマホ用の最小高さを設定 */
     min-height: 100vh;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -204,6 +252,22 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --- 強調表示スタイル --- */
 .highlight-yellow {
     background: var(--highlight-yellow);
@@ -248,6 +312,38 @@ body {
 .underline-animated.is-visible::after {
     transform: scaleX(1);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -364,6 +460,22 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --- ローディング & プログレスバー --- */
 #loading-overlay {
     position: fixed;
@@ -447,6 +559,22 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --- セクション共通スタイル --- */
 .problem-section,
 .cause-section,
@@ -472,6 +600,22 @@ body {
 .safety-section, .steps-section {
     background: var(--white);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -540,6 +684,22 @@ body {
     filter: drop-shadow(0 25px 60px var(--luxury-shadow-color)) brightness(1.1);
     animation-play-state: paused;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -638,6 +798,22 @@ body {
     font-weight: 800;
     text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -783,6 +959,22 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --- サービス紹介セクション (.service-section) --- */
 .service-image {
     width: 100%;
@@ -815,6 +1007,22 @@ body {
     object-fit: fill; /* cover → fill に変更 */
     display: block;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -909,6 +1117,22 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --- 実績・信頼性セクション (.trust-section) --- */
 .trust-section {
     background: linear-gradient(135deg, var(--primary-beige) 0%, var(--secondary-beige) 100%);
@@ -966,12 +1190,14 @@ body {
     align-items: center;
     animation: pulse 3s ease-in-out infinite;
 }
+/* ▼▼▼ 修正箇所：ここから ▼▼▼ */
 .stat-icon img {
     width: 180px;
     height: 180px;
-    object-fit: fill; /* contain → fill に変更 */
+    object-fit: contain; /* fillからcontainに変更し、画像の縦横比を維持 */
     display: block;
 }
+/* ▲▲▲ 修正箇所：ここまで ▲▲▲ */
 .stat-number {
     font-size: clamp(48px, 8vw, 72px);
     font-weight: 900;
@@ -1013,6 +1239,22 @@ body {
     transition: width 2s var(--animation-easing);
     animation: shimmer 2s ease-in-out infinite;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1276,6 +1518,22 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --- 安心・安全 / 菌活の重要性 共通カードスタイル --- */
 .reasons-container {
     display: flex;
@@ -1368,6 +1626,22 @@ body {
     width: 250px;
     height: 250px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1488,6 +1762,22 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --- 最終セクション (.final-section) --- */
 .final-section {
     padding: 60px 0;
@@ -1519,6 +1809,22 @@ body {
     display: block;
     margin: 0 auto;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1711,6 +2017,22 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --- フッター --- */
 .footer {
     background: linear-gradient(135deg, var(--primary-beige) 0%, var(--secondary-beige) 100%);
@@ -1754,6 +2076,22 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* --- Q&Aアコーディオン機能 --- */
 .qa-item {
     border: 1px solid var(--border-beige);
@@ -1763,9 +2101,11 @@ body {
     transition: all var(--animation-speed-fast) ease;
 }
 
+
 .qa-item:hover {
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
+
 
 .qa-item .question {
     cursor: pointer;
@@ -1776,9 +2116,11 @@ body {
     transition: background var(--animation-speed-fast) ease;
 }
 
+
 .qa-item .question:hover {
     background: rgba(255, 255, 255, 0.8);
 }
+
 
 .qa-item .question::after {
     content: '+';
@@ -1792,10 +2134,12 @@ body {
     transition: transform var(--animation-speed-fast) ease;
 }
 
+
 .qa-item.active .question::after {
     content: '−';
     transform: translateY(-50%) rotate(180deg);
 }
+
 
 .qa-item .answer {
     max-height: 0;
@@ -1805,9 +2149,26 @@ body {
     border-radius: 0 0 10px 10px;
 }
 
+
 .qa-item.active .answer {
     max-height: 300px; /* 必要に応じて調整 */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1853,10 +2214,42 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /* --- 共通コンポーネント (モバイル) --- */
     .luxury-divider { margin: 50px auto; }
     .desktop-only-text { display: none; }
     .mobile-only-text { display: block; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1895,6 +2288,22 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /* --- 問題提起 (モバイル) --- */
     .problem-section { padding: 40px 0; }
     .problem-circle {
@@ -1904,6 +2313,22 @@ body {
         font-size: 40px; /* 絵文字用 */
     }
     .problem-text { font-size: clamp(28px, 8vw, 36px); margin: 30px 0; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1981,9 +2406,41 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /* --- サービス紹介 (モバイル) --- */
     .service-section { padding: 40px 0; }
     .service-image { max-width: 350px; margin: 20px auto 40px; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2023,6 +2480,22 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /* --- 実績 (モバイル) --- */
     .trust-section { padding: 60px 20px; }
     .stats-grid { grid-template-columns: 1fr; gap: 30px; margin: 50px 0; }
@@ -2031,6 +2504,22 @@ body {
     .stat-icon img { width: 80px; height: 80px; }
     .stat-number { font-size: clamp(40px, 10vw, 60px); }
     .stat-label, .stat-description { font-size: 16px; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2092,6 +2581,22 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /* --- 最終セクション (モバイル) --- */
     .final-section { padding: 40px 0; }
     /* ★追加: スマホで画像が表示されるように */
@@ -2104,12 +2609,20 @@ body {
 
 
 
+
+
+
+
 /* iOS Safari対応: fixed背景のフォールバック */
 @supports (-webkit-overflow-scrolling: touch) {
     body {
         background-attachment: scroll;
     }
 }
+
+
+
+
 
 
 
@@ -2128,6 +2641,10 @@ body {
 
 
 
+
+
+
+
 /* 横向きモバイルデバイス対応 */
 @media (max-width: 768px) and (orientation: landscape) {
     /* ▼▼▼ 修正 ▼▼▼ */
@@ -2137,6 +2654,7 @@ body {
     }
     /* ▲▲▲ 修正 ▲▲▲ */
 }
+
 
 /* --- 新しく追加した画像シーケンスのスタイル --- */
 .new-image-sequence {
@@ -2148,9 +2666,11 @@ body {
     max-width: 700px; /* 画像が横に広がりすぎないように制御 */
 }
 
+
 .new-image-sequence .image-item {
     width: 100%;
 }
+
 
 .new-image-sequence .image-item img {
     width: 100%;
@@ -2159,6 +2679,7 @@ body {
     border-radius: 15px; /* サイト全体のデザインに合わせて角を丸める */
     box-shadow: 0 8px 25px var(--shadow-light); /* 影を付けて立体感を出す */
 }
+
 
 /* --- レスポンシブ対応 (モバイル画面用) --- */
 @media (max-width: 768px) {
