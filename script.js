@@ -574,21 +574,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Q&Aアコーディオン機能 ---
+    // ▼▼▼ 修正箇所 ▼▼▼
+    // --- Q&Aアコーディオン機能 (スマホでの誤操作防止機能付き) ---
     const initQAAccordion = () => {
         document.querySelectorAll('.qa-item .question').forEach(question => {
-            question.addEventListener('click', () => {
+            
+            // スマホでのスワイプとタップの競合を防ぐためのリスナー
+            question.addEventListener('touchstart', e => {
+                // 'question' 要素上でタッチが開始された場合、イベントの伝播を停止する。
+                // これにより、親要素であるカルーセルのスワイプ処理が開始されるのを防ぐ。
+                e.stopPropagation();
+            });
+
+            // タップ/クリックでアコーディオンを開閉するためのリスナー
+            question.addEventListener('click', e => {
+                // デフォルトのリンク挙動などをキャンセル
+                e.preventDefault();
+                
                 const qaItem = question.closest('.qa-item');
+                if (!qaItem) return;
+
                 const wasActive = qaItem.classList.contains('active');
                 
-                // 他のQ&Aを閉じる（オプション）
+                // 一旦すべてのアクティブな項目を閉じる
                 document.querySelectorAll('.qa-item.active').forEach(item => {
                     if (item !== qaItem) {
                         item.classList.remove('active');
                     }
                 });
-                
-                // クリックされたQ&Aをトグル
+
+                // クリックされた項目を開閉する
                 qaItem.classList.toggle('active', !wasActive);
             });
         });
@@ -596,5 +611,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Q&Aアコーディオンを初期化
     initQAAccordion();
+    // ▲▲▲ 修正箇所 ▲▲▲
 
 });
