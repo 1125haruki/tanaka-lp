@@ -91,14 +91,32 @@
                 <li class="animated-item delay-5"><span>✓</span>知覚過敏で歯磨きが辛く, 口の中の環境も気になる</li>
             </ul>
         
-            <div class="problem-circle animated-item delay-2 touch-feedback">
-                <picture>
-                    <source srcset="biyo2.webp" type="image/webp">
-                    <img src="biyo2.jpg" alt="薬では治らない理由が、ついに判明。" loading="lazy">
-                </picture>
+            <!-- ▼▼▼ 修正箇所：ここから ▼▼▼ -->
+            <div class="new-image-sequence">
+                <div class="image-item animated-item delay-2">
+                    <picture>
+                        <!-- 新しい画像 sec1.webp を指定 -->
+                        <source srcset="sec1.webp" type="image/webp">
+                        <img src="sec1.webp" alt="色々な方法を試してきたけど、思うような変化を感じられなかった" loading="lazy">
+                    </picture>
+                </div>
+                <div class="image-item animated-item delay-3">
+                    <picture>
+                        <!-- 新しい画像 sec2.webp を指定 -->
+                        <source srcset="sec2.webp" type="image/webp">
+                        <img src="sec2.webp" alt="自分の体と、もっと向き合いたい" loading="lazy">
+                    </picture>
+                </div>
+                <div class="image-item animated-item delay-4">
+                    <picture>
+                        <!-- 新しい画像 sec3.webp を指定 -->
+                        <source srcset="sec3.webp" type="image/webp">
+                        <img src="sec3.webp" alt="日々の小さな積み重ねこそが、本当の意味での健康を取り戻すきっかけ" loading="lazy">
+                    </picture>
+                </div>
             </div>
+            <!-- ▲▲▲ 修正箇所：ここまで ▲▲▲ -->
         
-            <!-- ★修正: 引用符とカギ括弧を削除 -->
             <p class="problem-text animated-item delay-3 slide-in-text underline-animated">
                 注目されている<br>
                 <span class="highlight-yellow">
@@ -562,7 +580,6 @@
                 </picture>
             </a>
         
-            <!-- ▼▼▼ 修正箇所 ▼▼▼ -->
             <div class="solution-text animated-item delay-4 solution-text--spacing">
                 <h3 class="faq-title">よくある質問（FAQ）</h3>
                 <div class="qa-section">
@@ -580,7 +597,6 @@
                     </div>
                 </div>
             </div>
-            <!-- ▲▲▲ 修正箇所 ▲▲▲ -->
 
 
 

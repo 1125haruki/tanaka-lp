@@ -2137,3 +2137,33 @@ body {
     }
     /* ▲▲▲ 修正 ▲▲▲ */
 }
+
+/* --- 新しく追加した画像シーケンスのスタイル --- */
+.new-image-sequence {
+    display: flex;
+    flex-direction: column; /* 画像を縦に並べる */
+    align-items: center; /* 中央揃えにする */
+    gap: 40px; /* 画像と画像の間のスペース */
+    margin: 60px auto; /* 上下のセクションとのスペースを確保 */
+    max-width: 700px; /* 画像が横に広がりすぎないように制御 */
+}
+
+.new-image-sequence .image-item {
+    width: 100%;
+}
+
+.new-image-sequence .image-item img {
+    width: 100%;
+    height: auto;
+    display: block; /* 画像下部にできる不要な余白を削除 */
+    border-radius: 15px; /* サイト全体のデザインに合わせて角を丸める */
+    box-shadow: 0 8px 25px var(--shadow-light); /* 影を付けて立体感を出す */
+}
+
+/* --- レスポンシブ対応 (モバイル画面用) --- */
+@media (max-width: 768px) {
+    .new-image-sequence {
+        gap: 30px; /* スマホでは画像間のスペースを少し狭くする */
+        margin: 40px auto;
+    }
+}
