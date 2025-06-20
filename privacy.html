@@ -3,77 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>プライバシーポリシー | はじめての菌活</title>
-    <!-- LPのCSS変数をコピーして適用 -->
+    <title>プライバシーポリシー - はじめての菌活</title>
     <style>
-        :root {
-            --primary-beige: #f9f7f1;
-            --secondary-beige: #f5f2e8;
-            --border-beige: #e8e2d5;
-            --primary-blue: #5B9BD5;
-            --secondary-blue: #3A7BC8;
-            --primary-green: #4CAF50;
-            --secondary-green: #66BB6A;
-            --highlight-yellow: #ffe066;
-            --text-dark: #333;
-            --text-medium: #666;
-            --text-light: #999;
-            --white: #fff;
-            --shadow-light: rgba(0,0,0,0.1);
-            --shadow-medium: rgba(0,0,0,0.15);
-            --luxury-accent: var(--primary-green);
-            --luxury-accent-dark: var(--secondary-green);
-            --luxury-shadow-color: rgba(76, 175, 80, 0.3);
-            --luxury-green-light: rgba(76, 175, 80, 0.1);
-            --animation-speed-fast: 0.3s;
-            --animation-speed-normal: 0.6s;
-            --animation-speed-slow: 1.2s;
-            --animation-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
         body {
-            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            font-family: 'Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', Meiryo, sans-serif;
             line-height: 1.7;
-            color: var(--text-dark);
+            color: #333;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            background-color: var(--primary-beige);
+            background-color: #f9f7f1;
         }
         .container {
-            background-color: var(--white);
+            background-color: white;
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 5px 20px var(--shadow-light);
-            border: 1px solid var(--border-beige);
-            margin-top: 50px;
-            margin-bottom: 50px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 1px solid #e8e2d5;
         }
         h1 {
             text-align: center;
-            color: var(--luxury-accent-dark);
-            border-bottom: 3px solid var(--luxury-accent);
+            color: #4CAF50;
+            border-bottom: 3px solid #4CAF50;
             padding-bottom: 15px;
             margin-bottom: 40px;
-            font-size: clamp(28px, 5vw, 36px);
+            font-size: 32px;
             font-weight: 900;
         }
         h2 {
-            color: var(--luxury-accent-dark);
-            border-left: 5px solid var(--luxury-accent);
+            color: #4CAF50;
+            border-left: 5px solid #4CAF50;
             padding-left: 15px;
             margin-top: 40px;
             margin-bottom: 20px;
-            font-size: clamp(20px, 4vw, 26px);
+            font-size: 22px;
             font-weight: bold;
-            background: linear-gradient(90deg, var(--luxury-green-light), transparent);
+            background: linear-gradient(90deg, rgba(76, 175, 80, 0.1), transparent);
             padding: 10px 15px;
             border-radius: 5px;
         }
         h3 {
-            color: var(--text-dark);
+            color: #333;
             margin-top: 25px;
             margin-bottom: 15px;
-            font-size: clamp(16px, 3vw, 20px); /* レスポンシブ対応 */
+            font-size: 18px;
             font-weight: bold;
         }
         .info-table {
@@ -85,103 +58,95 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         .info-table th, .info-table td {
-            border: 1px solid var(--border-beige);
+            border: 1px solid #e8e2d5;
             padding: 15px;
             text-align: left;
-            font-size: clamp(14px, 2.5vw, 16px);
         }
         .info-table th {
-            background-color: var(--secondary-beige);
+            background-color: #f5f2e8;
             font-weight: bold;
             width: 35%;
-            color: var(--text-dark);
+            color: #333;
         }
         .info-table td {
-            background-color: var(--white);
+            background-color: white;
         }
         .important-box {
-            background: linear-gradient(135deg, var(--highlight-yellow), var(--highlight-yellow)); /* LPの強調黄色に統一 */
-            border: 2px solid var(--highlight-yellow);
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border: 2px solid #ffc107;
             border-radius: 10px;
             padding: 20px;
             margin: 25px 0;
-            box-shadow: 0 3px 10px rgba(255, 224, 102, 0.3);
+            box-shadow: 0 3px 10px rgba(255, 193, 7, 0.2);
         }
         .important-box h3 {
-            color: var(--text-dark);
+            color: #856404;
             margin-top: 0;
-            font-size: clamp(16px, 3vw, 18px);
+            font-size: 18px;
             display: flex;
             align-items: center;
         }
         .important-box h3::before {
             content: "⚠️";
             margin-right: 8px;
-            font-size: 1.2em;
         }
         .notice-box {
-            background: linear-gradient(135deg, var(--luxury-green-light), var(--luxury-green-light)); /* LPの薄いグリーンに統一 */
-            border: 2px solid var(--luxury-accent);
+            background: linear-gradient(135deg, #e8f4fd, #bee5eb);
+            border: 2px solid #17a2b8;
             border-radius: 10px;
             padding: 20px;
             margin: 25px 0;
-            box-shadow: 0 3px 10px var(--luxury-shadow-color);
+            box-shadow: 0 3px 10px rgba(23, 162, 184, 0.2);
         }
         .notice-box h3 {
-            color: var(--text-dark);
+            color: #004085;
             margin-top: 0;
-            font-size: clamp(16px, 3vw, 18px);
             display: flex;
             align-items: center;
         }
         .notice-box h3::before {
             content: "ℹ️";
             margin-right: 8px;
-            font-size: 1.2em;
         }
         .security-box {
-            background: linear-gradient(135deg, var(--luxury-green-light), var(--luxury-green-light)); /* LPの薄いグリーンに統一 */
-            border: 2px solid var(--luxury-accent);
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            border: 2px solid #28a745;
             border-radius: 10px;
             padding: 20px;
             margin: 25px 0;
-            box-shadow: 0 3px 10px var(--luxury-shadow-color);
+            box-shadow: 0 3px 10px rgba(40, 167, 69, 0.2);
         }
         .security-box h3 {
-            color: var(--text-dark);
+            color: #155724;
             margin-top: 0;
-            font-size: clamp(16px, 3vw, 18px);
             display: flex;
             align-items: center;
         }
         .security-box h3::before {
             content: "🔒";
             margin-right: 8px;
-            font-size: 1.2em;
         }
         ul {
             padding-left: 25px;
-            margin-top: 10px;
         }
         li {
             margin-bottom: 8px;
             line-height: 1.6;
-            font-size: clamp(14px, 2.5vw, 16px);
         }
         .contact-info {
-            background: linear-gradient(135deg, var(--secondary-beige), var(--primary-beige)); /* LPのベージュ系グラデーション */
-            border: 1px solid var(--border-beige);
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border: 1px solid #dee2e6;
             border-radius: 10px;
             padding: 25px;
             margin: 30px 0;
             text-align: center;
         }
         .contact-info h3 {
-            color: var(--text-dark);
+            color: #495057;
             margin-bottom: 15px;
         }
         .contact-info a {
-            color: var(--luxury-accent); /* LPのアクセントカラーに統一 */
+            color: #4CAF50;
             text-decoration: none;
             font-weight: bold;
         }
@@ -192,104 +157,34 @@
             text-align: center;
             margin-top: 40px;
             padding-top: 25px;
-            border-top: 2px solid var(--border-beige);
-            color: var(--text-medium);
+            border-top: 2px solid #e8e2d5;
+            color: #666;
             font-size: 14px;
             font-weight: bold;
         }
         .section-divider {
             height: 2px;
-            background: linear-gradient(90deg, transparent, var(--luxury-accent), transparent);
+            background: linear-gradient(90deg, transparent, #4CAF50, transparent);
             margin: 40px 0;
             border-radius: 1px;
         }
         p {
             margin-bottom: 15px;
             line-height: 1.7;
-            font-size: clamp(14px, 2.5vw, 16px);
         }
         strong {
-            color: var(--luxury-accent-dark);
+            color: #4CAF50;
             font-weight: bold;
-        }
-        /* フッターのスタイルもLPと統一 */
-        .footer {
-            background: linear-gradient(135deg, var(--primary-beige) 0%, var(--secondary-beige) 100%); /* 明るいベージュ系グラデーション */
-            color: var(--text-dark); /* 文字色を濃く */
-            text-align: center;
-            padding: 45px 0;
-            position: relative;
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.05); /* 上方向に薄い影 */
-            border-top: 1px solid var(--border-beige); /* 上部に薄いボーダー */
-        }
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                45deg,
-                rgba(0,0,0,0.02),
-                rgba(0,0,0,0.02) 2px,
-                transparent 2px,
-                transparent 4px
-            ); /* 控えめなパターン */
-            opacity: 1;
-            pointer-events: none;
-        }
-        .footer-links a {
-            color: var(--luxury-accent-dark); /* 濃いグリーン系のリンク色 */
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 15px;
-            font-weight: bold;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
-        }
-        .footer-links a:hover {
-            color: var(--luxury-accent); /* ホバー時は明るいグリーン */
-            text-shadow: 0 0 8px var(--luxury-shadow-color);
-        }
-        .footer p { /* Copyrightテキストのスタイル調整 */
-            color: var(--text-medium);
-            font-size: 13px;
-            margin-top: 15px;
-        }
-        /* モバイル対応 */
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-            }
-            .container {
-                padding: 25px;
-            }
-            .info-table th, .info-table td {
-                display: block;
-                width: 100%;
-                box-sizing: border-box;
-            }
-            .info-table th {
-                border-bottom: none;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Microsoft Clarity Tracking Code START -->
-    <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "s0xbfe38ku");
-    </script>
-    <!-- Microsoft Clarity Tracking Code END -->
-
     <div class="container">
         <h1>プライバシーポリシー</h1>
 
-        <p>Scarab（以下「当方」といいます）は、「はじめての菌活」サイトにおいて提供する腸内環境検査キットサービス（以下「本サービス」といいます）をご利用いただくお客様の個人情報保護について、以下のとおり個人情報保護方針を定め、適切な取り扱いを実施いたします。</p>
+
+        <p>Scarab（以下「当方」といいます）は、「はじめての菌活」サイトにおいて提供する腸内細菌検査キットサービス（以下「本サービス」といいます）をご利用いただくお客様の個人情報保護について、以下のとおり個人情報保護方針を定め、適切な取り扱いを実施いたします。</p>
+
 
         <h2>1. 事業者情報</h2>
         <table class="info-table">
@@ -311,10 +206,13 @@
             </tr>
         </table>
 
+
         <div class="section-divider"></div>
+
 
         <h2>2. 個人情報の収集について</h2>
         <p>当方は、以下の目的のために必要な範囲内で個人情報を収集いたします。</p>
+
 
         <h3>収集する個人情報の種類</h3>
         <table class="info-table">
@@ -332,6 +230,7 @@
             </tr>
         </table>
 
+
         <div class="notice-box">
             <h3>収集方法について</h3>
             <ul>
@@ -340,6 +239,7 @@
                 <li>ウェブサイト閲覧時の自動収集（Microsoft Clarity等のアクセス解析ツール）</li>
             </ul>
         </div>
+
 
         <h2>3. 個人情報の利用目的</h2>
         <p>収集した個人情報は、以下の目的のために利用いたします。</p>
@@ -351,10 +251,13 @@
             <li><strong>重要なお知らせ</strong>：サービスに関する重要な変更事項のご連絡</li>
         </ul>
 
+
         <div class="section-divider"></div>
+
 
         <h2>4. 個人情報の第三者提供</h2>
         <p>当方は、以下の場合を除き、お客様の個人情報を第三者に提供することはありません。</p>
+
 
         <div class="important-box">
             <h3>第三者提供について</h3>
@@ -365,6 +268,7 @@
                 <li><strong>お客様の同意</strong>：お客様から事前に同意をいただいた場合</li>
             </ul>
         </div>
+
 
         <h2>5. 個人情報の管理・保護</h2>
         
@@ -377,6 +281,7 @@
                 <li><strong>物理的セキュリティ</strong>：紙媒体での情報管理時の適切な保管・施錠管理</li>
             </ul>
         </div>
+
 
         <h3>データ保存期間</h3>
         <table class="info-table">
@@ -394,8 +299,10 @@
             </tr>
         </table>
 
+
         <h2>6. Cookie（クッキー）について</h2>
         <p>当方のウェブサイトでは、サービス向上のためにCookieを使用しています。</p>
+
 
         <h3>Cookieの利用目的</h3>
         <ul>
@@ -404,13 +311,16 @@
             <li><strong>サービス改善</strong>：ユーザー体験の向上とサイト最適化</li>
         </ul>
 
+
         <div class="notice-box">
             <h3>Cookieの無効化について</h3>
             <p>ブラウザの設定により、Cookieの受け入れを拒否することができます。ただし、Cookieを無効にすると、一部のサービス機能がご利用いただけない場合があります。</p>
         </div>
 
+
         <h2>7. Microsoft Clarityについて</h2>
         <p>当サイトでは、ウェブサイトの改善のため、Microsoft社が提供するアクセス解析ツール「Microsoft Clarity」を使用しています。</p>
+
 
         <div class="important-box">
             <h3>Microsoft Clarityについて</h3>
@@ -422,8 +332,10 @@
             </ul>
         </div>
 
+
         <h2>8. お客様の権利</h2>
         <p>お客様は、ご自身の個人情報について以下の権利を有しています。</p>
+
 
         <ul>
             <li><strong>開示請求</strong>：当社が保有する個人情報の開示を求める権利</li>
@@ -432,10 +344,12 @@
             <li><strong>同意の撤回</strong>：提供した同意をいつでも撤回する権利</li>
         </ul>
 
+
         <div class="notice-box">
             <h3>権利行使の方法</h3>
             <p>上記の権利を行使される場合は、本人確認を行った上で、遅滞なく対応いたします。お問い合わせ先までご連絡ください。</p>
         </div>
+
 
         <h2>9. 検査に関する重要事項</h2>
         
@@ -449,10 +363,13 @@
             </ul>
         </div>
 
+
         <h2>10. プライバシーポリシーの変更</h2>
         <p>当方は、法令の変更や事業内容の変更に伴い、本プライバシーポリシーを変更することがあります。重要な変更については、ウェブサイト上で事前にお知らせいたします。</p>
 
+
         <div class="section-divider"></div>
+
 
         <div class="contact-info">
             <h3>🔗 お問い合わせ窓口</h3>
@@ -461,25 +378,11 @@
             <p><strong>受付時間：</strong>平日 10:00〜17:00（土日祝日除く）</p>
         </div>
 
+
         <div class="update-date">
             <p>制定日：2025年6月18日<br>
             最終更新日：2025年6月18日</p>
         </div>
     </div>
-
-    <!-- LPと共通のフッター -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-links" style="margin-bottom: 10px;">
-                <a href="./index.html">トップページ</a> | 
-                <a href="./tokutei.html">特定商取引法の表記</a> | 
-                <a href="./privacy.html">プライバシーポリシー</a> | 
-                <a href="./terms.html">利用規約</a>
-            </div>
-            <p style="font-size: 14px; line-height: 1.6;">
-                Copyright (C) 2025 Scarab All Rights Reserved.
-            </p>
-        </div>
-    </footer>
 </body>
 </html>
